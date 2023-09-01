@@ -5,12 +5,16 @@ import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Image from '~/components/common/Image.astro';
 
 const metadata = {
   title: 'Ecosoft — Next Generation ERP - Odoo Plus',
@@ -29,11 +33,11 @@ const metadata = {
       icon: 'tabler:download',
     }}
     callToAction2={{ text: 'Learn more', href: '#features' }}
-    image={{ src: '~/assets/images/hero.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/odoo-logo-blue.svg', alt: 'Odoo Image' }}
   >
     <Fragment slot="title">
-      Next Generation ERP
-      <span class="text-accent dark:text-white highlight"> odoo+</span>
+      Next Generation
+      <span class="text-accent dark:text-white highlight">ERP Software</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -51,55 +55,128 @@ const metadata = {
 
   <Features
     id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
+    tagline=""
+    title="Ecosoft | Your ERP Partner"
+    subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์เฉพาะ odoo มากกว่า 10 ปี และเป็นหนึ่งในทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมพัฒนากับ <a href='/''><b>OCA - Odoo Community Association</b></a>"
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+        title: 'Ecosoft | Odoo Expert',
+        description: 'หากคุณต้องการเพิ่มความสามารถในการแข่งขันด้วยระบบ ERP แต่กังวลกับลิขสิทธ์ซอฟต์แวร์ราคาแพง – Odoo คือคำตอบ Odoo เป็น ERP เพื่อการปรับตัวสู่อนาคต ไม่มีข้อจำกัดด้านจำนวนผู้ใช้งาน และด้วยมีชุมชนนักพัฒนาขนาดใหญ่ จึงขยายความสามารถได้ด้วยนวัตกรรมที่เกิดขึ้นตลอดเวลา Odoo Apps',
         icon: 'tabler:components',
       },
       {
-        title: 'Best Practices',
+        title: 'Business | Technology Expertise',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'ปัญหาของการวางระบบ ERP คือความไม่เข้าใจในภาษาธุรกิจ ทั้งที่หัวใจของ ERP คือ กระบวนการทางธุรกิจ บัญชีและการเงินที่ Ecosoft เรามีประสบการณ์กว่า 10 ปีในการวางระบบ ERP ให้กับธุรกิจไทยที่มีพนักงานตั้งแต่ 10 คนถึง 1,000 คน เราจึงเข้าใจถึงความท้าทายของการวางระบบในหลายมิติ',
+        icon: 'tabler:components',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
+  <Brands
+    title="Customer References"
+    subtitle="At Ecosoft - we keep our promise on 100% project success rate"
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+        alt: 'Paypal',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
+        alt: 'Visa',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
+        alt: 'Ebay',
+      },
 
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'Youtube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Node JS',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
+        alt: 'Meta',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
+        alt: 'Yahoo',
+      },
+    ]}
+  />
+
+  <Testimonials
+    title="What our user says?"
+    testimonials={[
+      {
+        testimonial: 'Ecosoft ถือเป็น Technology Partner ที่สำคัญ เราใช้บริการวางระบบมาตั้งแต่ปี 2013 ในขณะนั้น Odoo ยังเป็น OpenERP อยู่ ระบบ ERP ที่ Ecosoft วางไว้ให้ทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังในแบบที่เราไม่เคยทำได้มาก่อน หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ด้วย Odoo V8 และมาถึงปัจจุบันปี 2019 เรามีแผนการอัพเกรดระบบของ Raja Cycle มาเป็น Odoo V12',
+        name: 'นันทชัย ศิระพรประสาร',
+        job: 'Managing Director - Raja Cycle Co., Ltd.',
+      },
+      {
+        testimonial : 'สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช.) มีหน้าที่ในการถ่ายทอดเทคโนโลยีสู่สังคม ระบบสารสนเทศที่ทันสมัยและยืดหยุ่นมีส่วนสำคัญให้สามารถตอบสนองความต้องการที่เปลี่ยนแปลงไปตลอดเวลา เราหาตัวเลือกที่จะมาทดแทนระบบดั้งเดิมขององค์กร ให้เป็นระบบที่ตอบโจทย์ทั้งด้านเทคโนโลยีและด้านงบประมาณ ตลอดหลายปีที่ผ่านมาบริษัท Ecosoft ได้เข้ามาช่วยเราพัฒนาระบบ Odoo ในหลายส่วนขององค์กร จนในปี 2018 Odoo ได้รับการพัฒนามาเป็นระบบ ERP หลักแทนที่ระบบ Legacy เดิม',
+        name: 'วารุณี ลีละธนาวิทย์',
+        job: 'Vice President, ICT - NSTDA',
+      },
+      {
+        testimonial: 'เราใช้บริการวางระบบ Odoo จาก Ecosoft มาตั้งแต่ปี 2014 และใช้ในเกือบทุกส่วนขององค์กร และเนื่องจากจุดแข็งของเราคือสูตรการผลิตที่ปรับเปลี่ยนไปได้ตามความต้องการของลูกค้า เราได้ย้ายการทำงานทุกอย่างที่เคยอยู่ใน Spreadsheet มาไว้ที่ Odoo ทำให้สามารถย่นเวลาและความผิดพลาดในการออกแบบและผลิตไปได้มาก การวางระบบต้องการความร่วมมือจากหลายฝ่าย แม้ว่าจะยากในช่วงต้นแต่ผลลัพธ์ที่ได้ก็คุ้มค่า วันนี้เราทำงานได้เร็วขึ้นแต่ผิดพลาดน้อยลง และผู้บริหารเห็นภาพรวมของทั้งองค์กรได้อย่างชัดเจน',
+        name: 'สมบูรณ์ ธัญญะวัน',
+        job: 'Director - Square Panel Systems',
+      },
+    ]}
+  />
+
+
+  <Steps
+    id="approach"
+    title="Our Approach"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Understand</span>',
+        description: "ต้องเข้าใจกระบวนการทางธุรกิจและความต้องการอย่างชัดเจน",
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Communicate</em>',
+        description: "สื่อสารด้วยภาษาเดียวกันกับผู้บริหารและผู้ใช้งานไม่จำกัดเพียงแค่ภาษา IT",
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Simulate</span>',
+        description: "สามารถจำลองกระบวนการทำงานและปรับเข้ากับระบบ ERP ซอฟต์แวร์",
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Transform</span>',
+        description: 'สามารถเปลี่ยนความต้องการของธุรกิจให้กลายเป็นข้อมูลที่มีประโยชน์ต่อธุรกิจในรูปของรายงานซึ่งสอดคล้องกับมาตรฐานและกฎระเบียบทั้งภายในและภายนอกองค์กร',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/approach.png',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
   <Content
+    id="solution-1"
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline=""
+    title="Our Expertise"
     items={[
       {
         title: 'Built on top of Astro 3.0',
@@ -118,13 +195,13 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: '~/assets/images/modules.png',
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-       Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise Resource Planning (odoo)</h3>
+      Powerful module systems
     </Fragment>
 
     <Fragment slot="bg">
@@ -135,6 +212,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    id="solution-2"
     isAfterContent
     items={[
       {
@@ -162,7 +240,12 @@ const metadata = {
       alt: 'Blueprint Image',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Thai Gov eProcurement / eBudgeting
+      </h3>
+      Powerful module systems
+    </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -172,6 +255,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    id="solution-3"
     isReversed
     isAfterContent
     items={[
@@ -200,172 +284,102 @@ const metadata = {
       alt: 'Astronauts Image',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        e-Tax Invoice / e-Receipt / e-Withholding Tax
+      </h3>
+      Powerful module systems
+    </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+  <Content
+    id="solution-4"
+    isAfterContent
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+        title: 'High level of customization',
+        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
+        title: 'Multiple layout possibilities',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Fully responsive design',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
       },
       {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        title: 'Integration of media',
+        description:
+          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      alt: 'Blueprint Image',
     }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
   >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Process Automation & API
+      </h3>
+      Powerful module systems
+    </Fragment>
+
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Content>
 
-  <!-- HighlightedPosts Widget ******* -->
+  <!-- Content Widget **************** -->
 
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+  <Content
+    id="solution-5"
+    isReversed
+    isAfterContent
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'Enhanced user engagement',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
       },
       {
-        title: 'What do I need to start?',
+        title: 'Continuous improvement',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'Time and resource efficiency',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
       },
       {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        title: 'Community support',
+        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
       },
     ]}
-  />
+    image={{
+      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Astronauts Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Tailer-made solution / Dashboard
+      </h3>
+      Powerful module systems
+    </Fragment>
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <!-- CallToAction Widget *********** -->
 
