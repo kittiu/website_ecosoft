@@ -41,6 +41,9 @@ export default defineConfig({
       include: {
         tabler: ['*'],
         'flat-color-icons': [
+          'org-unit',
+          'linux',
+          'like',
           'template',
           'gallery',
           'approval',

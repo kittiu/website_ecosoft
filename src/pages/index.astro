@@ -36,8 +36,8 @@ const metadata = {
     image={{ src: '~/assets/images/odoo-logo-blue.svg', alt: 'Odoo Image' }}
   >
     <Fragment slot="title">
-      Next Generation
-      <span class="text-accent dark:text-white highlight">ERP Software</span>
+      Next Generation ERP
+      <span class="text-accent dark:text-white highlight"></span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -73,48 +73,81 @@ const metadata = {
     ]}
   />
 
+  <Features2
+    title="<center><img src='/images/why_odoo.png' alt='Why Odoo?'/></center>"
+    subtitle="อะไรคือเหตุผลหลักที่ทำให้ odoo เป็นทางเลือกที่เหนือกว่าระบบ ERP อื่น"
+    tagline=""
+    items={[
+      {
+        title: 'Free & Open Source',
+        description: `
+          เป็นซอฟต์แวร์ด้านธุรกิจในแนวทางโอเพ่นซอร์สที่มีการเติบโตเร็วและเป็นที่นิยมที่สุดในเวลานี้
+          ด้วยไม่ค่าใช้จ่ายด้าน License และไม่จำกัดการเข้าถึงซอร์สโค้ด
+          ทำให้ Odoo เป็นระบบที่คุ้มค่าและมีความอิสระ
+          <br>
+          <b>หมายเหตุ:</b> Odoo CE + OCA Modules
+        `,
+        icon: 'flat-color-icons:linux',
+      },
+      {
+        title: 'Tons of Busness Modules',
+        description: `
+          ด้วย Framework อันยอดเยี่ยมและความสามารถด้าน Modularity
+          ทำให้มีโมดูลเสริมต่างๆเป็นจำนวนมาก
+          เราสามารถเลือกติดตั้ง Module ตามความเหมาะสมของธุรกิจ
+          และหรือแก้ให้ตอบโจทย์ธุรกิจเฉพาะโดยไม่ต้องกังวลว่าจะกระทบกับโมดูลอื่นๆ
+        `,
+        icon: 'flat-color-icons:org-unit',
+      },
+      {
+        title: 'Odoo Community Association',
+        description: `
+          <a href="/"><b>Odoo Community Association (OCA)</b></a> เป็นองค์กรโอเพ่นซอร์สที่ไม่แสวงผลกำไร
+          เป็นศูนย์รวมสมาชิกจากทั่วโลกที่ร่วมกันสร้างโมดูลคุณภาพสูงและร่วมแบ่งปันความรู้ซึ่งกันและกัน
+          เป็นส่วนสำคัญที่ทำให้ Odoo เป็นระบบโอเพ่นซอร์สอย่างแท้จริง
+        `,
+        icon: 'flat-color-icons:like',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+
   <Brands
     title="Customer References"
     subtitle="At Ecosoft - we keep our promise on 100% project success rate"
     icons={[]}
     images={[
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
-        alt: 'Paypal',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
-        alt: 'Visa',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
-        alt: 'Ebay',
-      },
-
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
-        alt: 'Youtube',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
-        alt: 'Microsoft',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
-        alt: 'Node JS',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
-        alt: 'Google',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
-        alt: 'Meta',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
-        alt: 'Yahoo',
-      },
+      { src: '/images/cust_logo/945.png' },
+      { src: '/images/cust_logo/aal.png' },
+      { src: '/images/cust_logo/acm.png' },
+      { src: '/images/cust_logo/biotec.png' },
+      { src: '/images/cust_logo/cft.png' },
+      { src: '/images/cust_logo/cmo.png' },
+      { src: '/images/cust_logo/easy.png' },
+      { src: '/images/cust_logo/esb.png' },
+      { src: '/images/cust_logo/fofo.png' },
+      { src: '/images/cust_logo/hii.png' },
+      { src: '/images/cust_logo/hwf.png' },
+      { src: '/images/cust_logo/mcic.png' },
+      { src: '/images/cust_logo/mh.png' },
+      { src: '/images/cust_logo/monta.png' },
+      { src: '/images/cust_logo/nstda.png' },
+      { src: '/images/cust_logo/nxpo.png' },
+      { src: '/images/cust_logo/optima.png' },
+      { src: '/images/cust_logo/rex.png' },
+      { src: '/images/cust_logo/rjc.png' },
+      { src: '/images/cust_logo/shm.png' },
+      { src: '/images/cust_logo/sqp.png' },
+      { src: '/images/cust_logo/thaiev.png' },
+      { src: '/images/cust_logo/tint.png' },
+      { src: '/images/cust_logo/tti.png' },
+      { src: '/images/cust_logo/usp.png' },
+      { src: '/images/cust_logo/aab.png' },
+      { src: '/images/cust_logo/skyviv.png' },
     ]}
   />
 
