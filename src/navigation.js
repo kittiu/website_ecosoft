@@ -69,7 +69,7 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }],
+  actions: [{ type: 'button', text: 'Login', href: 'https://ecosoft.frappe.cloud' }],
 };
 
 export const footerData = {
