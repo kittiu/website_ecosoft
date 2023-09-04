@@ -1,11 +1,12 @@
 import fs from 'fs';
-import yaml from 'js-yaml';
+import yaml from 'js-yaml'
 import merge from 'lodash.merge';
 
 import type { MetaData } from '~/types';
 
 export interface SiteConfig {
   name: string;
+  summary: string;
   site?: string;
   base?: string;
   trailingSlash?: boolean;

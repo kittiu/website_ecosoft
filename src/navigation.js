@@ -6,113 +6,67 @@ export const headerData = {
       text: 'Homes',
       links: [
         {
-          text: 'Sass',
-          href: getPermalink('/homes/saas'),
+          text: 'Ecosoft',
+          href: getPermalink('/#ecosoft'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'Technology Partners',
+          href: getPermalink('/#technology_partner'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          text: 'Why Odoo?',
+          href: getPermalink('/#why_odoo'),
         },
         {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Customer References',
+          href: getPermalink('/#customer_ref'),
+        },
+        {
+          text: 'Our Approach',
+          href: getPermalink('/#our_approach'),
+        },
+        {
+          text: 'Our Solutions',
+          href: getPermalink('/#solution-1'),
         },
       ],
     },
     {
-      text: 'Pages',
+      text: 'Solutions',
       links: [
         {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          text: 'Enterprise Resources Planning (Odoo)',
+          href: getPermalink('/solutions/erp'),
         },
         {
-          text: 'Services',
-          href: getPermalink('/services'),
+          text: 'Government Procurement/Budgeting (Odoo)',
+          href: getPermalink('/solutions/egov'),
         },
         {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
+          text: 'e-Tax / e-Receipt / e-Signature',
+          href: getPermalink('/solutions/etax'),
         },
         {
-          text: 'About us',
-          href: getPermalink('/about'),
+          text: 'Process Automation / API',
+          href: getPermalink('/solutions/api'),
         },
         {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          text: 'Tailer Made Solutions',
+          href: getPermalink('/solutions/others'),
         },
       ],
     },
     {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
-      ],
+      text: 'FAQ',
+      href: getPermalink('/faq'),
     },
     {
-      text: 'Blog',
-      links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
-      ],
+      text: 'Blogs',
+      href: getPermalink('/blog'),
     },
     {
-      text: 'Widgets',
-      href: '#',
+      text: 'Contact Us',
+      href: getPermalink('/contact'),
     },
   ],
   actions: [{ type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }],
@@ -121,63 +75,93 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Homes',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        {
+          text: 'Ecosoft',
+          href: getPermalink('/#ecosoft'),
+        },
+        {
+          text: 'Technology Partners',
+          href: getPermalink('/#technology_partner'),
+        },
+        {
+          text: 'Why Odoo?',
+          href: getPermalink('/#why_odoo'),
+        },
+        {
+          text: 'Customer References',
+          href: getPermalink('/#customer_ref'),
+        },
+        {
+          text: 'Our Approach',
+          href: getPermalink('/#our_approach'),
+        },
+        {
+          text: 'Our Solutions',
+          href: getPermalink('/#solution-1'),
+        },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Solutions',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        {
+          text: 'Enterprise Resources Planning (Odoo)',
+          href: getPermalink('/solutions/erp'),
+        },
+        {
+          text: 'Government Procurement/Budgeting (Odoo)',
+          href: getPermalink('/solutions/egov'),
+        },
+        {
+          text: 'e-Tax / e-Receipt / e-Signature',
+          href: getPermalink('/solutions/etax'),
+        },
+        {
+          text: 'Process Automation / API',
+          href: getPermalink('/solutions/api'),
+        },
+        {
+          text: 'Tailer Made Solutions',
+          href: getPermalink('/solutions/others'),
+        },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
-      ],
-    },
+        {
+          text: 'FAQ',
+          href: getPermalink('/faq'),
+        },
+        {
+          text: 'Blogs',
+          href: getPermalink('/blog'),
+        },
+        {
+          text: 'Contact Us',
+          href: getPermalink('/contact'),
+        }
+      ]
+    }
   ],
+  summary: `Openness - Quality - Simplicity is our core values<br/>
+    ความสำเร็จของงานเราจึงเกิดจากการผสานกันของซอฟต์แวร์แบบโอเพ่นซอร์ส 100%
+    และการให้คำปรึกษาทางธุรกิจอย่างถูกต้องและตรงไปตรงมา
+  `,
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Ecosoft OCA Modules', icon: 'tabler:brand-open-source', href: 'https://odoo-community.org/shop?search=ecosoft' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/ecosoft-odoo' },
+    { ariaLabel: 'Blogger', icon: 'tabler:brand-blogger', href: 'https://ecosoft-odoo.blogspot.com/' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
   ],
   footNote: `
-    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)]"></span>
-    Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(/images/ecosoft_short.png)]"></span>
+    © Copyright Ecosoft | All Rights Reserved
   `,
 };

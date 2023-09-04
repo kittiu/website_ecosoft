@@ -13,6 +13,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Brands from '~/components/widgets/Brands.astro';
+import Tools from '~/components/widgets/Tools.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Image from '~/components/common/Image.astro';
 
@@ -54,7 +55,7 @@ const metadata = {
   <!-- Features Widget *************** -->
 
   <Features
-    id="features"
+    id="ecosoft"
     tagline=""
     title="Ecosoft | Your ERP Partner"
     subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์เฉพาะ odoo มากกว่า 10 ปี และเป็นหนึ่งในทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมพัฒนากับ <a href='/''><b>OCA - Odoo Community Association</b></a>"
@@ -73,7 +74,21 @@ const metadata = {
     ]}
   />
 
+  <Tools
+    id="technology_partner"
+    title="Technology Partners"
+    subtitle="เทคโนโลยีโอเพ่นซอร์สที่เราไว้ใจสำหรับทุกความต้องการด้าน Digital Transformation"
+    images={[
+      { src: '/images/tools/oca.png', link: 'https://odoo-community.org/'},
+      { src: '/images/tools/frappe.png', link: 'https://frappe.io/frappeverse' },
+      { src: '/images/tools/n8n.png', link: 'https://n8n.io/' },
+    ]}
+  />
+
+
+
   <Features2
+    id="why_odoo"
     title="<center><img src='/images/why_odoo.png' alt='Why Odoo?'/></center>"
     subtitle="อะไรคือเหตุผลหลักที่ทำให้ odoo เป็นทางเลือกที่เหนือกว่าระบบ ERP อื่น"
     tagline=""
@@ -102,9 +117,9 @@ const metadata = {
       {
         title: 'Odoo Community Association',
         description: `
-          <a href="/"><b>Odoo Community Association (OCA)</b></a> เป็นองค์กรโอเพ่นซอร์สที่ไม่แสวงผลกำไร
-          เป็นศูนย์รวมสมาชิกจากทั่วโลกที่ร่วมกันสร้างโมดูลคุณภาพสูงและร่วมแบ่งปันความรู้ซึ่งกันและกัน
-          เป็นส่วนสำคัญที่ทำให้ Odoo เป็นระบบโอเพ่นซอร์สอย่างแท้จริง
+          <a href="https://odoo-community.org/"><b>OCA</b></a> เป็นองค์กรโอเพ่นซอร์สที่ไม่แสวงผลกำไร
+          เป็นศูนย์รวมสมาชิกจากทั่วโลกที่ร่วมกันสร้างโมดูลคุณภาพสูงและร่วมแบ่งปันความรู้ซึ่งกันและกัน ช่วยลดต้นทุน
+          และเป็นผลักดันให้ Odoo คงความเป็นโอเพ่นซอร์สอย่างแท้จริง
         `,
         icon: 'flat-color-icons:like',
       },
@@ -117,6 +132,7 @@ const metadata = {
 
 
   <Brands
+    id="customer_ref"
     title="Customer References"
     subtitle="At Ecosoft - we keep our promise on 100% project success rate"
     icons={[]}
@@ -153,7 +169,7 @@ const metadata = {
   />
 
   <Testimonials
-    title="What our user says?"
+    title="What they says?"
     testimonials={[
       {
         testimonial: 'Ecosoft ถือเป็น Technology Partner ที่สำคัญ เราใช้บริการวางระบบมาตั้งแต่ปี 2013 ในขณะนั้น Odoo ยังเป็น OpenERP อยู่ ระบบ ERP ที่ Ecosoft วางไว้ให้ทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังในแบบที่เราไม่เคยทำได้มาก่อน หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ด้วย Odoo V8 และมาถึงปัจจุบันปี 2019 เรามีแผนการอัพเกรดระบบของ Raja Cycle มาเป็น Odoo V12',
@@ -173,30 +189,30 @@ const metadata = {
     ]}
   />
 
-
   <Steps
-    id="approach"
-    title="Our Approach"
+    id="our_approach"
+    title="Transformation Approach"
+    subtitle="เพราะ ERP ไม่ใช่ซอฟต์แวร์สำเร็จรูป และทุกโครงการล้วนมีความพิเศษ ทุกความสำเร็จจึงริ่มต้นที่ความเข้าใจ "
     items={[
       {
         title: 'Step 1: <span class="font-medium">Understand</span>',
         description: "ต้องเข้าใจกระบวนการทางธุรกิจและความต้องการอย่างชัดเจน",
-        icon: 'tabler:package',
+        icon: 'tabler:bulb',
       },
       {
         title: 'Step 2: <span class="font-medium">Communicate</em>',
         description: "สื่อสารด้วยภาษาเดียวกันกับผู้บริหารและผู้ใช้งานไม่จำกัดเพียงแค่ภาษา IT",
-        icon: 'tabler:letter-case',
+        icon: 'tabler:message-chatbot',
       },
       {
         title: 'Step 3: <span class="font-medium">Simulate</span>',
         description: "สามารถจำลองกระบวนการทำงานและปรับเข้ากับระบบ ERP ซอฟต์แวร์",
-        icon: 'tabler:paint',
+        icon: 'tabler:presentation-analytics',
       },
       {
         title: 'Step 4: <span class="font-medium">Transform</span>',
         description: 'สามารถเปลี่ยนความต้องการของธุรกิจให้กลายเป็นข้อมูลที่มีประโยชน์ต่อธุรกิจในรูปของรายงานซึ่งสอดคล้องกับมาตรฐานและกฎระเบียบทั้งภายในและภายนอกองค์กร',
-        icon: 'tabler:check',
+        icon: 'tabler:checks',
       },
     ]}
     image={{
@@ -210,7 +226,7 @@ const metadata = {
     id="solution-1"
     isReversed
     tagline=""
-    title="Our Expertise"
+    title="Our Solutions"
     items={[
       {
         title: 'Built on top of Astro 3.0',
@@ -246,7 +262,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-    id="solution-2"
+    id="solutions"
     isAfterContent
     items={[
       {
@@ -289,7 +305,6 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-    id="solution-3"
     isReversed
     isAfterContent
     items={[
@@ -415,22 +430,4 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    callToAction={{
-      text: 'Get template',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:download',
-    }}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
 </Layout>

@@ -1,0 +1,123 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+  title: 'Frequently Asked Questions',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
+    columns={1}
+    items={[
+      {
+        title: 'ทำความรู้จักกับ Ecosoft',
+        description:
+          `
+ปี 2008 เราได้รู้จัก Open Source ERP เป็นครั้งแรก (Adempiere) แม้ว่าตอนนั้น Open Source ERP จะยังไม่แพร่หลายเท่าปัจจุบัน แต่ก็ทำให้เราเห็นศักยภาพของของมันที่จะช่วยยกระดับระบบงานของ SME ไทย
+Ecosoft จึงก่อตั้งขึ้นในปี 2009 และโฟกัสที่ Open Source ERP มาตลอด เราศึกษา Open Source ERP เกือบทุกตัว Adempiere, OpenBravo, ERPNext และอื่นๆ แต่มาลงตัวที่ Odoo ตั้งแต่ V7 (ปัจจุบัน V14) ซึ่งไม่ได้ทำให้ผิดหวังเพราะหลังจากนั้น Odoo ก็เติบโตมาโดยตลอดและเป็นอันดับหนึ่งของ Open Source ERP ในปัจจุบัน
+จนถึงปัจจุบัน Ecosoft ถือว่าแตกต่างจากผู้วางระบบอื่นๆในหลายด้าน
+<br><br><b>Business Focused</b><br>
+ที่ Ecosoft เราไม่ได้เสนอ Software แต่เราเสนอ Business Transformation เราจึงพยายามเน้นที่ความเข้าใจในธุรกิจเป็นสำคัญ ส่วน Software ที่ดีจะเป็นตัวเสริมให้ธุรกิจปรับตัวได้อย่างประสิทธิภาพมากขึ้น
+<br><br><b>Open Source Focused + OCA Contributor</b><br>
+ที่ Ecosoft เราชอบ Open Source ไม่ใช่เพราะมันฟรี เราชอบเพราะความอิสระเปิดเผยและโปร่งใส การทำงานในแบบ Open Source ทำให้ซอฟต์แวร์พัฒนาได้รวดเร็ว การเปิดซอร์สโค้ดได้เปิดโอกาสให้เราทำงานกับ Community ทั่วโลกได้อย่างลื่นไหล
+เราทำงานร่วมกับ Odoo Community Association (OCA) เพื่อให้ได้ผลงานที่มีคุณภาพสูง ตามข้อกำหนดของ OCA รวมถึงเปิดเผยผลงานทั้ง 100% ให้เป็นสาธรณะประโยชน์ โดยสามารถติดตามงานของเราได้ที่ OCA Store
+<br><br><b>Small Agile Team – 100% Success Rate</b><br>
+ทีมของเรามีขนาดเล็กแต่เชี่ยวชาญในสิ่งที่เราทำ ทั้งหมดเป็น Developers และ Business Consultants เราไม่มีทีม Sales/Marketing และปกติเราจะไม่รับงานเกินกว่าทรัพยากรที่มี สิบปีที่ผ่านมาทุกโครงการที่เราทำล้วนประสบความสำเร็จและลูกค้าส่วนใหญ่ยังคงใช้งานระบบและอยู่ในการดูแลของเรา
+          `,
+      },
+      {
+        title: 'อะไรคือจุดเด่นของ Odoo เมื่อเทียบกับ ERP อื่นๆในท้องตลาด',
+        description:
+`
+เกีอบทุก ERP จะมีหลักการทำงานใหญ่ๆร่วมกัน เช่นทั้งหมดจะมีโมดูลเช่น Sales / Purchase / CRM / Manufacturing / Inventory / Accounting แม้ว่ารายละเอียดปลีกย่อยของแต่ละระบบจะไม่เหมือนกัน แต่ก็ไม่มีซอฟต์แวร์ตัวใดที่สมบูรณ์แบบสำหรับทุกธุรกิจ การทำ Software Selection เพื่อหาระบบที่เหมาะกับองค์กรเป็นสิ่งสำคัญ จากประสบการณ์ของเรา สิ่งที่ Odoo โดดเด่นคือ
+<br><br><b>
+Extreme Modularity
+</b><br>
+Framework ของระบบ Odoo ในเชิงเทคนิกถือว่าดีมาก เป็นหนึ่งในเหตุผลหลักที่ Ecosoft เลือก Odoo ในท้ายที่สุด Framework ของ Odoo มีความเป็น Modular สูง นักพัฒนาสามารถเพิ่ม Business Feature ใหม่ได้ง่ายโดยไม่ต้องกังวลว่าจะกระทบกับโมดูลที่มีอยู่แล้ว
+ด้วยความเป็น Modular นี่เอง เราสามารถติดตั้ง Odoo ได้แบบทีละ App เช่น ถ้าต้องการใช้แค่ Inventory ก็ติดตั้งเฉพาะ Inventory ได้โดยไม่จำเป็นต้องมีโมดูลอื่นๆ ทำให้ระบบมีความง่ายและสะอาดตา (ในขณะที่ ERP อื่นๆจะมาพร้อมกันทุกโมดูล เพียงแต่ไม่ได้เปิดใช้งาน)
+ธุรกิจสามารถเริ่มใช้ Odoo เฉพาะบางส่วนได้ (เช่นเริ่มจาก Sales Module) เมื่อมั่นใจแล้วจึงค่อยทำแบบ Big Bang ภายหลังเพื่อให้เป็นระบบ ERP ที่สมบูรณ์
+<br><br><b>
+Open Source Community
+</b><br>
+ถ้าจะเลือก Open Source Software แล้ว Community หรือชุมชนของนักพัฒนามีความสำคัญมาก เป็นตัวชี้หลักว่าซอฟต์แวร์ได้รับความนิยม และจะได้รับการพัฒนาต่อไปอย่างยืนยาว Odoo เป็น ERP Software ที่มี Community ใหญ่มาก มีคนเก่งๆเข้าร่วมเป็นจำนวนมาก จนเกิดเป็น Odoo Community Association ซึ่งเป็นอีกแรงสำคัญที่ช่วยสร้างโมดูลจำนวนมากที่จะช่วยปิดช่องว่างระหว่างสิ่งที่ Odooo สามารถทำได้ กับสิ่งที่ธุรกิจต้องการ
+<br><br><b>
+Business Features
+</b><br>
+ด้วยองค์ประกอบสองข้อแรก ทำให้ Odoo เป็น ERP ที่มีโมดูลเสริมมากที่สุดในปัจจุบัน ไม่ว่า ERP ตัวใดก็คงไม่สามารถตอบโจทย์ทั้งหมดของธุรกิจได้ โมดูลเสริมเหล่านี้เองจะมาช่วยปิดช่องว่างที่ยังขาดอยู่ และถึงแม้จะยังไม่มีสิ่งที่ตอบโจทย์ ด้วยความที่เป็น Open Source ก็อนุญาตให้นักพัฒนาสามารถสร้างสิ่งที่ต้องการได้อย่างยืดหยุ่น
+`
+      },
+      {
+        title: 'Odoo Enterprise Edition vs Odoo Community Edition',
+        description: `
+Odoo มาพร้อมกับโมดูลต่างๆที่เชื่อมโยงกัน ในรูปแบบที่มีความเป็น Modular สูง โดยมาใน 2 version
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;>> EE – Enterprise Edition (licensed)</li>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;>> CE – Community Edition (free)</li>
+<br><br>
+หากเราเข้าไปที่เวปไซต์ odoo.com โดยตรง เราอาจได้เห็นแต่ Enterprise Edition พร้อมกับราคาให้เราลองคำนวนดูที่หน้าต่าง Pricing ซึ่งทำให้หลายคนไม่รู้ว่าจริงๆแล้ว Odoo เองมี version Free ด้วยซึ่งแน่นอนว่าจะมี feature น้อยกว่า แต่โดยสรุปแล้วเราพอจะประมาณได้ว่า CE เป็นส่วนหลักประมาณ 80% ของ feature ทั้งหมด และ EE จะเสริมขึ้นมาอีก 20%
+<br>
+การมีทั้ง CE & EE และ Licensed & Free หลายครั้งก็ก่อให้เกิดความสับสน และคำถามที่ตามมาเช่น
+<br><br><b>
+EE ต่างกับ CE ตรงไหนบ้าง
+</b><br>
+Features ต่างกันแน่นอน โดยอาจดูแบบเอียงไปทาง EE ได้จาก Official Website แต่อาจกล่าวโดยสรุปได้ว่าส่วนที่ต่างจะเป็นส่วน Feature เสริมที่ทาง Odoo คิดว่าคนส่วน 80% ไม่ได้ใช้ เช่น รายงานทางบัญชีสวยๆ การผลิตแบบลึกๆเช่น QC, PLM, MRP-II และอื่นๆ
+Free Hosting ถ้าไม่ต้องการติดตั้ง Odoo บน server ของเราเอา Odoo จะมี Cloud ให้ใช้ได้เลย แต่มีข้อจำกัดที่ไม่สามารถแก้ไขโค้ดหรือลงโมดูลเสริมได้ ต้องใช้ตาม Standard เท่านั้น
+Free Upgrade โดยไม่ว่าจะเป็น Cloud Odoo ซึ่งอัพเกรดตัวเองอัตโนมัติอยู่แล้ว กรณีที่ใช้ server ของเราเอง ก็สามารถส่ง database ให้ Odoo ทำการอัพเกรดได้เช่นกัน
+ซื้อ EE ได้ซอร์สโค้ดด้วยหรือไม่
+
+ได้ สามารถดาวน์โหลดได้เช่นเดียวกับ CE
+Ecosoft แนะนำให้ใช้ EE หรือ CE
+
+ใช้ได้ทั้งสองแบบ ตามงบประมาณ และความชอบ แต่ถ้าใช้ EE ได้ก็ดีกว่า เพราะแน่นอนว่ามีอะไรให้มากกว่าไม่ต้องทำเพิ่มเยอะ เวลาที่ใช้วางระบบก็น้อยลง ราคาค่าบริการก็ต่ำลง
+โดยปกติถ้าจำนวน Users ไม่เยอะเราแนะนำให้ใช้ EE เพราะราคายังไม่แพง (ราคาขึ้นกับจำนวน User โดยตรง ไม่เกี่ยวกับ Feature) ดังนั้นถึงใช้ User 1 คนก็ใช้ได้ทุก Feature
+ถ้าจำนวน Users เยอะๆ ราคาจะแพงขึ้น อาจเลือกใช้เป็น CE จะคุมงบประมาณได้ง่ายกว่า
+แต่ทั้งนี้ ราคารวมของ EE ก็ถือว่าถูกอยู่แล้วถ้าเทียบกับ ERP ที่เป็นระบบปิดอื่นๆ
+ถ้าใช้ EE แล้วยังต้องใช้โมดูลเสริมจาก OCA หรือไม่
+
+ขึ้นอยู่กับความต้องการของธุรกิจบางกรณีสิ่งที่ EE มีให้ก็เพียงพอ แต่ธุรกิจส่วนใหญ่ที่เราเคยทำมักมีความพิเศษบางอย่าง ต้องเสริมโมดูล OCA หรือ Customize เพิ่มเติมบางส่วน
+แต่ถ้าต้องการใช้ Thai Accounting ยังไงก็ต้องใช้โมดูลเสริมเแน่นอน พราะปัจจุบัน EE เองก็ยังไม่รองรับ
+ใช้ CE ไม่สามารถใช้ Full Accounting หรือ
+
+จริงๆแล้วสามารถใช้ได้เช่นกัน ด้วยการเสริมโมดูลของ OCA แต่หน้าตาและการใช้งานอาจไม่เหมือนกับของ EE
+โดยโครงสร้างลึกๆแล้ว Odoo ยังคงความสามารถของบัญชีเอาไว้ เพียงแต่เอาเมนูหรือ UI บางอย่างออกไป
+        
+        `,
+      },
+      {
+        title: 'What makes this app different from others?',
+        description:
+          'Our app stands out for its user-friendly interface, extensive template collection, and seamless integration of the purchasing and downloading process, making it highly efficient.',
+      },
+      {
+        title: 'Are there any costs involved?',
+        description:
+          'While the app itself may be free to download, there may be costs associated with purchasing specific templates based on your preferences and project requirements.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Instant access to beautiful templates"
+    subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
+    callToAction={{
+      text: 'Download App',
+      href: 'https://github.com/onwidget/astrowind',
+      icon: 'tabler:download',
+    }}
+  />
+</Layout>
