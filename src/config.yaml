@@ -10,7 +10,7 @@ metadata:
   title:
     default: Ecosoft | Your ERP Partner
     template: '%s — Ecoosft'
-  description: "Ecosoft is your best Odoo implementation partner in Thailand"
+  description: "Ecosoft is your best Odoo ERP implementation partner in Thailand"
   robots:
     index: true
     follow: true
