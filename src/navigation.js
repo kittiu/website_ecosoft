@@ -64,12 +64,8 @@ export const headerData = {
       text: 'Blogs',
       href: getPermalink('/blog'),
     },
-    {
-      text: 'Contact Us',
-      href: getPermalink('/contact'),
-    },
   ],
-  actions: [{ type: 'button', text: 'Login', href: 'https://ecosoft.frappe.cloud' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
 };
 
 export const footerData = {
