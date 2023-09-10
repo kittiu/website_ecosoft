@@ -3,6 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -356,11 +357,38 @@ const metadata = {
   <Tools
     id="partners"
     title=""
-    subtitle="Technology Partners ที่เราไว้ใจสำหรับทุกความต้องการด้าน Digital Transformation"
+    subtitle=""
     images={[
       { src: '/images/tools/oca.png', link: 'https://odoo-community.org/'},
       { src: '/images/tools/frappe.png', link: 'https://frappe.io/frappeverse' },
       { src: '/images/tools/n8n.png', link: 'https://n8n.io/' },
     ]}
   />
+
+  <Steps2
+    title="Let's get in touch!"
+    subtitle="แจ้งรายละเอียดให้เราติดต่อกลับ"
+    callToAction={{
+      text: 'Contact us',
+      href: 'https://ecosoft.frappe.cloud/contact-us',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'sales@ecosoft.co.th',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Call us',
+        description: '+66 61 860 1994<br/>+66 81 841 7480',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Address',
+        description: '6/F NST One Building, 281/19-23, Room 604, Silom Road, Silom, Bangrak, Bangkok Thailand 10500',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
 </Layout>

@@ -52,28 +52,28 @@ export const headerData = {
       href: getPermalink('/blog'),
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: 'https://ecosoft.frappe.cloud/contact-us' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Homes',
+      title: 'Main',
       links: [
+        {
+          text: 'Home',
+          href: getPermalink('/'),
+        },
         {
           text: 'Ecosoft',
           href: getPermalink('/#ecosoft'),
         },
         {
-          text: 'Technology Partners',
-          href: getPermalink('/#technology_partner'),
-        },
-        {
-          text: 'Why Odoo?',
+          text: 'Why Odoo',
           href: getPermalink('/#why_odoo'),
         },
         {
-          text: 'Customer References',
+          text: 'Customers',
           href: getPermalink('/#customer_ref'),
         },
         {
@@ -81,8 +81,8 @@ export const footerData = {
           href: getPermalink('/#our_approach'),
         },
         {
-          text: 'Our Solutions',
-          href: getPermalink('/#solution-1'),
+          text: 'Partners',
+          href: getPermalink('/#technology_partner'),
         },
       ],
     },
@@ -90,24 +90,24 @@ export const footerData = {
       title: 'Solutions',
       links: [
         {
-          text: 'Enterprise Resources Planning (Odoo)',
-          href: getPermalink('/solutions/erp'),
+          text: 'ERP',
+          href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government Procurement/Budgeting (Odoo)',
-          href: getPermalink('/solutions/egov'),
+          text: 'Government',
+          href: getPermalink('/#solution-2'),
         },
         {
-          text: 'e-Tax / e-Receipt / e-Signature',
-          href: getPermalink('/solutions/etax'),
+          text: 'Digital Dashboard',
+          href: getPermalink('/#solution-3'),
         },
         {
-          text: 'Process Automation / API',
-          href: getPermalink('/solutions/api'),
+          text: 'Automation / API',
+          href: getPermalink('/#solution-4'),
         },
         {
-          text: 'Tailer Made Solutions',
-          href: getPermalink('/solutions/others'),
+          text: 'Others',
+          href: getPermalink('/#solution-5'),
         },
       ],
     },
@@ -115,16 +115,12 @@ export const footerData = {
       title: 'Company',
       links: [
         {
-          text: 'FAQ',
-          href: getPermalink('/faq'),
-        },
-        {
           text: 'Blogs',
           href: getPermalink('/blog'),
         },
         {
           text: 'Contact Us',
-          href: getPermalink('/contact'),
+          href: getPermalink('https://ecosoft.frappe.cloud/contact-us'),
         }
       ]
     }
