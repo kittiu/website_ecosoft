@@ -47,10 +47,10 @@ export const headerData = {
       text: 'Partners',
       href: getPermalink('/#partners'),
     },
-    {
-      text: 'Blogs',
-      href: getPermalink('/blog'),
-    },
+    // {
+    //   text: 'Blogs',
+    //   href: getPermalink('/blog'),
+    // },
   ],
   actions: [{ type: 'button', text: 'Contact Us', href: '/#contact-us' }],
 };
