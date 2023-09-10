@@ -36,55 +36,36 @@ const metadata = {
     image={{ src: '~/assets/images/odoo-logo-blue.svg', alt: 'Odoo Image' }}
   >
     <Fragment slot="title">
-      Next Generation ERP
+      Digital Transformation
       <span class="text-accent dark:text-white highlight"></span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">100% Open Source</span><br>No License Cost, Only Quality Service</span
+        <span class="font-semibold">With 100% Open Source Solutions</span><br>No License Cost, Only Quality Service</span
       >
     </Fragment>
   </Hero>
+
 
   <!-- Note Widget ******************* -->
 
   <Note />
 
-  <!-- Features Widget *************** -->
+  <!-- Stats Widget ****************** -->
 
-  <Features
+  <Stats
     id="ecosoft"
-    tagline=""
     title="Ecosoft | Your ERP Partner"
-    subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์เฉพาะ odoo มากกว่า 10 ปี และเป็นหนึ่งในทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมพัฒนากับ <a href='/''><b>OCA - Odoo Community Association</b></a>"
-    items={[
-      {
-        title: 'Ecosoft | Odoo Expert',
-        description: 'หากคุณต้องการเพิ่มความสามารถในการแข่งขันด้วยระบบ ERP แต่กังวลกับลิขสิทธ์ซอฟต์แวร์ราคาแพง – Odoo คือคำตอบ Odoo เป็น ERP เพื่อการปรับตัวสู่อนาคต ไม่มีข้อจำกัดด้านจำนวนผู้ใช้งาน และด้วยมีชุมชนนักพัฒนาขนาดใหญ่ จึงขยายความสามารถได้ด้วยนวัตกรรมที่เกิดขึ้นตลอดเวลา Odoo Apps',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Business | Technology Expertise',
-        description:
-          'ปัญหาของการวางระบบ ERP คือความไม่เข้าใจในภาษาธุรกิจ ทั้งที่หัวใจของ ERP คือ กระบวนการทางธุรกิจ บัญชีและการเงินที่ Ecosoft เรามีประสบการณ์กว่า 10 ปีในการวางระบบ ERP ให้กับธุรกิจไทยที่มีพนักงานตั้งแต่ 10 คนถึง 1,000 คน เราจึงเข้าใจถึงความท้าทายของการวางระบบในหลายมิติ',
-        icon: 'tabler:components',
-      },
+    subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์เฉพาะ Odoo มากกว่า 10 ปี และเป็นหนึ่งในทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมพัฒนากับ <a href='/''><b>OCA - Odoo Community Association</b></a>"
+
+    stats={[
+      { title: 'Years in business', amount: '10+' },
+      { title: 'Deployed Users', amount: '4K' },
+      { title: 'Customers', amount: '30+' },
+      { title: 'Modules Contributed', amount: '120+' },
     ]}
   />
-
-  <Tools
-    id="technology_partner"
-    title="Technology Partners"
-    subtitle="เทคโนโลยีโอเพ่นซอร์สที่เราไว้ใจสำหรับทุกความต้องการด้าน Digital Transformation"
-    images={[
-      { src: '/images/tools/oca.png', link: 'https://odoo-community.org/'},
-      { src: '/images/tools/frappe.png', link: 'https://frappe.io/frappeverse' },
-      { src: '/images/tools/n8n.png', link: 'https://n8n.io/' },
-    ]}
-  />
-
-
 
   <Features2
     id="why_odoo"
@@ -129,11 +110,10 @@ const metadata = {
     </Fragment>
   </Features2>
 
-
   <Brands
     id="customer_ref"
-    title="Customer References"
-    subtitle="At Ecosoft - we keep our promise on 100% project success rate"
+    title="Trusted by many"
+    subtitle="We have kept our promise on 100% success rate"
     icons={[]}
     images={[
       { src: '/images/cust_logo/945.png' },
@@ -168,20 +148,20 @@ const metadata = {
   />
 
   <Testimonials
-    title="What they says?"
+    title="What they says"
     testimonials={[
       {
-        testimonial: 'Ecosoft ถือเป็น Technology Partner ที่สำคัญ เราใช้บริการวางระบบมาตั้งแต่ปี 2013 ในขณะนั้น Odoo ยังเป็น OpenERP อยู่ ระบบ ERP ที่ Ecosoft วางไว้ให้ทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังในแบบที่เราไม่เคยทำได้มาก่อน หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ด้วย Odoo V8 และมาถึงปัจจุบันปี 2019 เรามีแผนการอัพเกรดระบบของ Raja Cycle มาเป็น Odoo V12',
+        testimonial: 'เราใช้บริการวางระบบจาก Ecosoft มาตั้งแต่ปี 2013 ระบบทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังแบบที่ไม่เคยทำได้ หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ต่อด้วย Odoo 8 และใช้มาถึงปัจจุบัน',
         name: 'นันทชัย ศิระพรประสาร',
         job: 'Managing Director - Raja Cycle Co., Ltd.',
       },
       {
-        testimonial : 'สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช.) มีหน้าที่ในการถ่ายทอดเทคโนโลยีสู่สังคม ระบบสารสนเทศที่ทันสมัยและยืดหยุ่นมีส่วนสำคัญให้สามารถตอบสนองความต้องการที่เปลี่ยนแปลงไปตลอดเวลา เราหาตัวเลือกที่จะมาทดแทนระบบดั้งเดิมขององค์กร ให้เป็นระบบที่ตอบโจทย์ทั้งด้านเทคโนโลยีและด้านงบประมาณ ตลอดหลายปีที่ผ่านมาบริษัท Ecosoft ได้เข้ามาช่วยเราพัฒนาระบบ Odoo ในหลายส่วนขององค์กร จนในปี 2018 Odoo ได้รับการพัฒนามาเป็นระบบ ERP หลักแทนที่ระบบ Legacy เดิม',
+        testimonial : 'สวทช. มีหน้าที่ในการถ่ายทอดเทคโนโลยีสู่สังคม ระบบที่ยืดหยุ่นมีส่วนสำคัญเพื่อสนองความต้องการที่เปลี่ยนแปลง เราหาตัวเลือกที่เพื่อแทนระบบเดิมให้เป็นระบบต้องดีทั้งเทคโนโลยีและประหยัดงบประมาณ Ecosoft ได้เข้ามาช่วยเราพัฒนาระบบ Odoo ให้กับหลายแผนก จนในปี 2018 Odoo เข้ามาแทนที่ระบบ SAP เดิมอย่างสมบูรณ์',
         name: 'วารุณี ลีละธนาวิทย์',
         job: 'Vice President, ICT - NSTDA',
       },
       {
-        testimonial: 'เราใช้บริการวางระบบ Odoo จาก Ecosoft มาตั้งแต่ปี 2014 และใช้ในเกือบทุกส่วนขององค์กร และเนื่องจากจุดแข็งของเราคือสูตรการผลิตที่ปรับเปลี่ยนไปได้ตามความต้องการของลูกค้า เราได้ย้ายการทำงานทุกอย่างที่เคยอยู่ใน Spreadsheet มาไว้ที่ Odoo ทำให้สามารถย่นเวลาและความผิดพลาดในการออกแบบและผลิตไปได้มาก การวางระบบต้องการความร่วมมือจากหลายฝ่าย แม้ว่าจะยากในช่วงต้นแต่ผลลัพธ์ที่ได้ก็คุ้มค่า วันนี้เราทำงานได้เร็วขึ้นแต่ผิดพลาดน้อยลง และผู้บริหารเห็นภาพรวมของทั้งองค์กรได้อย่างชัดเจน',
+        testimonial: 'เราใช้ Odoo ตั้งแต่ปี 2014 ใช้ในเกือบทุกส่วนขององค์กร จุดแข็งของเราคือการผลิตที่ปรับเปลี่ยนได้ตามความต้องการของลูกค้า เราเปลี่ยนจากระบบ Spreadsheet มาเป็น Odoo ทำให้สามารถย่นเวลาและความผิดพลาดไปได้อย่างมาก และผู้บริหารเห็นภาพรวมของทั้งองค์กรได้อย่างชัดเจน',
         name: 'สมบูรณ์ ธัญญะวัน',
         job: 'Director - Square Panel Systems',
       },
@@ -190,8 +170,8 @@ const metadata = {
 
   <Steps
     id="our_approach"
-    title="Transformation Approach"
-    subtitle="เพราะ ERP ไม่ใช่แค่ซอฟต์แวร์ แต่เป็นการเปลี่ยนแปลงครั้งสำคัญ ที่ต้องมีรากฐานจากความเข้าใจ"
+    title="Our Approach"
+    subtitle=""
     items={[
       {
         title: 'Step 1: <span class="font-medium">Understand</span>',
@@ -220,6 +200,7 @@ const metadata = {
     }}
   />
 
+
   <!-- Content Widget **************** -->
   <Content
     id="solution-1"
@@ -227,30 +208,20 @@ const metadata = {
     tagline=""
     title="Our Solutions"
     items={[
-      {
-        title: 'ตอบโจทย์สำหรับหลากหลายอุตสาหกรรม',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'โมดูลสำหรับทุกความต้องการทางธุรกิจ',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'แหล่งข้อมูลจริงเพียงแห่งเดียวขององค์กร',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
+      { title: '100% Open Source by OCA Modules' },
+      { title: 'ERP / CRM / MRP / HRM' },
+      { title: 'Experienced Team of Implementor' },
+      { title: 'Comply with Thai Accounting Standard' },
+      { title: 'Trading, Services, Manufacturing' },
     ]}
     image={{
-      src: '~/assets/images/modules.png',
+      src: '~/assets/images/Odoo-Integration-1.png',
       alt: 'Colorful Image',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise Resource Planning (odoo)</h3>
-      ระบบซอฟต์แวร์ด้านการบริหารธุรกิจที่ร้อยเรียงกระบวนการทำงานทั้งองค์กรเข้าด้วยกันผ่านการออกแบบกระบวนการทางธุรกิจที่กระชับและถูกต้องเชื่อถือได้
+      ระบบบริหารทรัพยากรองค์กร ร้อยเรียงกระบวนการทำงานของทุกแผนกเข้าด้วยกัน เพื่อเป็นแหล่งข้อมูลหนึ่งเดียวขององค์กรที่เชื่อถือได้
     </Fragment>
 
     <Fragment slot="bg">
@@ -261,39 +232,29 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-    id="solutions"
+    id="solution-2"
     isAfterContent
     items={[
-      {
-        title: 'การจัดสรรงบประมาณประจำปีและแจกกรอบงบประมาณ',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'ควบคุมตรวจสอบการใช้งบประมาณ',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'ระเบียบการจัดซื้อจัดจ้างภาครัฐปี 2560',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'ครบถ้วนทุกกระบวนการทงานของระบบ ERP',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
+      { title: 'Organization Structure' },
+      { title: 'Budgeting Module' },
+      { title: 'Procurement Module' },
+      { title: 'Finance & Accounting Module' },
+      { title: 'Agreement and Contract Module' },
+      { title: 'Assets Module' },
+      { title: 'Inventory Module' }
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      src: '~/assets/images/budgeting.png',
       alt: 'Blueprint Image',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Thai Gov eProcurement / eBudgeting
+        Thai Government ERP
       </h3>
-      ระบบการจัดซื้อจัดจ้างและงบประมาณสำหรับหน่วยงานภาครัฐ
+      ระบบ ERP ที่ผ่านการศึกษา ออกแบบจากกระบวนงานบริหารจัดการ และผ่านการใช้งานจริง
+      จากหน่วยงานภาครัฐ เช่น สวทช สอวช สทน และอีกหลายหน่วยงาน
+      ประกอบด้วยโมดูลดังต่อไปนี้
     </Fragment>
 
     <Fragment slot="bg">
@@ -304,39 +265,27 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    id="solution-3"
     isReversed
     isAfterContent
     items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
+      { title: 'Simple and Secure Data Connection' },
+      { title: 'Easy Data Exploration' },
+      { title: 'Customizable Visualizations' },
+      { title: 'Interactive Dashboards' },
+      { title: 'User-Friendly Design' },
+      { title: 'Stay Informed with Alerts' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: '~/assets/images/insight.png',
+      alt: 'Business Intelligence',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        e-Tax Invoice / e-Receipt / e-Withholding Tax
+        Frappe Insight - Digital Dashboard
       </h3>
-      Powerful module systems
+      100% Open Source Business Intelligence ที่เข้าถึงได้ง่ายสำหรับทุคนในองค์กร 
     </Fragment>
 
     <Fragment slot="bg">
@@ -348,36 +297,23 @@ const metadata = {
     id="solution-4"
     isAfterContent
     items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
+      { title: '100% Open Source Automation Tools' },
+      { title: 'Build custom scenarios at speed' },
+      { title: 'Integrate with any app' },
+      { title: 'Independent instances for each environment' },
+      { title: 'Bulk operations' },
+      { title: 'Painless debugging' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: '~/assets/images/workflow2.png',
+      alt: 'Process Automation',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Process Automation & API
+        Process Automation & API (n8n)
       </h3>
-      Powerful module systems
+      เชื่อมโยงข้อมูลจากหลายระบบในองค์กรให้ไร้รอยต่อแบบอัตโนมัติและดูแลรักษาได้ง่าย
     </Fragment>
 
     <Fragment slot="bg">
@@ -392,36 +328,23 @@ const metadata = {
     isReversed
     isAfterContent
     items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
+      { title: 'ERP / CRM' },
+      { title: 'Human Resources' },
+      { title: 'Learning Management' },
+      { title: 'Helpdesk' },
+      { title: 'Project Collaboration' },
+      { title: 'Healthcare  ' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: '~/assets/images/frappe_apps.png',
       alt: 'Astronauts Image',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Tailer-made solution / Dashboard
+        Other Frappe Solutions
       </h3>
-      Powerful module systems
+      ระบบบริหารจัดการองค์กรแบบ Low Code จาก Frappeverse
     </Fragment>
 
     <Fragment slot="bg">
@@ -429,4 +352,15 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <!-- Partners -->
+  <Tools
+    id="partners"
+    title=""
+    subtitle="Technology Partners ที่เราไว้ใจสำหรับทุกความต้องการด้าน Digital Transformation"
+    images={[
+      { src: '/images/tools/oca.png', link: 'https://odoo-community.org/'},
+      { src: '/images/tools/frappe.png', link: 'https://frappe.io/frappeverse' },
+      { src: '/images/tools/n8n.png', link: 'https://n8n.io/' },
+    ]}
+  />
 </Layout>

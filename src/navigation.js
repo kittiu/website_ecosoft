@@ -3,62 +3,49 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
-      links: [
-        {
-          text: 'Ecosoft',
-          href: getPermalink('/#ecosoft'),
-        },
-        {
-          text: 'Technology Partners',
-          href: getPermalink('/#technology_partner'),
-        },
-        {
-          text: 'Why Odoo?',
-          href: getPermalink('/#why_odoo'),
-        },
-        {
-          text: 'Customer References',
-          href: getPermalink('/#customer_ref'),
-        },
-        {
-          text: 'Our Approach',
-          href: getPermalink('/#our_approach'),
-        },
-        {
-          text: 'Our Solutions',
-          href: getPermalink('/#solution-1'),
-        },
-      ],
+      text: 'Home',
+      href: getPermalink('/'),
+    },
+    {
+      text: 'Why Odoo',
+      href: getPermalink('/#why_odoo'),
+    },
+    {
+      text: 'Customers',
+      href: getPermalink('/#customer_ref'),
+    },
+    {
+      text: 'Our Approach',
+      href: getPermalink('/#our_approach'),
     },
     {
       text: 'Solutions',
       links: [
         {
-          text: 'Enterprise Resources Planning (Odoo)',
-          href: getPermalink('/solutions/erp'),
+          text: 'ERP',
+          href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government Procurement/Budgeting (Odoo)',
-          href: getPermalink('/solutions/egov'),
+          text: 'Government',
+          href: getPermalink('/#solution-2'),
         },
         {
-          text: 'e-Tax / e-Receipt / e-Signature',
-          href: getPermalink('/solutions/etax'),
+          text: 'Digital Dashboard',
+          href: getPermalink('/#solution-3'),
         },
         {
-          text: 'Process Automation / API',
-          href: getPermalink('/solutions/api'),
+          text: 'Automation / API',
+          href: getPermalink('/#solution-4'),
         },
         {
-          text: 'Tailer Made Solutions',
-          href: getPermalink('/solutions/others'),
+          text: 'Others',
+          href: getPermalink('/#solution-5'),
         },
-      ],
+      ]
     },
     {
-      text: 'FAQ',
-      href: getPermalink('/faq'),
+      text: 'Partners',
+      href: getPermalink('/#partners'),
     },
     {
       text: 'Blogs',
