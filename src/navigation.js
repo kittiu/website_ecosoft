@@ -52,7 +52,7 @@ export const headerData = {
       href: getPermalink('/blog'),
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: 'https://ecosoft.frappe.cloud/contact-us' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: '/#contact-us' }],
 };
 
 export const footerData = {

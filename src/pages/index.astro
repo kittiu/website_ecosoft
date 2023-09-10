@@ -31,8 +31,7 @@ const metadata = {
     callToAction={{
       targetBlank: true,
       text: 'Contact Us',
-      href: 'https://ecosoft.frappe.cloud/contact-us',
-      icon: 'tabler:mail',
+      href: '/#contact-us'
     }}
     image={{ src: '~/assets/images/odoo-logo-blue.svg', alt: 'Odoo Image' }}
   >
@@ -366,10 +365,10 @@ const metadata = {
   />
 
   <Steps2
-    title="Let's get in touch!"
-    subtitle="แจ้งรายละเอียดให้เราติดต่อกลับ"
+    id="contact-us"
+    title="Contact Us"
     callToAction={{
-      text: 'Contact us',
+      text: 'แจ้งรายละเอียดให้เราติดต่อกลับ',
       href: 'https://ecosoft.frappe.cloud/contact-us',
     }}
     items={[
