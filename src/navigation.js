@@ -120,7 +120,7 @@ export const footerData = {
         },
         {
           text: 'Contact Us',
-          href: getPermalink('https://ecosoft.frappe.cloud/contact-us'),
+          href: 'https://ecosoft.frappe.cloud/contact-us',
         }
       ]
     }
@@ -129,10 +129,6 @@ export const footerData = {
     ความสำเร็จของงานเราจึงเกิดจากการผสานกันของซอฟต์แวร์แบบโอเพ่นซอร์ส 100%
     และการให้คำปรึกษาทางธุรกิจอย่างถูกต้องและตรงไปตรงมา
   `,
-  secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
   socialLinks: [
     { ariaLabel: 'Ecosoft OCA Modules', icon: 'tabler:brand-open-source', href: 'https://odoo-community.org/shop?search=ecosoft' },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/ecosoft-odoo' },
