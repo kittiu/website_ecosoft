@@ -1,22 +1,27 @@
 ---
-publishDate: 2023-08-31T00:00:00Z
-title: การบริหารงบประมาณบนระบบ Odoo ด้วย OCA โมดูล "Budget Control" (Draft)
-excerpt: ทำความรู้จักกับโมดูลที่จะช่วยให้การวางแผนและการบริหารงบประมาณในหน่วยงานราชการมีประสิทธิภาพมากยิ่งขึ้น
+publishDate: 2021-10-21T00:00:00Z
+title: การบริหารงบประมาณบนระบบ Odoo ด้วย OCA โมดูล "Budget Control"
+excerpt: ทำความรู้จักกับโมดูลที่จะช่วยให้การวางแผนและการบริหารงบประมาณในหน่วยงานภาครัฐมีประสิทธิภาพมากยิ่งขึ้น!
 image: ~/assets/images/post/blog_1-1.jpg
 category: Documentation
 tags:
-  - Odoo
   - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo OCA
+  - Knowledge
   - Budgeting
-  - ERP
+
 metadata:
-  canonical: https://astrowind.vercel.app/astrowind-template-in-depth
+  canonical: https://www.blogger.com/profile/07724261696284990910
 ---
 
 import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 
 วันนี้ได้มีโอกาสเป็นหนึ่งใน Talk ของ OCA Days 2021 ในหัวข้อ Budget Control for Government จึงอยากขอนำสิ่งที่ได้เสนอไปมาแปลไทยใน Blog นี้ด้วย เผื่อว่าจะเป็นประโยชน์กับคนที่มองหาระบบ บริหารงบประมาณสำหรับใช้กับ Odoo Community Edition
+
+![OCA Budgeting](../../assets/images/post/blog_1-2.png)
 
 ## ว่าแต่อะไรคือการบริหารงานงบประมาณ?
 
@@ -27,6 +32,8 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 
 สิ่งที่ได้คือ รายงานแผนเทียบผล ซึ่งจะช่วยให้ผู้ปฏิบัติงานเห็นประสิทธิภายในเชิงการใช้เงิน และเพื่อให้สามารถปรับแผนงบประมาณและการทำงานสำหรับกิจกรรมในอนาคต
 
+![Budgeting](../../assets/images/post/blog_1-3.png)
+
 > มีคนถามว่าทำไมต้องมาวุ่นวายกับเรื่องงบประมาณ ตำตอบคือ เพื่อให้เราได้เป็นกังวลก่อนการใช้เงินและหลังจากใช้เงินไปแล้วน่ะสิ !!!
 
 ซึ่งถูกต้องนะครับจริงๆไอเดียของเรื่องนี้ก็มีเท่านี้เอง :D
@@ -36,192 +43,140 @@ import ToggleTheme from '~/components/common/ToggleTheme.astro';
 ## แล้วทำไมเราถึงต้องสร้างโมดูลใหม่ขึ้นมาอีกให้กับ OCA / Odoo?
 
 คำตอบคือ การบริหารงบประมาณในหน่วยงานราชการจริงๆมันไม่ได้ง่ายแค่นี้ เรากำลังพูดถึงการบริหารงบประมาณแบบเต็มรูปแบบ (Full Budget Cycle) ซึ่งประกอบไปด้วยขั้นตอนต่างๆมากมาย เช่น
+
+![Full Budgeting Cycle](../../assets/images/post/blog_1-4.png)
+
 * การจัดสรรงบประมาณระดับองค์กร
 * การวางแผนงบประมาณระดับแผนก/โครงการ
 * การใช้ การตรวจสอบ การปรับแผน การโยกย้ายงบประมาณ
 * การปิดปีงบประมาณ การยกยอดงบประมาณข้ามปี
 
-*Note:* วงจรงบประมาณในแต่ละองค์กรอาจมีความแตกต่างกันได้มาก
+*Note: วงจรงบประมาณในแต่ละองค์กรอาจมีความแตกต่างกัน*
 
 ตั้งแต่ต้นปีต้องมีกระบวนการพูดคุยเพื่อเสนอโครงการต่างๆ มีการของบประมาณและผ่านการอนุมัติจากผู้ให้ (source of fund) หลังจากได้รับแล้วจึงมีขั้นตอนการจัดสรรงบลงตามหน่วยงาน แต่ละแผนก มีการวางแผนการใช้งานตามกิจกรรมเพื่อความสอดคล้องกับนโยบาย มีการตรวจสอบการใช้งบประมาณให้เป็นไปตามกิจกรรมที่กำหนด บางช่วงเวลาอาจยอมให้มีการปรับโยกงบประมาณข้ามฝ่าย หรือหากมีการปรับนโยบายอาจต้องปรับใหญ่และกลับไปจัดสรรงบประมาณลงมาใหม่อีกรอบ
 
 กระบวนการเหล่านี้ในอดีตมักทำอยู่นอกระบบ ERP จากที่เราได้มีประสบการณ์การทำระบบงบประมารกับหน่วยการราชการขนาดใหญ่ ผมเห็นเลยว่าการใช้ระบบสารสนเทศทั้งกระบวนไม่ใช่เรื่องง่าย แต่ถ้าทำได้ แม้ว่าจะไม่ครบทุกเรื่องก็เป็นประโยชน์กับหน่วยงานได้เป็นอย่างมาก
 
-<DListItem dt="assets/styles/tailwind.css">
-  This file is essentially an extension of _TailWind's_ base.css. High-level component styles are defined here. Note
-  also styling on elements selected by 'attribute' selectors at the bottom of the files, particularly those selected by
-  'data' attributes.
-</DListItem>
-<DListItem dt="components/CustomStyles.astro">
-  Defines custom colors and fonts. For these to take effect in the 'base.css' file, they need to be loaded in the html
-  header section. See next.
-</DListItem>
-<DListItem dt="layouts/Layout.astro">
-  This layout is used for all of the pages rendered by _AstroWind_. The contents of _tailwind.css_ and
-  _CustomStyles.astro_ component, described above, is injected into the html header.
-</DListItem>
-
-### Dark Mode
-
-_Dark Mode_ is triggered by the little 'sunlight' icon:<ToggleTheme/>in the page header. It is defined in the _components/common/ToggleTheme.astro_, but the event is attached and the action defined in _components/common/BasicScripts.astro_ in the following snippet:
-
-```javascript
-attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-  if (defaultTheme.endsWith(':only')) {
-    return;
-  }
-  document.documentElement.classList.toggle('dark');
-  localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-});
-```
-
-Note that this is a client event. _BasicScripts.astro_ defines several other client-side functionality as well as this one.
-
-## Advanced Slot Usage
-
-_slots_ are part of the component implementation, which is a common concept among many frameworks, including _Astrojs_. The typical slot definition in a component looks like this:
-
-```astro
 ---
-// (file: MyComponent.astro)
-const { title } = Astro.props;
-export interface Props {
-  title: string;
-}
----
+## โมดูล Budget Control
 
-<div>
-  <h2>{title}</h2>
-  <slot />
-  <!-- slot contents injected here -->
-  <div></div>
-</div>
-```
+โมดูล Budget Control ของ Ecosoft เป็นชุดของโมดูลด้าน budget control โดยมีเป้าหมายให้ใช้งานได้กับหน่วยราชการไทย
 
-And in usage elsewhere:
+แต่ก็ยังทำในรูปแบบโมดูลเพื่อเข้า OCA โดยมีความเป็นสากล เพื่อให้ใช้ได้กับองค์กรส่วนใหญ่ที่สนใจ (สำหรับแต่ละหน่วยงานที่มีความเฉพาะตัว จะมีโมดูลเสริม และโมดูลเฉพาะ)
 
-```astro
-import MyComponent from "~/components/MyComponent"; ...
-<MyComponent someArg="A Slot example">
-  <p>This content will be displayed in the slot</p>
-</MyComponent>
-```
+ใช้โมดูล mis_builder_budget (Stephane, ACSONE) เป็นแกนของระบบ เพื่อให้ระบบทำงานเร็วและถูกต้องตามหลักการ mis_builder_budget
 
-### Alternate usage
+โมดูลหลักประกอบด้วย
 
-There's another way we can use slots, useful particularly when a component can have markdown content is as follows (study carefully...):
+* Budget Period
+* Budget Plan / Breakdown
+* Budget Control Sheet
+* Budget Transfer
+* Budget Revision
+* Budget Locking by Documents, i.e., PR, PO, EX, INV
+* Budget Monitoring
+* Budget Year End Closing
+* Commitment carry forward
+* Budget balance carry forward
 
-```astro
----
-// (file: MyComponent.astro)
+ในบทความนี้ผมจะนำการ demo full cycle budgeting ที่ได้นำเสนอไปช่วง OCA Days มาเขียนให้อ่านกันพอเห็นภาพนะครับ
 
-const { title } = Astro.props;
-export interface Props {
-  title: string;
-}
-const content: string = await Astro.props.render('default');
----
+ถ้าพร้อมแล้ว เริ่มกันเลยครับ !
 
-// renders the html to the 'content' variable
-<div>
-  <h2>{title}</h2>
-  <div set:html={content} />
-  <!-- slot contents injected here -->
-  <div></div>
-</div>
-```
+**ขั้นตอน demo**
 
-Whoa!! What's going on here?
+1. การตั้งค่าระบบ Budget Control เบื้องต้น
+2. การทำการจัดสรรงบประมาณระดับองค์กร
+3. วางแผนงบประมาณระดับแผนก/โครงการ
+4. ใช้เงินงบประมาณในระดับเอกสารต่างๆเช่น Purchase Order, Expense, Vendor Bill
+5. ตรวจสอบการใช้งบประมาณ
+6. โอนงบประมาณข้ามหน่วยงาน
+7. ปิดปี ยกงบประมาณข้ามปี (ยอดผูกพัน และ ยอดคงเหลือ)
 
-Notice there is no slot definition in the html portion of the component. Instead, what we do is have _Astro_ render the slot content (here, the 'default' content, but you can also render named slots) into a variable, and then use that content in a _div_ (for instance).
+**1. การตั้งค่าระบบ Budget Control เบื้องต้น**
+![Budget Control](../../assets/images/post/blog_1-5.png)
+จากรูป เราได้เลือกให้เอกสารที่เกี่ยวข้องกับงบประมาณ (มีการผูกพันงบประมาณและใช้จริง) ที่เอกสาร Purchase และ Expense และ Account (Vendor Bill, Journal Entry)
 
-So, if the usage is in a markdown file, like so:
+โดยเลือก Budget KPI (demo) ซึ่งเป็น MIS Report Template (การระบุ KPI ด้วย Account Code) และเลือกใช้ Budget Plan (จัดสรรงบประมาณ) และ Budget Transfer ด้วย (โอนงบประมาณ)
 
-```mdx
-import MyComponent from '../../components/MyComponent';
+ด้วย MIS Builder Template เราสามารถตั้งหมวดกิจกรรมที่ต้องการควบคุมได้ (KPI) เช่น
 
-# Using the above component in a .mdx file (that can take components)
+![Budget Control](../../assets/images/post/blog_1-6.png)
+เราสามารถกำหนดได้ว่าต้องการความละเอียดในการวางแผนปีงบประมาณในระดับใด เช่นระดับเดือนหรือระดับไตรมาส เช่น ในรูปด้านล่างจะเป็นการสร้าง Date Ranges เพื่อการวางแผนระดับไตรมาส สำหรับปี 2021, 2022
 
-{' '}
+![Budget Control](../../assets/images/post/blog_1-7.png)
+ขั้นตอนสุดท้ายคือการสร้าง ปีงบประมาณ (Budget Period)
 
-<MyComponent title="This is a slot implementor">### Here is some markdown content - With a bullet item.</MyComponent>
-```
+![Budget Control](../../assets/images/post/blog_1-8.png)
+ในที่นี้เราสามารถกำหนด KPI ที่ต้องการใช้ในการคุมงบประมาณ เราเลือกหน่วยงาน (Analytics) ที่ต้องการควบคุม ไปจนถึงระดับของการควบคุม (budget check) เช่น วางแผนตามกิจกรรม (KPI) แต่ควบคุมในระดับหน่วยงาน หรือต้องการควรคุมระดับกิจกรรมของหน่วยงานตามที่วางแผนไว้เลย
 
-_MyComponent_ renders the markdown to html and then injects it into the div.
+**2. การทำการจัดสรรงบประมาณระดับองค์กร**
+![Budget Control](../../assets/images/post/blog_1-9.png)
+หลังจากได้เสนอและได้รับการสนองงบประมาณจากส่วนกลางแล้ว องค์กรจะได้ทำการจัดสรรงบประมาณลงสู่หน่วยงานและโครงการภายใน หน้าต่าง Budget Plan จะเป็นที่แรกที่ใช้จัดสรรเงินลงตามฝ่ายหรือโครงการ (Analytic Account)
 
-This actually has a big advantage -- consider that with the normal usage you don't have access to the slot contents: _Astro_ just plops the content into the _&lt;slot/&gt;_ tag. Using this method, however, allows you to access the content and further manipulate it before it gets inserted into the html.
+เลือก Analytic Account ที่ต้องการ ใส่ยอดเงิน, Confirm และ Create/Update Budget Control Sheet ระบบจะสร้าง Budget Control Sheet ให้สำหรับแต่ละหน่วยงาน
 
-This allows a great deal of flexibility in component design.
+![Budget Control](../../assets/images/post/blog_1-10.png)
+สังเกตว่ารายการ Budget Control Sheet ที่สร้างขึ้นยังเป็นสีแดงเนื่องจากว่าในแต่ Budget Control Sheet ยังไม่มีการวางแผนเงินตามจำนวนที่ได้รับการจัดสรร
 
-### Yet Another Step
+**3. วางแผนงบประมาณระดับแผนก/โครงการ**
+![Budget Control](../../assets/images/post/blog_1-11.png)
+ที่ Budget Control Sheet เราสามารถเลือก KPI ที่ต้องการใช้ในการควบคุมกิจกรรม แล้วกดปุ่ม Hard Reset สีแดง ระบบจะสร้างบรรทัดสำหรับใส่วางแผนงบประมาณในแต่ละกิจกรรมตามไตรมาส
 
-Now, we get to the techniques used in _AstroWind_, we'll use the _pages/index.astro_ file to illustrate.
+![Budget Control](../../assets/images/post/blog_1-12.png)
+หลังจากวางแผนเรียบร้อยและกดปุ่มเปลี่ยนสถานะเป็น Controlled, ตอนนี้ระบบก็เปิดให้สร้างรายการเอกสารเพื่อผูกพันและใช้จริงงบประมาณแล้ว
 
-You'll note that the index file imports a lot of components, each one roughly analagous to a panel in the index page. Each of these components, in turn, is instantiated sequentially throughout the page. But, you'll notice that some of them use this kind of construct (we'll use the last section, _CallToAction_, as it is most illustrative of the technique):
+**4. ใช้เงินงบประมาณในระดับเอกสารต่างๆเช่น Purchase Order, Expense, Vendor Bill**
+![Budget Control](../../assets/images/post/blog_1-13.png)
+ลองสร้างเอกสาร Purchase Order โดยเลือก Analytic Account ที่ต้องการกินงบประมาณ ระบบจะมี widget เล็กๆให้เห็นยอดเงินคงเหลือในปัจจุบัน แต่ถ้าผู้ใช้ใส่ยอดเงินมากกว่าที่มีระบบจะแจ้งเตือนเพราะผู้ใช้งาน Submit เอกสาร
 
-```astro
-<CallToAction
-  callToAction={{
-    text: 'Get template',
-    href: 'https://github.com/onwidget/astrowind',
-    icon: 'tabler:download',
-  }}
->
-  <Fragment slot="title">
-    Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-  </Fragment>
+ลดจำนวนเงินลงและลองอีกครั้งหนึ่ง จะเห็นได้ว่าเอกสารนี้ได้ผูกพันงบประมาณโดยจะเห็นได้ชัดเจนจาก Budget Commitment โดยมีการ Debit การผูกพันงบที่เอกสารนี้ = 500
 
-  <Fragment slot="subtitle">
-    Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't waste
-    more time! :P
-  </Fragment>
-</CallToAction>
-```
+![Budget Control](../../assets/images/post/blog_1-14.png)
+และหลังจากที่เอกสาร Vendor Bill ถูกสร้างและยืนยัน ระบบจะย้ายการผูกพันงบประมาณ (commit) ไปเป็นการใช้จริง (actual) ที่ Vendor Bill โดยมีการ Credit การผูกพันงบที่กลับคืนเอกสารต้นทาง = 500 ดังรูปบน
 
-Some things to note, here:
+อีกตัวอย่างหนึ่งเช่น Expense ไป Vendor Bill ในลักษณะเดียวกัน
 
-<DListItem dt="The <em>callToAction</em> argument">
-  This argument is actually being passed a javascript object -- not a string. (However, in the TS definition, it could
-  be a string...)
-</DListItem>
-<DListItem dt="There are several <em>Fragment</em> children">
-  Furthermore, these &lt;Fragment/&gt; elements each have a _slot="(value)"_ specifier.
-</DListItem>
+![Budget Control](../../assets/images/post/blog_1-15.png)
+จุดนี้เองที่เป็นหัวใจของระบบนี้ เราเรียกว่ารายการคลื่อนไหวในเชิงงบประมาณ (budget moves) ซึ่งการทำงานในลักษณะคล้ายคลึงกับระบบบัญชีคู่ (double entry accounting)
 
-The latter seems odd, because &lt;Fragment/&gt; is a built-in component over which you have no control, and doesn't have a provision for rendering slots, <em>per se</em>.
+**5. ตรวจสอบการใช้งบประมาณ**
 
-The answer lies in a paragraph in the _Astro_ docs, slots section, which states:
+การเคลื่อนไหวในเชิงงบประมาณทั้งหมดที่เกิดขึ้น ทำให้ทั้งระดับหน่วยงานและระดับองค์กรสามารถสร้างสรรค์รายงานเชิงงบประมาณและบิดได้ตามมุมมองที่ต้องการ เช่น ในรูปด้านล่างจะแสดงความเคลื่อนไหวทั้งหมดตามประเภทการผูกพัน แบ่งตามไตรมาส ตามเลขที่เอกสาร
+![Budget Control](../../assets/images/post/blog_1-16.png)
 
-> Use a `slot="my-slot"` attribute on the child element that you want to pass through to a matching slot `name="my-slot" />` placeholder in your component.
+หรือจะเป็นรายการแผน (ฟ้า) เทียบผล (หลายสีตามประเภทเอกสาร)
+![Budget Control](../../assets/images/post/blog_1-17.png)
 
-That's pretty concise and a bit of a head-scratcher to read, but basically what it says is that:
+**6. โอนงบประมาณข้ามหน่วยงาน**
 
-1. Given a component that defines a slot:
-1. you can reference a slot from a child element of that component and,
-1. provide content to the parent component's slot from the child by naming the slot in the child with a `slot="<slot-name>"` property assignment, where the _slot-name_ is the parent's slot.
+ในระหว่างปี ในระหว่างที่ยังไม่มีการปรับแผนงบประมาณครั้งใหญ่ ระหว่างหน่วยงานที่ได้รับการอนุมัติก็อาจต้องการโยกเงินระหว่างกัน รูปด้านล่างจะแสดงหน้าต่างการโอนเงินระหว่า Budget Control ของแต่ละหน่วยงาน
+![Budget Control](../../assets/images/post/blog_1-18.png)
 
-So, in the example above, the _CallToAction_ component defines the _subtitle_ slot, and the following _&lt;Fragment slot="subtitle"&gt;_ populates the slot with the following content:
+โดยแต่ละ Budget Control จะต้องมีการปรับสถานเป็น Draft ก่อนเพื่อหยุดการใช้เงินจึงจะสามารถทำการโอนงบประมาณได้
 
-```astro
-<Fragment slot="subtitle">
-  Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't waste
-  more time! :P
-</Fragment>
-```
+**7. ปิดปี ยกงบประมาณข้ามปี (ยอดผูกพัน และ ยอดคงเหลือ)**
 
-And, the _CallToAction_ component defines and renders it thusly:
+เมื่อถึงเวลาปิดปีงบประมาณ แต่ละหน่วยงานอาจยังมีเอกสารผูกพันงบประมาณค้างอยู่ จะต้องมีการยกยอดเหล่านี้ข้ามไปผูกพันในปีถัดไป หรืออาจต้องยกตัวเลขคงเหลือเพื่อไปตั้งต้นในปีถัดไปด้วย
 
-```astro
----
-//...
-const { subtitle = await Astro.slots.render('subtitle') } = Astro.props;
----
+จากรูปด้านล่าง สิ่งที่ต้องการคือการยกยอด 
+* (1) ยอดผูกพัน (Purchase, Expense) และ 
+* (2) ยอดคงเหลือ ไปยังปีถัดไป
+![Budget Control](../../assets/images/post/blog_1-19.png)
 
-//...
-{subtitle && <p class="text-xl text-muted dark:text-slate-400" set:html={subtitle} />}
- //...
-```
+โดยระบบจะมีหน้าต่างสำหรับทำงานดังกล่าว 
+* (1) Forward Budget Commitment และ 
+* (2) Forward Budget Balance ตามลำดับ
+![Budget Control](../../assets/images/post/blog_1-20.png)
+![Budget Control](../../assets/images/post/blog_1-21.png)
 
-There's a lot to wrap your head around, here.
+หลังจากยกยอดเสร็จสิ้น จะถือว่าจบรอบปีงบประมาณแล้ว ถัดไปคงเป็นการดำเนินการซ้ำกับที่กล่าวมาข้างต้นสำหรับปีงบประมาณถัดๆไป
 
-Notice first that _subtitle_ is defined as a prop/argument, but it's being processed as a slot. Interestingly, prop args and slots seem to be somewhat interchangeable: if the subtitle was just a string, it would simply take that assignment. The main difference is that if you render them independently, you have to call the render with an _await_ modifier.
+สำหรับบทความนี้ผมคงขอเล่าแต่เพียงเท่านั้น ทั้งหมดนี้เป็นเพียงส่วนหนึ่งของชุดโมดูลที่เราใช้ในการวางระบบงบประมาณให้กับหน่วยงานภาครัฐของไทย ซึ่งแต่ละที่จะมีรายละเอียดปลีกย่อยมากว่านี้มาก (ตามระเบียบการบริหารงบประมาณหน่วยงานภาครัฐ และระเบียบการจัดซื้อจัดจ้าง)
+
+และก็เช่นเคยนะครับ Ecosoft เราเชื่อในแนวทาง open source ว่าจะช่วยผลักดันสังคมไทยให้ก้าวไปข้างหน้าอย่างยั่งยืน โดยโมดูลชุดนี้เป็นชุดที่เราตั้งใจทำเป็นพิเศษ ทั้งหมดที่เกี่ยวที่ผมได้อธิบายไป หากใครสนใจสามารถตามงานของเราได้ที่
+
+https://github.com/OCA/account-budgeting/pull/51
+
+แล้วพบกันใหม่ครับ !
+
