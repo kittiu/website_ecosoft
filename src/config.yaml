@@ -10,7 +10,7 @@ metadata:
   title:
     default: Ecosoft | Your ERP Partner - Digital Transformation with Odoo Open Source ERP - No License Cost, Only Quality Service
     template: '%s — Ecosoft | Your ERP Partner'
-  description: 'Ecosoft — Digital Transformation with Odoo Open Source ERP by Odoo Thailand Expert - ปรับองค์กรให้เป็นดิจิทัล ด้วยโอเพ่นซอร์สอีอาร์พี โดยทีมงานที่มีประสบการณ์ของไทย'
+  description: 'Ecosoft — Digital Transformation with Odoo Open Source ERP by Thailand's Odoo Expert - ปรับองค์กรให้เป็นดิจิทัล ด้วยโอเพ่นซอร์สอีอาร์พี โดยทีมงานที่มีประสบการณ์ของไทย'
   robots:
     index: true
     follow: true
