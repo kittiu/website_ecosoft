@@ -1,0 +1,194 @@
+---
+publishDate: 2023-09-14T00:00:00Z
+title: Webhooks API Odoo V15
+excerpt: การ Call API ในระบบ Odoo version 15
+image: ~/assets/images/post/webhooks-api-odoo-15_1.jpg
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Rest Api
+  - Odoo 15
+
+metadata:
+  canonical: https://medium.com/@saranlim
+---
+
+Source Code: https://github.com/ecosoft-odoo/ecosoft-addons/tree/15.0/usability_webhooks
+
+การ Call API ในระบบ Odoo สามารถทำได้ 2 วิธีหลักคือ
+
+1. XML-RPC (Standard Odoo)
+2. Rest API
+
+สำหรับบทความนี้จะแนะนำ Module usability_webhooks สำหรับการ Call API โดยใช้ Rest API เชื่อมกับระบบ Odoo version15 เพื่อสร้างและอัปเดตเอกสารในระบบอย่างง่าย ซึ่งจะมี 2 ขั้นตอนหลักคือ
+
+1. Call API เพื่อตรวจสอบสิทธิ์การเข้าสู่ระบบ (Authenticate)
+2. Call API เพื่อสร้างหรืออัปเดตเอกสารในระบบ (Create / Update)
+
+---
+
+### Call API เพื่อตรวจสอบสิทธิ์การเข้าสู่ระบบ (Authenticate)
+
+**HTTP Route:** /web/session/authenticate
+
+**Body:**
+
+<pre>
+&lbrace;
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": &lbrace;
+    "db": "&lt;database name&gt;",
+    "login": "&lt;username&gt;",
+    "password": "&lt;password&gt;"
+   &emsp;&rbrace;
+&rbrace;
+</pre>
+
+*ตัวอย่างการ Call API Authenticate*
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*QUH7OYxeTep3vE8Lo0Im1w.png">
+</img>
+
+*ตัวอย่างผลลัพธ์การ Return API*
+
+<img src="https://miro.medium.com/v2/resize:fit:770/1*jgVEX1c9nqyRTUxXAheKHg.png">
+</img>
+
+---
+
+### Call API เพื่อสร้างหรืออัปเดตเอกสารในระบบ (Create / Update)
+
+HTTP Route มี 2 Function ให้ใช้ได้ดังนี้
+
+* /api/create_data
+* /api/create_update_data
+
+#### /api/create_data
+
+Call API ด้วย Route นี้เพื่อสร้างเอกสารใหม่
+
+**HTTP Route:** /api/create_data
+
+**Body:**
+
+<pre>
+&lbrace;
+    "params": &lbrace;
+        "model": "&lt;model&gt;",  <i># model ที่ต้องการสร้าง</i>
+        "vals": &lbrace;
+            "payload": &lbrace;
+                "&lt;field name&gt;": "&lt;value&gt;",  <i># ข้อมูลที่ต้องการสร้างตามชื่อ field odoo</i>
+                .
+                .
+                .
+            &emsp;&emsp;&emsp;&rbrace;
+        &emsp;&emsp;&rbrace;
+    &emsp;&rbrace;
+&rbrace;
+</pre>
+
+*ตัวอย่างการ Call API เพื่อสร้างข้อมูลใหม่*
+<img src="https://miro.medium.com/v2/resize:fit:770/1*EUspSIl8ycDs76MF-9CMyg.png">
+</img>
+
+*ตัวอย่างผลลัพธ์การ Return API*
+<img src="https://miro.medium.com/v2/resize:fit:770/1*Xoz7KaWdEeVDH3PzvyxK3g.png">
+</img>
+
+หากการ Return API มีค่า is_success = True หมายถึงระบบสามารถสร้างเอกสารได้สำเร็จ
+
+*ระบบจะสร้างเอกสารที่ Model ที่กำหนด และข้อมูลตาม API*
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*Vysovu3q2wvpVofzFpSTkA.png">
+</img>
+
+
+#### /api/create_update_data
+
+Call API ด้วย Route นี้เพื่ออัปเดตเอกสารเดิม หากข้อมูลที่ส่งมาไม่มีระบบจะไปเรียก /api/create_data แทน
+
+**HTTP Route:** /api/create_update_data
+
+**Body:**
+<pre>
+&lbrace;
+    "params": &lbrace;
+        "model": "res.partner",  *# model ที่ต้องการสร้าง*
+        "vals": &lbrace;
+            "payload": &lbrace;
+                "ref": "test",  *# การอ้างถึงเอกสารที่ต้องการอัปเดต*(ต้องเป็น Unique)*
+                "phone": "0999999999",  *# ข้อมูลที่ต้องการแก้ไข*
+                "mobile": "0666666666",
+                "email": "new_email@email.email"
+            &emsp;&emsp;&emsp;&rbrace;
+        &emsp;&emsp;&rbrace;
+    &emsp;&rbrace;
+&rbrace;
+</pre>
+
+*ตัวอย่างการ Call API เพื่ออัปเดตข้อมูล*
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*3AWC-6TevCkWdMaJ-7u-hg.png">
+</img>
+
+*ตัวอย่างผลลัพธ์การ Return API*
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*N5MmLdlGz8sctdZSIdvC5Q.png">
+</img>
+
+*ระบบจะอัปเดตเอกสารตามข้อมูลที่ส่งมา*
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*Thfp_uNO4OC-OH647jWFYA.png">
+</img>
+
+>การอ้างถึงเอกสารที่ต้องการอัปเดต จะต้อง Implement เพิ่มเติมหากต้องการใช้ Unique ค่าอื่น ที่ /ecosoft-addons/usability_webhooks/controllers/utils.py ใน function _search_key
+
+หากต้องการ Implement Unique จะต้อง hook function _search_key
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*cSlIOTiIF4t7_AI6GLc6HQ.png">
+</img>
+
+---
+
+### การตั้งค่า Rollback กรณีทำงานไม่สำเร็จ
+
+การ Call API มีโอกาสที่การรับส่งข้อมูลอาจไม่ถูกต้อง จึงเกิด Error ได้ และในบางครั้งการ Implement API อาจมีการเขียนเพื่อให้ระบบทำงานในส่วนอื่นให้อัตโนมัติ ซึ่งหาก Error ส่วนที่ทำงานไปแล้วอาจจะไม่ได้ Rollback กลับไป จะทำให้การ Call API ในครั้งถัดไปเกิด Error ได้อีก 
+
+ซึ่งสามารถตั้งค่าการ Rollback ได้ที่เมนู Settings > Technical > Parameters > System Parameters
+
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*JmGou6Uj2TYQQ6s8XOCFiA.png">
+</img>
+
+* webhook.rollback_except : การ Rollback เมื่อ Call API ไม่สำเร็จ (error exceptions)
+* webhook.rollback_state_failed : การ Rollback เมื่อ Call API สำเร็จ แต่ is_success ไม่เป็น True
+
+หากไม่ต้องการที่จะ Rollback ในส่วนไหนสามารถลบบรรทัดนั้นได้
+
+---
+
+### การตรวจสอบ Logs การรับส่ง
+
+ทุกครั้งที่มีการ Call API เข้าระบบ Odoo (ไม่นับการ Authenticate) ระบบจะเก็บ Logs ไว้เพื่อดูย้อนหลัง และยังสามารถใช้ในกรณีอื่น ๆ ได้ เช่น โปรแกรมอื่นสามารถ Call API มาที่ระบบได้ครั้งเดียว หากเกิด Error ระบบจะยังเก็บ Logs ที่เคยส่งมาในระบบ และสามารถ Call API ตรงที่ระบบได้ 
+
+โดยไปที่เมนู Settings > Technical > API Configuration > API Logs
+
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*9YEPZn1SWYwLnjOCX7Z30Q.png">
+</img>
+
+รายละเอียดของการเก็บ Logs จะแบ่งออกเป็น 5 ส่วนหลักคือ
+
+1. Update API: ใช้สำหรับการ Call API ในระบบอีกครั้งหนึ่ง โดยจะใช้ข้อมูลจาก Input และเรียก Function จาก Function Name
+2. ข้อมูลในส่วน Information เพื่อแยกประเภท Logs โดยแยกได้ดังนี้
+    - Model — ชื่อ Model ที่ทำการ Update
+    - Route — Route ในการ Call API
+    - Function Name — Function ที่ระบบจะเรียกใช้เมื่อกด Update API
+    - Log Type — ประเภทการเก็บ Log โดยจะมีทั้ง Receive และ Send (ส่วน Send จะต้อง Implement เพิ่มเติม หากต้องการให้ระบบเก็บ Log ในส่วนของการที่ระบบ Odoo ส่ง API ออกข้างนอก)
+    - Created on — วันที่ระบบสร้างเอกสาร
+3. Input: ข้อมูลในส่วนที่ต้องการ Call API โดยสามารถตรวจสอบและแก้ไขได้จาก field นี้
+4. Output: ผลลัพธ์การ Call API
+5. Status Logs: หากระบบสามารถ Call API สำเร็จจะมีสถานะเป็น Done หากไม่สำเร็จจะมีสถานะเป็น Failed
+
+End.
+
+by <a href="https://medium.com/@saranlim">Saran Lim.</a>
+
+Image by <a href="https://www.freepik.com/free-photo/enterprise-resource-planning-holographic-interface_18098381.htm#query=rest%20api&position=27&from_view=keyword&track=ais">Freepik</a>
+
