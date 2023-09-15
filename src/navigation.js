@@ -3,90 +3,77 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
-      links: [
-        {
-          text: 'Ecosoft',
-          href: getPermalink('/#ecosoft'),
-        },
-        {
-          text: 'Technology Partners',
-          href: getPermalink('/#technology_partner'),
-        },
-        {
-          text: 'Why Odoo?',
-          href: getPermalink('/#why_odoo'),
-        },
-        {
-          text: 'Customer References',
-          href: getPermalink('/#customer_ref'),
-        },
-        {
-          text: 'Our Approach',
-          href: getPermalink('/#our_approach'),
-        },
-        {
-          text: 'Our Solutions',
-          href: getPermalink('/#solution-1'),
-        },
-      ],
+      text: 'Home',
+      href: getPermalink('/'),
+    },
+    {
+      text: 'Why Odoo',
+      href: getPermalink('/#why_odoo'),
+    },
+    {
+      text: 'Customers',
+      href: getPermalink('/#customer_ref'),
+    },
+    {
+      text: 'Our Approach',
+      href: getPermalink('/#our_approach'),
     },
     {
       text: 'Solutions',
       links: [
         {
-          text: 'Enterprise Resources Planning (Odoo)',
-          href: getPermalink('/solutions/erp'),
+          text: 'ERP',
+          href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government Procurement/Budgeting (Odoo)',
-          href: getPermalink('/solutions/egov'),
+          text: 'Government',
+          href: getPermalink('/#solution-2'),
         },
         {
-          text: 'e-Tax / e-Receipt / e-Signature',
-          href: getPermalink('/solutions/etax'),
+          text: 'Digital Dashboard',
+          href: getPermalink('/#solution-3'),
         },
         {
-          text: 'Process Automation / API',
-          href: getPermalink('/solutions/api'),
+          text: 'Automation / API',
+          href: getPermalink('/#solution-4'),
         },
         {
-          text: 'Tailer Made Solutions',
-          href: getPermalink('/solutions/others'),
+          text: 'Others',
+          href: getPermalink('/#solution-5'),
         },
-      ],
+      ]
     },
     {
-      text: 'FAQ',
-      href: getPermalink('/faq'),
+      text: 'Partners',
+      href: getPermalink('/#partners'),
     },
     {
       text: 'Blogs',
       href: getPermalink('/blog'),
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: '/#contact-us' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Homes',
+      title: 'Main',
       links: [
+        {
+          text: 'Home',
+          href: getPermalink('/'),
+        },
         {
           text: 'Ecosoft',
           href: getPermalink('/#ecosoft'),
         },
         {
-          text: 'Technology Partners',
-          href: getPermalink('/#technology_partner'),
-        },
-        {
-          text: 'Why Odoo?',
+          text: 'Why Odoo',
           href: getPermalink('/#why_odoo'),
         },
         {
-          text: 'Customer References',
+          text: 'Customers',
           href: getPermalink('/#customer_ref'),
         },
         {
@@ -94,8 +81,8 @@ export const footerData = {
           href: getPermalink('/#our_approach'),
         },
         {
-          text: 'Our Solutions',
-          href: getPermalink('/#solution-1'),
+          text: 'Partners',
+          href: getPermalink('/#technology_partner'),
         },
       ],
     },
@@ -103,24 +90,24 @@ export const footerData = {
       title: 'Solutions',
       links: [
         {
-          text: 'Enterprise Resources Planning (Odoo)',
-          href: getPermalink('/solutions/erp'),
+          text: 'ERP',
+          href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government Procurement/Budgeting (Odoo)',
-          href: getPermalink('/solutions/egov'),
+          text: 'Government',
+          href: getPermalink('/#solution-2'),
         },
         {
-          text: 'e-Tax / e-Receipt / e-Signature',
-          href: getPermalink('/solutions/etax'),
+          text: 'Digital Dashboard',
+          href: getPermalink('/#solution-3'),
         },
         {
-          text: 'Process Automation / API',
-          href: getPermalink('/solutions/api'),
+          text: 'Automation / API',
+          href: getPermalink('/#solution-4'),
         },
         {
-          text: 'Tailer Made Solutions',
-          href: getPermalink('/solutions/others'),
+          text: 'Others',
+          href: getPermalink('/#solution-5'),
         },
       ],
     },
@@ -128,16 +115,12 @@ export const footerData = {
       title: 'Company',
       links: [
         {
-          text: 'FAQ',
-          href: getPermalink('/faq'),
-        },
-        {
           text: 'Blogs',
           href: getPermalink('/blog'),
         },
         {
           text: 'Contact Us',
-          href: getPermalink('/contact'),
+          href: 'https://ecosoft.frappe.cloud/contact-us',
         }
       ]
     }
@@ -146,10 +129,6 @@ export const footerData = {
     ความสำเร็จของงานเราจึงเกิดจากการผสานกันของซอฟต์แวร์แบบโอเพ่นซอร์ส 100%
     และการให้คำปรึกษาทางธุรกิจอย่างถูกต้องและตรงไปตรงมา
   `,
-  secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
   socialLinks: [
     { ariaLabel: 'Ecosoft OCA Modules', icon: 'tabler:brand-open-source', href: 'https://odoo-community.org/shop?search=ecosoft' },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/ecosoft-odoo' },
