@@ -3,13 +3,14 @@ publishDate: 2023-09-01T00:00:00Z
 title: 10 เหตุผลในการ Contribute กับ OCA
 excerpt: ทำไมต้อง Contribute กับ Odoo Community Association (OCA)
 image: ~/assets/images/post/blog_2-1.jpg
-category: Community
+category: Talk
 tags:
   - OpenSource ERP
   - ERP Software
   - Odoo
   - Odoo OCA
   - Community
+
 metadata:
   canonical: https://ecosoft.co.th/10-reasons-to-contribute-to-oca-th
 ---
@@ -95,4 +96,4 @@ Test Server สำหรับผู้ใช้งานเข้าไปท�
 
 ถ้าเริ่มสนใจว่า OCA คืออะไร ลองไปดูรายละเอียดได้ที่เว็ปไซต์ https://odoo-community.org/ ส่วนโค้ดที่นักพัฒนา Odoo โลกร่วมกัน Contribute ดูได้จาก https://github.com/OCA
 
-by Kitti U.
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
