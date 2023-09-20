@@ -1,22 +1,31 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
     {
-      text: 'Home',
-      href: getPermalink('/'),
-    },
-    {
-      text: 'Why Odoo',
-      href: getPermalink('/#why_odoo'),
-    },
-    {
-      text: 'Customers',
-      href: getPermalink('/#customer_ref'),
-    },
-    {
-      text: 'Our Approach',
-      href: getPermalink('/#our_approach'),
+      text: 'Ecosoft',
+      links: [
+        {
+          text: 'Why Odoo',
+          href: getPermalink('/#why_odoo'),
+        },
+        {
+          text: 'Customers',
+          href: getPermalink('/#customer_ref'),
+        },
+        {
+          text: 'Our Approach',
+          href: getPermalink('/#our_approach'),
+        },
+        {
+          text: 'Latest Blog',
+          href: getPermalink('/#new_post'),
+        },
+        {
+          text: 'Partners',
+          href: getPermalink('/#partners'),
+        },
+      ]
     },
     {
       text: 'Solutions',
@@ -42,10 +51,6 @@ export const headerData = {
           href: getPermalink('/#solution-5'),
         },
       ]
-    },
-    {
-      text: 'Partners',
-      href: getPermalink('/#partners'),
     },
     {
       text: 'Blogs',
