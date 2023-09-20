@@ -1,0 +1,63 @@
+---
+publishDate: 2020-11-30T00:00:00Z
+title: Base Exception โมดูลสุดเจ๋ง! จากชุมชนนักพัฒนา Odoo (OCA) 
+excerpt: แนะนำโมดูล Base Exception ตัวช่วยในการตรวจสอบค่าต่างๆบนหน้าเอกสารก่อนทำการยืนยัน
+image: ~/assets/images/post/base_exception_0-1.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo OCA
+  - OCA Module
+
+metadata:
+  canonical: https://ecosoft.co.th/base-exception
+---
+
+ระหว่างที่กำลังทำ Code Review ให้กับโมดูลใน OCA ได้เห็นโมดูลชุดนึงชื่อแปลกๆ เช่น base_exception, purchase_exception, sale_exception เพิ่งจะได้มีโอกาสมารีวิว แล้วรู้สึกว่ามันเจ๋งดีเลยอยากเอามาแชร์
+
+เป็นเหมือนกันมั้ยครับ เวลาทำระบบให้ลูกค้า ลูกค้ามักจะขอให้เพิ่มการตรวจสอบค่าต่างๆบนหน้าเอกสารก่อนการยืนยัน  ยากบ้าง ง่ายบ้าง เช่น ให้ Purchase Order ต้องมีการใส่วันกำหนดส่งเสมอ, Sales Order ให้ช่วยเตือนหากเผลอบันทึกราคาเป็นศูนย์ หรือให้ช่วยเช็คด้วยว่า Partner ที่เลือกมีตั้ง email ไว้หรือไม่
+ซึ่งการตรวจสอบเหล่านี้เป็นหนึ่งในเรื่องที่เราต้องเขียนโค้ดเพิ่มเติม อาจเขียน Python และ raise ValidationError เมื่อทดสอบไม่ผ่าน หรือเขียนปรับ View ให้ required=True และอื่นๆอีก บ่อยครั้งที่ logic เหล่านี้กระจัดกระจายไปตามโมดูลต่างๆที่เราเขียนเพิ่ม
+
+*ไม่นับว่าการ raise Exception เหล่านี้จะทำให้เกิดปัญหาในการ import ข้อมูลเข้าระบบด้วย เพราะมันจะไม่ผ่านการ Import Check ตั้งแต่ต้น*
+
+ซึ่งโมดูลที่ผมกำลังจะเล่าให้ฟังนี้น่าจะช่วยแก้ปัญหานี้ได้โดยตรง เราไปทดสอบพร้อมๆกันเลยครับ
+
+สมมุติผมต้องการจัดการการ Validation บนหน้าต่าง Purchase Order โมดูลที่ผมต้องใช้คือ
+
+* **base_exception :** abstract module สำหรับ extend ไปยังโมเดลต่างๆ
+* **purchase_exception :** extend base_exception สำหรับ purchase.order, purchase.order.line
+
+*(สามารถดาวน์โหลดได้ที่ <a href="https://odoo-community.org/shop">Odoo Community Shop</a>)*
+
+## การตั้งค่า Exception
+
+เมื่อติดตั้งแล้ว ให้ไปที่ตั้งค่าสิทธิ์ผู้ใช้งานเป็น Exception Manager แล้วเข้าไปที่ 
+
+**Menu: Settings > Technical > Exception Rules**
+
+Exception Rules จะมีตัวอย่างให้ 2 rules โดยเราสามารถเพิ่มได้เองภายหลัง
+
+![Base Exception](~/assets/images/post/base_exception_1.png)
+
+โดยการเซต Rule เราสามารถทำได้ทั้งแบบกำหนด Domain (เช่น [( &apos;product_qty &apos;, &apos;< &apos;, 0)]) หรือเขียนเป็น python code ซึ่งจะยืดหยุ่นมากกว่า
+
+ตัวอย่างเช่น **Quantity not negative** คือไม่ต้องการให้ Quantity บน Purchase Order Line ติดลบ ตัวอย่างนี้ใช้ Python code
+
+![](~/assets/images/post/base_exception_1-1.png)
+
+## การใช้งาน Exception
+
+ถึงตอนใช้งาน สมมุติเราสร้าง Purchase Order โดยใส่ Quantity แบบติดลบ และเลือก Partner ที่ยังไม่ตั้งค่า email เมื่อทำการ Confirm Order ระบบจะแสดงปัญหาทั้งหมดที่ตรวจสอบเจอ
+
+![](~/assets/images/post/base_exception_3.png)
+
+หากเลือกปล่อยผ่านด้วย Ignore Exception เอกสารนี้ก็จะถูก Confirm ได้ตามปกติ แต่ถ้าไม่ปล่อยผ่าน เอกสารนี้ก็จะยังค้างอยู่ที่ Draft และมีการขึ้นคำเตือนให้ที่หน้าเอกสาร ทั้งบน Form และ List View ซึ่งจะสะดวกสำหรับการมาปรับแก้ในภายหลังอีกด้วย
+
+![](~/assets/images/post/base_exception_4.png)
+![](~/assets/images/post/base_exception_5.png)
+
+เป็นไงครับ กับโมดูลเล็กๆจาก OCA ที่น่าจะมีประโยชน์ไม่น้อยทีเดียว ผมคงต้องลองเอาไปใช้ในโปรเจคที่จะทำบ้างแล้ว น่าจะช่วยประหยัดเวลา และให้งานเป็นระเบียบได้ดีเลยครับ :)
+
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
