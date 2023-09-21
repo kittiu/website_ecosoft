@@ -1,0 +1,103 @@
+---
+publishDate: 2023-09-20T00:00:00Z
+title: เขียนงบการเงินใน Odoo15 ด้วย MIS Report 
+excerpt: สร้างรายงานงบการเงิน ด้วยระบบ MIS (Management Information System) ของ Odoo
+image: ~/assets/images/post/financial-statement-mis-tools_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo 15
+  - Accounting
+  - MIS Report
+
+metadata:
+  canonical: https://ecosoft.co.th/financial-statement-mis-tools
+---
+
+Source Code : https://github.com/OCA/mis-builder
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*Jqr3LUFab8-wHH84SEXhGA.png">
+</img>
+</center>
+
+ระบบ MIS (Management Information System) ของ Odoo เป็นเครื่องมือที่ช่วยให้ผู้ใช้งานสามารถสร้างรายงานการเงินต่างๆ ได้อย่างง่ายดาย เพื่อใช้ในนำเสนองบการเงินต่อผู้บริหาร ตามรูปแบบงบการเงินประเทศไทย
+
+ทั้งนี้นักบัญชีสามารถบริหารจัดการงบการเงินได้ด้วยตัวเอง โดยไม่ต้องใช้การ Customize รายงานทางการเงินต่าง ๆ และยังช่วยในการรองรับการเปลี่ยนแปลงหรือแก้ไขข้อมูลในอนาคตอีกด้วย โดยไม่ต้องเสียค่าใช้จ่ายเพิ่มเติมในการปรับรูปแบบงบการเงิน
+
+การสร้างงบการเงิน ผู้ใช้งานสามารถนำข้อมูลของการบันทึกบัญชีที่อยู่ในระบบ Odoo มาใช้ในการสร้างงบการเงินได้อย่างยืดหยุ่น ปรับได้ตามความเหมาะสม ตามที่ผู้ใช้งานให้ระบบแสดงผลออกมาในรูปแบบงบการเงิน ซึ่งการเขียนรายงานสามารถทำได้ดังนี้
+
+## การตั้งค่า MIS Report Template
+
+Menu :: Invoicing > Configuration > **MIS Report Template**
+
+คลิกปุ่ม Create เพื่อสร้างรูปแบบงบการเงิน โดยส่วนบนของรายงาน มีความหมายดังนี้
+
+1. Name: ชื่อรายงาน
+2. Description: คำอธิบาย
+3. Style: รูปแบบการแสดงผล
+4. Move Lines Source: รูปแบบการดึงข้อมูล ให้เลือกเป็น Journal Item
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*t3O9crU2h-RTXeMby7UqnA.png">
+</img>
+
+คลิก Add a line เพื่อสร้างข้อมูลสำหรับดึงรายงานในแต่ละบรรทัด โดยระบบจะแสดงหน้าต่าง สามารถการเขียนงบการเงินได้จาก แท็บ Expression โดยสัญลักษณ์ต่างๆ มีความหมายดังนี้
+
+1. Description: คำอธิบายที่จะไปแสดงในงบการเงิน
+2. Value type: รูปแบบของการแสดงค่าข้อมูล
+3. Comparison Method: วิธีการเปรียบเทียบ
+4. Style: รูปแบบของข้อมูล เช่น ความหนาของตัวเลข และทศนิยมที่ใช้ออกรายงาน
+5. Name: ชื่อของบรรทัด
+6. Accumulation Method: วิธีการคำนวณ
+7. Expression: ใช้สำหรับการเขียนสูตรรวมกับรหัสบัญชีที่ต้องการดึงข้อมูล
+  * abs(): ให้ค่าที่อยู่ในวงเล็บเป็น + เสมอ
+  * bale[]: ยอดคงเหลือปลายงวด
+  * bali[]: ยอดคงเหลือต้นงวด
+  * balp[]: ยอดเปลี่ยนแปลงระหว่างงวด
+  * %: เอาทั้งหมดที่ขึ้นต้นด้วย… เช่น 1% เอาบัญชีทั้งหมดที่เริ่มต้นด้วย 1
+  * debp[]: เลือกเฉพาะยอดเปลี่ยนแปลงในงวดฝั่งเดบิต
+  * crdp[]: เลือกเฉพาะยอดเปลี่ยนแปลงในงวดฝั่งเครดิต
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zB5RwMVGlTEqQI-to5IOtg.png">
+</img>
+
+จากตัวอย่างรูปด้านล่างจะเห็นได้ว่า เมื่อเขียนรายงานแต่ละบรรทัดเรียบร้อยแล้ว โดยเป็นการจัดกลุ่มตามรูปแบบงบการเงินของประเทศไทยที่ต้องการดูรายงาน
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Jt03HN5Wyamqgc283VjMTA.png">
+</img>
+</center>
+
+## การเรียกดูรายงาน MIS Report
+
+เมื่อมีการเขียนรายงานตามการจัดกลุ่มของงบการเงินเรียบร้อยแล้ว สามารถใช้เมนู Invoicing > Reporting > **MIS Report** เพื่อใช้ในการดูรายงานดังนี้
+
+1. กดปุ่ม Create เพื่อเรียกรายงานตามรูปแบบที่สร้างไว้
+2. กรอกข้อมูลเพิ่มเติมส่วนดังนี้
+  * Name: ชื่อของรายงาน
+  * Template: รูปแบบของรายงาน
+  * Comparison Mode: ดูรายงานแบบเปรียบเทียบ
+  * Columns: คลิก add line เพื่อเลือกช่วงวันที่ของรายงาน
+
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*yQbQ0l5Xl1tcMCUHRUYFpQ.png">
+</img>
+
+รายงานนี้ ยังสามารถใช้กรองข้อมูลด้วย Function Filters งบการเงินตาม Cost Center ได้อีกด้วย เพื่อให้สะดวกแก่ผู้ใช้งบการเงินมากยิ่งขึ้น โดยในระบบ Odoo จะเรียกว่า Operating Unit
+
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*-qQRLeTAWERoHRq6eSxVzg.png">
+</img>
+
+รายงานนี้สามารถใช้การดู Preview ผ่านระบบ โดยจะแสดงผลตามรูปแบบที่ได้ผูกไว้ที่ MIS Report Template
+
+<img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*eu5TC_10PPG7ll1Dx06Vpg.png">
+</img>
+
+นอกจากการดูรายงานในระบบแล้ว รายงานนี้ยังสามารถ Export ออกมาเป็น Excel File เพื่อใช้ในการนำเสนอแก่ผู้ใช้งานงบการเงินภายนอกได้อีกด้วย
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*AxtEvVf7oBmnRb_e6JvYpw.png">
+</img>
+</center>
+
+by <a href="https://medium.com/@nantikanc">Nantikan Chaidech</a>
