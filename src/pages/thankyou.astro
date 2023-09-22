@@ -1,0 +1,21 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import CallToAction from "~/components/widgets/CallToAction.astro"
+
+const metadata = {
+  title: 'Click-through Landing Page Demo',
+};
+---
+
+<Layout metadata={metadata}>
+  <CallToAction
+    title="&#x2764;"
+    subtitle="ขอบคุณสำหรับข้อมูล ทางเราจะติดต่อกลับโดยเร็วที่สุด"
+    callToAction={{
+      text: 'กลับสู่หน้าหลัก',
+      href: '/',
+      icon: 'tabler:home',
+    }}
+  />
+</Layout>
