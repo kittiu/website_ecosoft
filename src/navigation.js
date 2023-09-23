@@ -57,7 +57,7 @@ export const headerData = {
       href: getPermalink('/blog'),
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: '/#contact-us' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
 };
 
 export const footerData = {
