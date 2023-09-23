@@ -87,7 +87,7 @@ export const footerData = {
         },
         {
           text: 'Partners',
-          href: getPermalink('/#technology_partner'),
+          href: getPermalink('/#partners'),
         },
       ],
     },
