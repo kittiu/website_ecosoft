@@ -10,7 +10,7 @@ metadata:
   title:
     default: Ecosoft | Your ERP Partner - Odoo Thailand Accounting Standard
     template: '%s — Ecosoft | Your ERP Partner'
-  description: 'Ecosoft is specialized in customizing Odoo, the leading open source software for business management. Since 2010, we have worked with Odoo from Thailand with customers in various industries.'
+  description: 'เพิ่มประสิทธิภาพการทำงานด้วยระบบ ERP ที่ดีที่สุด ทุกอย่างที่ธุรกิจต้องการ ตามมาตรฐานบัญชีไทย'
   robots:
     index: true
     follow: true
