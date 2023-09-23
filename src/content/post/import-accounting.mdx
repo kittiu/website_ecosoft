@@ -1,0 +1,171 @@
+---
+publishDate: 2020-03-17T00:00:00Z
+title: แนะนำ ข้อมูลบัญชีเบื้องต้นที่ควร Import เข้าระบบ Odoo 
+excerpt: เพิ่งเริ่มต้นใช้ระบบ ไม่รู้ว่าจะต้องเตรียมข้อมูลบัญชีอะไรบ้าง blog นี้มีคำตอบ!
+image: ~/assets/images/post/import-accounting_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo 13
+  - Accounting
+  - Chart of Account
+
+metadata:
+  canonical: https://ecosoft.co.th/import-accounting
+---
+
+การ import ผังบัญชีเพียงอย่างเดียวนั้น ไม่สามารถทำให้ระบบใช้งานได้อย่างสมบูรณ์ ด้วยเหตุนี้จึงต้อง import ข้อมูลอื่นๆที่เกี่ยวข้องกับการบันทึกบัญชีด้วย เพื่อให้ระบบสามารถใช้งานได้
+
+ในบทความนี้ จะกล่าวถึง
+* <a href="#ไฟล์ต่างๆที่ต้องเตรียม">ไฟล์ต่างๆที่ต้องเตรียม</a>
+* <a href="#การตั้งค่าสิทธิ์ในการเข้า-chart-of-accounts">การตั้งค่าสิทธิ์ในการเข้า Chart of accounts</a>
+* <a href="#การ-import-ประเภทบัญชี">การ import ประเภทบัญชี</a>
+* <a href="#การ-import-ผังบัญชี">การ import ผังบัญชี</a>
+* <a href="#การ-import-ภาษี">การ import ภาษี</a>
+* <a href="#การ-import-สมุดรายวัน">การ import สมุดรายวัน</a>
+* <a href="#การตั้งค่า-default-บัญชีของลูกค้าและผู้ขาย-default-เหมือนบริษัทตนเอง">การตั้งค่า default บัญชีของลูกค้าและผู้ขาย (default เหมือนบริษัทตนเอง)</a>
+* <a href="#การตั้งค่า-default-บัญชีของสินค้า">การตั้งค่า default บัญชีของสินค้า</a>
+
+---
+## ไฟล์ต่างๆที่ต้องเตรียม
+
+1. ประเภทบัญชี หรือ Account Types โดยในไฟล์จะต้องมีข้อมูลอย่างน้อย ดังนี้
+    * ID
+    * Account Type
+    * Type (Regular, Receivable, Payable, Liquidity)
+    * Internal Group
+    * Bring Accounts Balance Forward
+
+2. ผังบัญชี หรือ Chart of Accounts โดยในไฟล์จะต้องมีข้อมูลอย่างน้อย ดังนี้
+    * ID
+    * Code
+    * Name
+    * Type
+    * Allow Reconciliation
+
+3. ภาษี หรือ Taxes โดยในไฟล์จะต้องมีข้อมูลอย่างน้อย ดังนี้
+    * ID
+    * Tax Name
+    * Tax Scope (Sales, Purchases, None)
+    * Tax Computation (Group of Taxes, Fixed, Percentage of Price,  Percentage of Price Tax Included)
+    * Amount
+    * Repartition for Invoices
+        * %
+        * Base On
+        * Account
+    * Repartition for Credit Notes
+        * %
+        * Base On
+        * Account
+4. สมุดรายวัน หรือ Journals โดยในไฟล์จะต้องมีข้อมูลอย่างน้อย ดังนี้
+    * ID
+    * Journal Name
+    * Type (Sales, Purchase, Cash, Bank, Miscellaneous)
+    * Short Code
+
+*เพิ่มเติม*
+* ไม่จำเป็นและไม่แนะนำให้ import Account Types เพราะว่าในระบบมี Account Types ที่เป็นมาตรฐานให้อยู่แล้ว และการแก้ไข Account Types  จะมีผลกระทบในการออกรายงานต่างๆภายในระบบ
+* install โมดูล account_menu เพื่อให้สามารถเข้าหน้าเมนูต่างๆของบัญชีได้
+
+---
+
+## การตั้งค่าสิทธิ์ในการเข้า Chart of accounts
+
+1. เปิด Developer Mode
+2. เข้าไปที่ Settings -> Users & Companies ->Users
+3. เลือก User ที่ต้องการตั้งค่า
+4. เลือก Show Full Accounting Features
+
+![](~/assets/images/post/import-accounting_1.gif)
+
+*Before*
+![](~/assets/images/post/import-accounting_2.png)
+
+*After*
+![](~/assets/images/post/import-accounting_3.png)
+
+---
+
+## การ import ประเภทบัญชี
+
+ระบบมีข้อมูลประเภทบัญชี (Account Types) ที่เป็นมาตรฐานให้ และสามารถ import เพิ่มเข้าไปได้ **แต่ไม่แนะนำ** เนื่องจากการ import เพิ่มเข้าไปหรือมีการแก้ไขประเภทบัญชี (Account Types) จะมีผลกระทบในการออกรายงานต่างๆภายในระบบ
+
+หากต้องการ Import ประเภทบัญชี (Account Types) มีวิธีดังนี้ 
+1. เข้าไปที่ Invoicing -> Configuration -> **Account Types** (ต้อง install โมดูล account_menu ก่อน)
+2. กดที่ปุ่ม Import
+3. กดที่ปุ่ม Load file หลังจากนั้น เลือกไฟล์ที่ต้องการ แล้วกดปุ่ม Import
+
+![](~/assets/images/post/import-accounting_4.gif)
+
+*ตัวอย่างไฟล์ที่ใช้ import*
+![](~/assets/images/post/import-accounting_5.png)
+
+---
+
+## การ import ผังบัญชี
+
+1. เข้าไปที่ Invoicing -> Configuration -> **Chart of Accounts**
+2. กดที่ปุ่ม Import
+3. กดที่ปุ่ม Load file หลังจากนั้น เลือกไฟล์ที่ต้องการ แล้วกดปุ่ม Import
+
+![](~/assets/images/post/import-accounting_6-1.gif)
+
+*ตัวอย่างไฟล์ที่ใช้ import*
+![](~/assets/images/post/import-accounting_7-1.png)
+
+---
+
+## การ import ภาษี
+
+1. เข้าไปที่ Invoicing -> Configuration -> **Taxes**
+2. กดที่ปุ่ม Import
+3. กดที่ปุ่ม Load file หลังจากนั้น เลือกไฟล์ที่ต้องการ แล้วกดปุ่ม Import
+
+![](~/assets/images/post/import-accounting_8.gif)
+
+*ตัวอย่างไฟล์ที่ใช้ import*
+![](~/assets/images/post/import-accounting_9.png)
+
+---
+
+## การ import สมุดรายวัน
+
+1. เข้าไปที่ Invoicing -> Configuration -> **Journals**
+2. กดที่ปุ่ม Import
+3. กดที่ปุ่ม Load file หลังจากนั้น เลือกไฟล์ที่ต้องการ แล้วกดปุ่ม Import
+
+![](~/assets/images/post/import-accounting_10-2.gif)
+
+*ตัวอย่างไฟล์ที่ใช้ import*
+![](~/assets/images/post/import-accounting_11-2.png)
+
+---
+
+## การตั้งค่า default บัญชีของลูกค้าและผู้ขาย (default เหมือนบริษัทตนเอง)
+
+1. เข้าไปที่ Settings -> Users & Companies -> Companies
+2. เลือกบริษัทของตนเอง
+3. เข้าไปที่ Contact ของบริษัท
+4. เข้าไปที่แท็บ Invoicing แล้ว ตั้งค่า Account Receivable และ Account Payable
+5. เข้าไปที่ Settings -> Technical -> Company Properties
+6. เข้าไปลบ Resource ของ record ที่ชื่อ property_account_receivable_id และ propery_account_payable_id
+
+![](/src/assets/images/post/import-accounting_12-2.gif)
+
+---
+
+## การตั้งค่า default บัญชีของสินค้า
+
+1. เข้าไปที่ Settings -> Technical -> Company Properties
+2. กดที่ปุ่ม Create 
+3. เลือก Field  ที่ Field Name เป็น property_account_income_id และ Model เป็น Product Template
+4. เลือก Type เป็น Many2One
+5. ใส่ Value ในรูปแบบของ model,id เช่น account.account,22
+6. ทำข้อ 1-5 อีกครั้ง แต่เปลี่ยนจาก property_account_income_id เป็น property_account_expense_id
+
+![](/src/assets/images/post/import-accounting_13-2.gif)
+
+
+by <a href="https://medium.com/@pimolnats">Pimolnat</a>
