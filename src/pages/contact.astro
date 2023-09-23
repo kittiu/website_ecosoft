@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+
+const metadata = {
+  title: 'Contact Us',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Steps2
+    id="contact-us"
+    title="Contact Us"
+    callToAction={{
+      text: 'แจ้งรายละเอียดให้เราติดต่อกลับ',
+      href: 'https://ecosoft.frappe.cloud/contact-us',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'sales@ecosoft.co.th',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Call us',
+        description: '+66 61 860 1994<br/>+66 81 841 7480',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Address',
+        description: '6/F NST One Building, 281/19-23, Room 604, Silom Road, Silom, Bangrak, Bangkok Thailand 10500',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+</Layout>
