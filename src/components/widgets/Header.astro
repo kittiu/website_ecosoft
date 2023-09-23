@@ -167,12 +167,14 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'AW-764024263');
-
-    { currentPath === '/thankyou' && (
-      gtag('event', 'conversion', {'send_to': 'AW-764024263/m6vWCLeD4OEYEMerqOwC'});
-    )}
   </script>
+
+  <!-- Event snippet for Website traffic conversion page -->
+  { currentPath === '/thankyou' && (
+    <script>
+        gtag('event', 'conversion', {'send_to': 'AW-764024263/m6vWCLeD4OEYEMerqOwC'});
+    </script>
+  )}
 
 </header>
