@@ -28,14 +28,14 @@ export const headerData = {
       ]
     },
     {
-      text: 'Solutions',
+      text: 'Services',
       links: [
         {
-          text: 'ERP',
+          text: 'ERP (Odoo)',
           href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government',
+          text: 'Government ERP (Odoo)',
           href: getPermalink('/#solution-2'),
         },
         {
@@ -92,14 +92,14 @@ export const footerData = {
       ],
     },
     {
-      title: 'Solutions',
+      title: 'Services',
       links: [
         {
-          text: 'ERP',
+          text: 'ERP (Odoo)',
           href: getPermalink('/#solution-1'),
         },
         {
-          text: 'Government',
+          text: 'Government ERP (Odoo)',
           href: getPermalink('/#solution-2'),
         },
         {
