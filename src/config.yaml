@@ -8,9 +8,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Your ERP Partner - Odoo Thai Online ERP โปรแกรมบัญชี ลูกค้าสัมพันธ์ ซื้อขาย คลัง และผลิต
-    template: '%s — Ecosoft | Your ERP Partner'
-  description: 'เพิ่มประสิทธิภาพการทำงานด้วยระบบ ERP ที่ดีที่สุดสำหรับ SME, Enterprise, Government ทุกความต้องการของธุรกิจต้องการ ตามมาตรฐานบัญชีไทย โดยผู้เชี่ยวชาญเรื่อง Open Source ERP'
+    default: Ecosoft | Your ERP Partner
+    template: '%s — Odoo Thai Online ERP โปรแกรมบัญชี ลูกค้าสัมพันธ์ ซื้อขาย คลัง บริการ ผลิต eCommerce POS'
+  description: 'เพิ่มประสิทธิภาพการทำงานด้วยระบบ ERP ที่ดีที่สุดสำหรับ SME, Enterprise, Government ทุกความสามารถที่ธุรกิจต้องการ ตามมาตรฐานบัญชีไทย โดยผู้เชี่ยวชาญเรื่อง Open Source ERP'
   robots:
     index: true
     follow: true
