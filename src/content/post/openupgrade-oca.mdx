@@ -1,0 +1,212 @@
+---
+publishDate: 2023-09-26T00:00:00Z
+title: OpenUpgrade อาวุธลับของ Odoo Community
+excerpt: โมดูลน่าสนใจจาก Odoo Community ที่ช่วยให้การ upgrade version เป็นเรื่องง่าย
+image: ~/assets/images/post/openupgrade-oca_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo OCA
+  - oca module
+
+metadata:
+  canonical: https://ecosoft.co.th/openupgrade-oca
+---
+
+Source: https://github.com/OCA/OpenUpgrade
+
+Documentation: https://oca.github.io/OpenUpgrade/
+
+ทุกการเปรียบเทียบความแตกต่างระหว่าง Odoo Enterprise กับ Odoo Community มักจะมีการชูจุดเด่นของ Enterprise ในเรื่องของการ support migration (Upgrade version odoo) ไป version ใหม่ ซึ่ง Odoo Community ไม่มีในสิ่งนี้ 
+
+…แต่ปัจจุบันกลุ่ม OCA ได้พัฒนาโมดูลในการ upgrade version สำหรับ Community ชื่อว่า OpenUpgrade ซึ่งเป็น Tools ที่จะช่วยในการแก้ปัญหาและได้รับการแนะนำโดย Fabien Pinckaers (CEO and Founder of Odoo S.A.)
+
+จากที่ผมศึกษามาและเห็นถึงความน่าสนใจของโมดูลนี้ จึงอยากที่จะมาแชร์การ Upgrade Version โดยใช้โมดูล OpenUpgrade ตั้งแต่ Version14 เป็นต้นไป ให้ดูกันครับ
+
+**Note** สำหรับ Version อื่นๆที่เก่ากว่า จะมีขั้นตอนการทำงานที่แตกต่างกัน หากสนใจสามารถศึกษาเพิ่มเติมได้ที่ <a href="https://oca.github.io/OpenUpgrade/">Documentation</a> ของโมดูล OpenUpgrade ได้นะครับ
+
+---
+
+## การเตรียมตัวก่อน Upgrade Version
+
+1. Database Version ปัจจุบัน
+2. Source Code OpenUpgrade (Version ถัดไป): https://github.com/OCA/OpenUpgrade
+3. Server ทดสอบ Version ถัดไป
+4. Module สำหรับ Version ถัดไป ที่มีการติดตั้งใน Version ปัจจุบัน
+5. การทำ Migration จะสามารถทำได้ทีละ 1 version หากต้องการ upgrade จาก version 14 → version 16 จะต้องทำ 2 รอบ
+    - version 14 → version 15
+    - Version 15 → version 16
+
+## ขั้นตอนการทำ Migrations (ตัวอย่าง V14 -> V15)
+
+1. ติดตั้ง Odoo Version 15
+2. ติดตั้ง Database ของ Version 14 เข้าไปใน Version 15
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*HF6wlDywWqH8HuLwTzgE6A.png"></img>
+<small>*ตามปกติ จะต้องขึ้นรูปสามเหลี่ยมสำหรับ database ที่ไม่ตรงกับ version ปัจจุบัน*</small>
+</center>
+
+3. เพิ่ม OpenUpgrade เข้าไปใน addons path ใน Version 15
+4. Run odoo ด้วยคำสั่งดังนี้
+
+<pre>
+./odoo-bin --upgrade-path=./OpenUpgrade/openupgrade_scripts/scripts --update all --stop-after-init --load=base,web,openupgrade_framework --database=devel_14
+</pre>
+
+* --upgrade-path: ใส่ scripts ที่อยู่ใน OpenUpgrade
+* --load: เพิ่ม openupgrade_framework
+* --database: ระบุชื่อ database ที่ต้องการ migrate
+
+5. ระบบจะทำการ Migrate เป็น Version ตาม OpenUpgrade ให้
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*EHh0PyNqGiSv8F_zbRe7Eg.png"></img>
+<small>*หลัง Migrate สำเร็จจะสามารถเข้า database นั้นได้*</small>
+</center>
+
+6. ตรวจสอบความถูกต้องและข้อมูลเทียบกับปัจจุบัน
+
+เสร็จสิ้นกระบวนการ Migrate !! ง่าย ๆ แบบนี้เลยครับ อย่างไรก็ตาม กรณีนี้จะเป็นกรณีที่ไม่มีการ Customize Module เพิ่มเติม ซึ่งในการทำงานจริงคงเป็นไปได้ยาก อย่างน้อยก็คงมีการ Customize ในส่วนของ Form ซึ่งหากใน Version ถัดไปมีการเปลี่ยน, เพิ่ม, ลบ Field จาก Version เดิม ทางผู้ใช้งานจะต้องเขียน script เพิ่มเติม เพื่อให้ข้อมูลเก่ายังคงถูกต้องใน Version ใหม่
+
+## การทำ Migration Scripts
+
+ส่วนนี้ถือว่าเป็นส่วนหลักของ OpenUpgrade เลยทีเดียว เพราะผู้ใช้งานจะต้องเขียน Scripts ที่มีการเปลี่ยนแปลงจาก Version เก่าทั้งหมดไว้ในนี้ โดยตัวอย่างจะเป็นการทำ script ของโมดูล Purchase Request https://github.com/OCA/purchase-workflow/ จาก Version14 → Version 15 โดยจากการตรวจสอบจะพบว่ามีการเปลี่ยนแปลง Field currency เป็น store
+
+**Version 14 (Purchase Request)**
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*0WUq1nVcF9qMNCvfb-e7Jw.png"></img>
+<small>*Currency ระบบคำนวณให้ตาม default company = EUR*</small>
+</center>
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*e_liYijR4AsMiYQccpKkeQ.png"></img>
+<small>*Currency ระบบคำนวณให้ตาม default company = USD*</small>
+</center>
+
+ทดสอบโดยการไม่มี Migration Script ของ Purchase Request
+
+**Version 15 after migrated (Purchase Request)**
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*GMY5lO_VULAp2gTRPMXM-A.png"></img>
+<small>*Currency ระบบคำนวณให้ตาม default Company ของ admin = EUR*</small>
+</center>
+
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*WIfyUNbfnXa832VLbZiVYg.png"></img>
+<small>*Currency ระบบคำนวณให้ตาม default Company ของ admin = EUR*</small>
+</center>
+
+จากภาพจะเห็นว่า หลัง Migrated ข้อมูลของเอกสาร PR00004 ไม่ถูกต้อง เพราะใน Version 15 มีการแสดง Currency และเก็บข้อมูล แต่ Version 14 เป็น compute field
+
+จากตัวอย่างข้างต้น วิธีแก้ไขจะต้องทำ Migration Scripts เพื่อเปลี่ยนค่าข้อมูลให้ถูกต้องก่อนที่จะทำการ Migrate database จริง
+
+## ขั้นตอนการเขียน Migration Scripts
+
+1. ทุกการเขียน Migration Scripts จะต้องไปที่โมดูล OpenUpgrade → openupgrade_scripts → scripts
+2. สร้าง Folder โมดูลที่ต้องการเขียน script ในที่นี้คือ purchase_request
+3. สร้าง Folder version โมดูลใน Folder โมดูล ในที่นี้จะเป็น version 15.0.1.1.2
+4. สร้าง File upgrade_analysis_work.txt เพื่อวิเคราะห์ความแตกต่างจาก Version เดิม (ในส่วนนี้สามารถติดตั้งโมดูล upgrade_analysis เพื่อช่วยวิเคราะห์ความต่างของทั้ง 2 Version ได้)
+
+<pre>
+---Models in module 'purchase_request'---
+---Fields in module 'purchase_request'---
+purchase_request / purchase.request         / currency_id (many2one)        : is now stored
+&num; DONE: post-migration: fill currency_id from the company for empty ones
+
+purchase_request / purchase.request         / currency_id (many2one)        : not related anymore
+purchase_request / purchase.request         / currency_id (many2one)        : now required
+purchase_request / res.company              / notify_request_allocations (boolean): DEL
+&num; NOTHING TO DO
+
+---XML records in module 'purchase_request'---
+NEW ir.ui.view: purchase_request.view_purchase_request_line_details
+DEL ir.ui.view: purchase_request.res_config_settings_view_form
+&num; NOTHING TO DO
+</pre>
+
+5. หลังจากวิเคราะห์แล้วว่าโมดูล purchase_request มีการเปลี่ยน field เป็น store ทางผู้ใช้งานจะต้องวิเคราะห์ต่อว่าต้องการ run script เมื่อไหร่
+
+* pre-migration.py — run script ก่อนทำ Migration
+* post-migration.py — run script หลังทำ Migration
+* end-migration.py — run script หลังจบการทำ Migration
+
+จากตัวอย่างต้องการ run script หลังจากระบบ Migration โมดูล purchase_request เสร็จ เพราะต้องการให้ใน database มี field currency ก่อนแล้วค่อย run script จึงเลือกสร้าง file post-migration.py
+
+Script การ update field currency ที่เอกสาร PR โดยให้ currency PR มีค่าตาม currency ของ company PR
+
+<pre>
+from openupgradelib import openupgrade
+
+
+def _compute_currency_id_has_not_value(env):
+    &emsp;openupgrade.logged_query(
+        &emsp;&emsp;env.cr,
+        &emsp;&emsp;"""
+        &emsp;&emsp;UPDATE purchase_request pr
+        &emsp;&emsp;SET currency_id = c.currency_id
+        &emsp;&emsp;FROM res_company c
+        &emsp;&emsp;WHERE c.id = pr.company_id
+        &emsp;&emsp;""",
+    &emsp;)
+
+
+@openupgrade.migrate()
+def migrate(env, version):
+    &emsp;_compute_currency_id_has_not_value(env)
+</pre>
+
+*OpenUpgrade → openupgrade_scripts → scripts → purchase_request → 15.0.1.1.2 → post-migration.py, upgrade_analysis_work.txt*
+
+6. ทดสอบโดยการ Migration ระบบและตรวจสอบข้อมูลอีกครั้งหนึ่ง
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MKni1h0sX8GbsqFOEpH96A.png"></img>
+<small>*Currency ระบบคำนวณให้ตาม default Company ของ PR = USD*</small>
+</center>
+
+เพียงเท่านี้ข้อมูลของ Version 15 ก็จะออกถูกต้องแล้ว
+
+## การวิเคราะห์ความแตกต่างของ Database
+
+จากขั้นตอนการเขียน Migration Script จะพบว่า เราจะรู้ได้อย่างไรว่าโมดูลไหนมีการเปลี่ยนแปลงไปบ้าง หากต้องมานั่งไล่เทียบทีละโมดูลคงใช้เวลาเยอะมาก ทาง OCA จึงมีโมดูล upgrade_analysis (https://github.com/OCA/server-tools) ใช้สำหรับการวิเคราะห์ความแตกต่างของ Database
+
+## ขั้นตอนการวิเคราะห์ความต่างของ Database
+
+1. ติดตั้งโมดูล upgrade_analysis ทั้ง 2 Version
+2. ไปที่เมนู Settings → Upgrade Analysis → Generate Records Wizard → Continue ระบบจะทำการสร้าง Record ของโมดูลทั้งหมดที่ติดตั้งในระบบ
+3. ตรวจสอบ Records ที่ถูกสร้างที่เมนู Settings → Upgrade Analysis → Records จะพบว่ามี Records ที่ระบบสร้างให้อัตโนมัติทั้งหมด
+4. ทำตามขั้นตอนที่ (2) และ (3) ทั้ง 2 Version
+5. เข้า server database version ถัดไป (Version 15)
+6. ไปที่เมนู Settings → Upgrade Analysis → Comparison Configurations
+7. สร้าง config ในการเปรียบเทียบกับ version ก่อนหน้า
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*seF2V5S-NspEJqbzzlifkg.png"></img>
+</center>
+
+8. หลังกรอกข้อมูลแล้วทดสอบการเชื่อมต่อโดยการกด Test Connection หากเชื่อมต่อสำเร็จจะมีข้อความแจ้งเตือนด้านขวาบน
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*YyUkzXLmOu_88K51aff3eA.png"></img>
+</center>
+
+9. กดปุ่ม New Analysis → Perform Analysis ระบบจะวิเคราะห์หาความแตกต่างเทียบกับระหว่าง Version 15 — Version 14 และแสดงผลที่ Log
+
+หากเลือก Write File ระบบจะสร้างให้ใน Folder openupgrade_scripts → scripts โดยจะได้เป็นชื่อโมดูล → version โมดูล และภายในจะมีไฟล์ upgrade_analysis.txt เพื่อนำมาวิเคราะห์ต่อ
+
+<center>
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*R9rMPL_BZU7Q2362nz1Tug.png"></img>
+</center>
+
+
+
+
+
+
+by <a href="https://medium.com/@saranlim">Saran Lim.</a>
