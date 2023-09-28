@@ -56,6 +56,19 @@ export const headerData = {
       text: 'Blogs',
       href: getPermalink('/blog'),
     },
+    {
+      text: 'Job Opening',
+      links: [
+        {
+          text: 'Business Analyst',
+          href: 'https://ecosoft.frappe.cloud/business-analyst'
+        },
+        {
+          text: 'Software Developer',
+          href: 'https://ecosoft.frappe.cloud/software-developer'
+        },
+      ]
+    },
   ],
   actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
 };
