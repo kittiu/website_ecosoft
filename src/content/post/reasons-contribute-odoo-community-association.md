@@ -12,7 +12,7 @@ tags:
   - Community
 
 metadata:
-  canonical: https://ecosoft.co.th/10-reasons-to-contribute-to-oca-th
+  canonical: https://ecosoft.co.th/reasons-contribute-odoo-community-association
 ---
 
 สวัสดีครับ ในบทความนี้เรามาเปลี่ยนบรรยากาศมาคุยเรื่องเบาๆกันบ้างนะครับ ลองมาทำความรู้จักกับหลักคิดของ Open Source และ OCA (Odoo Community Association) กันหน่อย เพราะถ้าสังเกต Blog นี้ส่วนใหญ่จะเป็นการนำโมดูลที่ Ecosoftได้ทำหรือได้ใช้งานจาก OCA นำมาแชร์ประสบการณ์ แต่หลายคนอาจยังไม่รู้จัก OCA
