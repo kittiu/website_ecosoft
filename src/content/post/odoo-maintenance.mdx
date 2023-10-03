@@ -1,0 +1,71 @@
+---
+publishDate: 2019-05-27T00:00:00Z
+title: โมดูลซ่อมบำรุง (Maintenance)
+excerpt: บริหารงานซ่อมบำรุงเบื้องต้น ด้วยโมดูลมาตรฐานจาก Odoo
+image: ~/assets/images/post/odoo-maintenance_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo Module
+  - Odoo Addons 
+  - Odoo 12
+  - Maintenance
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-maintenance
+---
+
+Source Code: https://github.com/odoo/odoo/tree/12.0/addons/maintenance
+
+<center>
+![](~/assets/images/post/odoo-maintenance_1.png)
+</center>
+
+Odoo มาตรฐาน มาพร้อมกับโมดูลซ่อมบำรุง (Maintenance) อย่างง่าย โดยโมดูลนี้ถือเป็นโมดูล Stand Alone สามารถติดตั้งได้โดยไม่ต้องอิงกับโมดูลอื่น การทำงานก็ง่ายๆไม่ซับซ้อน โดยจะประกอบไปด้วยส่วนสำคัญต่อไปนี้
+1. Maintenance Team - - ทีมงานซ่อมบำรุง แบ่งเป็นกลุ่มงาน
+2. Equipment - - ข้อมูลอุปกรณ์ วันเริ่มใช้งาน วันหมดประกัน และที่สำคัญคือเป็นของทีมงานซ่อมบำรุงใด
+3. Maintenance Request - - ใบสั่งการซ่อมอุปกรณ์ มี 2 แบบคือ Corrective Maintenance (ซ่อมตามที่เสีย) และ Preventive Maintenance (ซ่อมเชิงป้องกัน จะกำหนดวันซ่อมครั้งถัดไป)
+4. Scheduler - - เพื่อสร้าง Preventive Maintenance Request โดยจะมีการสร้าง Request ให้อัตโนมัติเมื่อ Maintenance Request ก่อนเสร็จสิ้น โดยดูจากกำหนดวันซ่อมครั้งถัดไปใน Equipment
+
+---
+**1. Maintenance Team**
+
+เมื่อเข้ามาที่เมนู Maintenance Team ระบบจะแสดง Dashboard ของ Maintenance Request โดยแบ่งตาม Maintenance Team 
+
+โดยใน 1 Maintenance Team สามารถผูกสมาชิกได้หลายคน
+
+![](~/assets/images/post/odoo-maintenance_2-1.png)
+
+**2. Equipment**
+
+นอกจากข้อมูล Spec ต่างๆแล้ว ข้อมูลที่สำคัญอย่างหนึ่งคือ ความถี่ของการทำ Preventive Maintenance และ Next Maintenance ข้อมูลนี้ประกอบกับ Maintenance Request ของอุปกรณ์นี้ที่เป็นแบบ Preventive จะเป็นตัว trigger ให้สร้าง Preventive Maintenance Request ครั้งต่อไป
+
+Note: ดั้งนั้นจะเห็นได้ว่ารอบความถี่กำหนดได้ค่าเดียว ระบบไม่น่าจะสามารถทำ Preventive Maintenance ได้หลายหลาย อาจยังไม่เหมาะกับการทำ Maintenance ที่มีความซับซ้อน ในอนาคตเราจะได้หาโมดูลอื่นที่ยืดหยุ่นกว่านี้มาแจ้งให้ทราบต่อไป
+
+![](~/assets/images/post/odoo-maintenance_3-1.png)
+
+**3. Maintenance Request**
+
+ถือเป็น Transaction หลักของโมดูลนี้ โดย Maintenance Request จะมีขึ้นต่อ Equipment ตัวหนึ่ง และนอกจากรายละเอียดการทำงานแล้ว จะบอกด้วยว่าเป็นประเภท Corrective หรือ Preventive และหากมีการกำหนด Scheduled Date ที่จะทำงานแล้วจะแสดงผลใน Calendar ด้วย
+
+![](~/assets/images/post/odoo-maintenance_4-1.png)
+![](~/assets/images/post/odoo-maintenance_5-1.png)
+
+**4. Scheduler**
+
+Automatic Scheduler ใช้สำหรับสร้าง Preventive Maintenance Request ตามรอบล่วงหน้า จากที่ได้อธิบายได้ก่อนหน้า Scheduler จะถูกกำหนดไว้ตามรูป
+
+![](~/assets/images/post/odoo-maintenance_6-1.png)
+
+*บทสรุปส่งท้าย:* โมดูลนี้สามารถใช้งานแบบง่ายๆได้ ใช้เพื่อติดตามการดูแลรักษาเครื่องจักรที่ไม่มีความซับซ้อนมากนัก ตัวโมดูลเองไม่มีความสัมพันธ์เรื่องการเงิน หรือต้นทุนการทำงานใดๆกับโมดูลอื่นๆ การคุมต้นทุนการทำงานจะต้องใช้งานร่วมกับโมดูล Time Sheet
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
