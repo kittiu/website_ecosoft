@@ -1,0 +1,61 @@
+---
+publishDate: 2019-06-17T00:00:00Z
+title: เงินมัดจำซื้อ (Purchase Deposit)
+excerpt: โมดูลช่วยเพิ่มความสามารถให้กับ Purchase Workflow
+image: ~/assets/images/post/odoo-purchase-deposit_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo Module
+  - Odoo Addons
+  - Purchase
+  - oca module  
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-purchase-deposit
+---
+
+Source Code: https://github.com/ecosoft-odoo/purchase-workflow/tree/12.0-add-purchase_deposit/purchase_deposit
+
+<center>
+![](~/assets/images/post/odoo-purchase-deposit_1.png)
+</center>
+
+สำหรับ Standard Odoo ในส่วนของ Sales Workflow ในขั้นตอนการสร้าง Invoice จาก Sales Order ผู้ใช้งานสามารถเลือกที่จะสร้าง Deposit Invoice ได้ดังรูป
+
+![](~/assets/images/post/odoo-purchase-deposit_2.png)
+
+แต่ใน Purchase Workflow, Odoo Standard ไม่มีฟังก์ชั่นนี้
+
+**โมดูล purchase_deposit ของ OCA** จึงเกิดมาเพื่อเพิ่มความสามารถนี้สำหรับ Purchase Workflow โดยสามารถใช้งานได้ทันทีหลังจากติดตั้งโมดูล
+
+1. สร้าง Purchase Order และ confirm ตามปกติ ที่หน้าต่าง Purchase Order จะมีปุ่ม "Register Deposit" ใหม่
+
+2. กดปุ่ม Register Deposit ใส่ยอดเป็น % หรือ Amount ตามต้องการ
+
+![](~/assets/images/post/odoo-purchase-deposit_3.png)
+
+<small>
+
+*หมายเหตุ:* สำหรับการใช้งานครั้งแรกเท่านั้น ระบบจะขอให้ใส่ Account กับ Taxes เพื่อไปสร้าง Purchase Deposit (product) ให้โดยจะไปเก็บไว้ที่ > Purchase > Configuration > Settings > Invoicing / Deposit Payment field.
+
+</small>
+
+3. Invoice ที่ถูกสร้างจะมี 1 บรรทัด Purchase Deposit ด้วยยอดที่ต้องการ
+
+![](~/assets/images/post/odoo-purchase-deposit_4.png)
+
+4. กลับไปยังหน้าต่าง Purchase Order เพื่อกดปุ่มเพื่อสร้าง Invoice "Create Bill" ตามปกติ โดย Invoice ที่สร้างขึ้นจะมีการหัก Advance ออกเท่ากับ Deposit Invoice ข้างต้น เป็นอันจบกระบวนการ
+
+![](~/assets/images/post/odoo-purchase-deposit_5.png)
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>

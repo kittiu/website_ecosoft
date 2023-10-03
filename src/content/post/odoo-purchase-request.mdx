@@ -1,0 +1,84 @@
+---
+publishDate: 2020-01-03T00:00:00Z
+title: การขอซื้อวัสดุ (Purchase Request) บน odoo
+excerpt: ส่วนเสริมที่ช่วยให้โมดูลกระบวนการจัดซื้อตอบโจทย์ผู้ใช้งานมากยิ่งขึ้น
+image: ~/assets/images/post/odoo-purchase-request_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo Module
+  - Odoo 12
+  - Odoo Addons
+  - Purchase
+  - oca module 
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-purchase-request
+---
+
+Source code: https://github.com/OCA/purchase-workflow/tree/12.0/purchase_request
+
+<center>
+![](~/assets/images/post/odoo-purchase-request_1.png)
+</center>
+
+ในองค์กรขนาดใหญ่ หรือองค์กรที่ต้องการควบคุมค่าใช้จ่ายในการจัดซื้อวัสดุต่างๆ จะมีฝ่ายงานที่ทำหน้าที่จัดซื้อวัสดุต่างๆตามที่มีผู้ขอซื้อ
+
+ใน Odoo standard มีโมดูล purchase ที่ใช้สำหรับสั่งซื้อวัสดุต่างๆจากผู้ขาย แต่ความสามารถของโมดูลนี้ยังไม่เพียงพอต่อการใช้งาน จึงทำให้มีผู้พัฒนาของ OCA ได้จัดทำโมดูล purchase_request ขึ้น เพื่อตอบสนองการใช้งานในด้านการจัดซื้อวัสดุ
+
+ในบทความนี้จะกล่าวถึง
+
+* <a href="#การขอซื้อวัสดุ">การขอซื้อวัสดุ</a> ตัวอย่างขั้นตอนและกระบวนการจัดซื้อวัสดุ
+* <a href="#การตั้งค่า">การตั้งค่า</a> เพื่อให้สร้างใบขอซื้อวัสดุเมื่อสินค้าหมด
+---
+
+## การขอซื้อวัสดุ
+
+ผู้ที่ต้องการขอซื้อวัสดุ เข้าไปที่ Purchase Requests แล้วกด Create หลังจากนั้นกรอกข้อมูลในการขอซื้อวัสดุ และวัสดุต่างๆที่ต้องการ แล้วกด Request approval
+![](~/assets/images/post/odoo-purchase-request_2.png)
+
+รอให้ผู้ที่มีสิทธิ์ (Purchase Request Manager) เข้ามากด Approve
+![](~/assets/images/post/odoo-purchase-request_3.png)
+
+ฝ่ายจัดซื้อ เข้าไปที่ Purchase Requests -> Purchase Request Lines เลือกรายการที่จะซื้อ หลังจากนั้นกดที่ Action แล้วเลือก Create RFQ
+![](~/assets/images/post/odoo-purchase-request_4.png)
+
+กรอกข้อมูลต่างๆ แล้วกด Create RFQ
+![](~/assets/images/post/odoo-purchase-request_5.png)
+
+เมื่อกลับมาที่ Purchase Request แล้วเข้าไปดูใน Lines จะปรากฏสถานะต่างๆ และรายการของ Purchase Order ที่สร้างไป
+![](~/assets/images/post/odoo-purchase-request_6.png)
+
+เมื่อเราทำการซื้อและรับของในระบบเรียบร้อยแล้ว จะเห็นว่า QTY Done มีการเปลี่ยนแปลง
+![](~/assets/images/post/odoo-purchase-request_7.png)
+
+เมื่อทำการซื้อและรับของเรียบร้อยทุกรายการใน Purchase Request นั้นๆแล้ว กด Done
+![](~/assets/images/post/odoo-purchase-request_8.png)
+
+
+## การตั้งค่า
+
+เข้าไปที่ Inventory -> Master Data -> Products / Product Variants แล้วเลือกวัสดุที่ต้องการตั้งค่า หลังจากนั้นไปที่ Inventory tab เลือก Buy
+![](~/assets/images/post/odoo-purchase-request_9.png)
+
+
+นอกจากโมดูล purchase_request นี้แล้ว ยังมีโมดูลอีกมากมายที่สามารถเพิ่มประสิทธิภาพในการทำงานเกี่ยวกับการซื้อ สามารถลองใช้งานและศึกษาเพิ่มเติมได้ที่ https://github.com/OCA/purchase-workflow
+
+โมดูลที่เกี่ยวข้องกับ purchase_request
+* purchase_request_order_approved - เพิ่มสถานะ Approved ของ Purchase Order ในหน้า Purchase Request
+* purchase_request_department - สามารถเพิ่ม Department ใน Purchase Request ได้
+* purchase_request_product_usage - สามารถเพิ่ม Usage ใน Purchase Request ได้
+* purchase_request_usage_department - ช่วยเลือก Usage ตาม Department ให้อัตโนมัติ
+* purchase_request_tier_validation - เพิ่มการอนุมัติหลายขั้นตอน
+
+---
+
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://medium.com/@pimolnats">Pimolnat</a>

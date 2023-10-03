@@ -1,0 +1,87 @@
+---
+publishDate: 2019-06-15T00:00:00Z
+title: การบันทึก Advance & Clearing บน odoo
+excerpt: บันทึกการยืมเงินและเคลียร์เงินยืมได้ด้วยโมดูลพื้นฐานจาก odoo
+image: ~/assets/images/post/odoo-hr-expense-advance-clearing_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo Module
+  - Odoo 12
+  - HR
+  - advance-clearing
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-hr-expense-advance-clearing
+---
+
+Source Code: https://github.com/OCA/hr/tree/12.0/hr_expense_advance_clearing
+
+เราได้เรียนรู้เกี่ยว HR Expense กันมาบ้างแล้ว Expense ปกติหมายถึงการที่พนักงานได้ออกเงินส่วนตัวไปล่วงหน้าเพื่อซื้อสินค้าหรือบริการบางอย่าง หลังจากนั้นจึงกลับมาเบิกเงิน (reimburse) กับบริษัทคืน
+
+แต่ในบางครั้งบางบริษัทอาจมีนโยบายให้พนักงานสามารถยืมเงินไปก่อนล่วงหน้าได้ (Advance) และพนักงานจะสามารถนำเงินนั้นๆไปซื้อสินค้าหรือบริการก่อน แล้วจึงนำหลักฐานการซื้อสินค้าบริการมาบันทึกการใช้เงิน (Clear Advance) ภายหลัง ซึ่งจะเป็นการสะดวกพนักงานที่ไม่ต้องสำรองเงินไปก่อน
+
+เราเรียกขั้นตอนนี้ว่า ยืมเงินล่วงหน้า (Advance) และการคืนเงินยืม (Clearing) โดยจะมีการเกิดขึ้นได้ใน 3 กรณี
+1. ยืมแล้วใช้หมดพอดี (Advance = Clearing)
+2. ยืมแล้วใช้เกิน บริษัทต้องทำจ่ายให้พนักงานเพิ่ม (Advance < Clearing)
+3. ยืมแล้วใช้ไม่ถึง บริษัทต้องรับเงินคืนจากพนักงาน (Advance > Clearing)
+
+---
+
+*Menu > Expense > My Expense*
+
+**Case 1 : Advance = Clearing**
+
+เลือกว่าเป็น Employee Advance ระบบจะเลือก Product ให้อัตโนมัติ ใส่จำนวนเงิน เช่น 1,000 บาท
+
+![](~/assets/images/post/odoo-hr-expense-advance-clearing_6.png)
+
+กดปุ่ม Save > Create Report > Submit to Manager > Approve > Post Journal Entries
+
+ตอนนี้ Expense Report จะเปลี่ยนเป็นสถานะ Posted แล้ว และจะแสดง Amount Remaining = 1,000 บาทซึ่งเป็นยอดคงเหลือของเงินยืม
+
+![](~/assets/images/post/odoo-hr-expense-advance-clearing_2.png)
+
+จากนั้นทางบัญชีจะทำการ Register Payment เพื่อจ่ายเงินออกให้กับพนักงานเป็นจำนวน 1,000 บาท สถานะเปลี่ยนเป็น Paid พร้อมกับมีปุ่มใหม่เกิดขึ้น 2 ปุ่ม คือ Clear Advance และ Return Advance
+
+![](~/assets/images/post/odoo-hr-expense-advance-clearing_3.png)
+
+ในกรณีนี้เราต้องการ Clear Advance โดยการบอกต่อไปว่าเราต้องการเคลียร์เพื่อการใช้จ่ายอะไร เช่นกรณีนี้ต้องจ่ายค่าตั๋วเครื่องบินเป็นเงิน 1,000 บาท
+
+![](~/assets/images/post/odoo-hr-expense-advance-clearing_4.png)
+
+Expense Report ที่สร้างขึ้นนี้จะมีการอ้างถึง Advance Expense Report ก่อนหน้าที่ช่อง Clear Advance ให้โดยอัตโนมัติ หลังจากพนักงานกรอก Expense เรียบร้อยให้กดปุ่ม Save > Submit to Manager > Approve > Post Journal Entries ตามปกติ
+
+จะสังเกตุว่า ตอนนี้ Advance Remaining ได้ถูก Clear เรียบร้อยแล้ว และสถานะเป็น Paid โดยที่ไม่ต้องมีการทำจ่าย เพราะระบบหักล้างเงินคืนกับเงินที่ยืมไปก่อนหน้า
+
+![](~/assets/images/post/odoo-hr-expense-advance-clearing_5.png)
+
+---
+**Case 2: Advance < Clearing**
+กรณีนี้จะคล้ายกับกรณีก่อนหน้า แต่ต่างกันตรงที่ในจังหวะการเคลียร์เงินตอนท้าย พนักงานซื้อตั๋วเครื่องบินเกินที่ยืมไว้ เช่น 1,200 บาท ดังนั้นในตอนที่มีการ Post Journal Entries แล้วยังต้องมีการจ่ายเงินเพิ่ม (Register Payment) เติมอีก 200 บาท สถานะจึงจะเปลี่ยนเป็น Paid
+1. สร้างและอนุมัติ Advance Expense 1,000
+2. จากหน้า Advance Expense กดปุ่ม Clear Advance เพื่อสร้าง Clear Advance Expense
+3. จากหน้า Clear Advance Expense ทำการเคลียร์ 1,200 สถานะจะยังไม่เปลี่ยนเป็น Paid
+4. กดปุ่ม Register Payment ด้วยจำนวน 200 ที่เหลือ สถานะจะเปลี่ยนเป็น Paid
+
+---
+
+**Case 3: Advance > Clearing**
+กรณีที่พนักงานใช้เงินไม่ถึงยอดที่เบิกล่วงหน้า เช่น เบิกเงินไป 1,000 แต่ได้ใช้ไปแค่ 700 บาท พนักงานจะกลับมาทำ Clear Advance 700 บาทและ Return Advance อีก 300 บาทที่เหลือ
+1. สร้างและอนุมัติ Advance Expense 1,000
+2. จากหน้า Advance Expense กดปุ่ม Clear Advance เพื่อสร้าง Clear Advance Expense
+3. จากหน้า Clear Advance Expense ทำการเคลียร์ 700 สถานะจะเปลี่ยนเป็น Paid แต่จะยังมี Advance Remaining เหลืออีก 300
+4. กลับไปที่หน้า Advance Expense กดปุ่ม Return Advance ด้วยจำนวน 300 ที่เหลือ Amount Remaining จะเปลี่ยนเป็น 0
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
+
+
