@@ -1,0 +1,91 @@
+---
+publishDate: 2019-05-23T00:00:00Z
+title: ทำงานกับ Excel อย่างง่ายดายใน Odoo 
+excerpt: Import Export ไฟล์ excel ใน Odoo ไม่ใช่เรื่องยากอีกต่อไป ด้วยตัวช่วยจากโมดูลของ OCA
+image: ~/assets/images/post/excel-import-export-oca_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo
+  - Odoo OCA
+  - oca module
+
+metadata:
+  canonical: https://ecosoft.co.th/import-accounting
+---
+
+Source Code: https://github.com/OCA/server-tools/tree/12.0/excel_import_export
+
+ปกติการทำงานรายงาน หรือการ import/export กับ Excel จะค่อนข้างมีความยุ่งยาก OCA มีโมดูลจะช่วยให้การ write Excel ง่ายขึ้นด้วยโมดูล report_xlsx  ซึ่งแม้จะง่ายขึ้นก็ยังต้องเขียน Python ในการสร้าง excel file
+
+วันนี้เราจะมาดูอีกวิธีหนึ่งในการทำงานร่วมกับ Excel โดยวิธีนี้จะไม่ได้ใช้วิธีการเขียน Code เพื่อสร้าง Excel ไฟล์โดยตรง แต่จะเป็นการสร้าง Excel Template ด้วย tools ที่เราคุ้นเคยกันขึ้นมาก่อน (เช่น MS Excel, Libre Office) ซึ่งใน template นี้ผู้ใช้สามารถวางทำ Formatting ต่างๆได้เหมือนไฟล์ Excel ปกติ จากนั้นจึงเขียน Instruction บอกระบบว่าให้เอาข้อมูลส่วนไหนไปวางเอาไว้ที่ Cell ไหนบน Excel
+
+นอกจากการใช้งานเพื่อทำ report ได้แล้วเรายังสามารถใช้ tools ตัวนี้เพื่อการ import / export ข้อมูลบนหน้าจอ เช่น Sales Order ไปเป็น Excel ได้ด้วย
+
+โมดูลที่ต้องติดตั้ง
+- excel_import_export
+- excel_import_export_demo (ตัวอย่างการใช้งาน)
+
+หลังจากติดตั้ง จะมีเมนูใหม่ *Settings > Excel Import/Export > XLSX Template* หน้าต่างนี้จะเป็นหน้าต่างหลักที่ใช้เก็บ template และ instruction ในการ import/export
+
+## Use Case 1: การใช้งานเพื่อการ Import / Export เอกสารปัจจุบัน
+
+Sample: excel_import_export_demo / import_export_sale_order
+
+หลังจากติดตั้ง sample เราจะมีเมนู Import/Export Excel ใหม่ ให้ทำการคลิกที่ Export Excel ระบบจะให้เลือก template ที่ได้สร้างไว้ใน XLSX Template ให้คลิก Export ระบบจะสร้างไฟล์ Excel ให้ดาวน์โหลด
+
+![](~/assets/images/post/excel-import-export-oca_1.png)
+
+<center>
+![](~/assets/images/post/excel-import-export-oca_2.png)
+<small>ตัวอย่าง Excel ที่ดาวน์โหลด</small>
+</center>
+
+หลังจากที่ผู้ใช้งานได้ทำการแก้ไขหรือเพิ่มเติมข้อมูล สามารถคลิกที่ Import Excel เพื่อทำการ Upload ไฟล์กลับขึ้นไปได้
+
+## Use Case 2: การใช้งานเพื่อการ Import Excel Files(s) เพื่อสร้างรายการใหม่ๆในระบบ
+
+Sample: excel_import_export_demo / import_sale_orders
+
+หลังจากติดตั้ง sample เราจะมีเมนูการใช้งานตัวอย่าง *Settings > Excel Import/Export > Sample Import Sales Order* ใหม่ เมนูนี้จะเปิด Wizard ให้ผู้ใช้งานสามารถเลือก Excels ได้หลายๆไฟล์หร้อมกัน เพื่อทำการสร้าง Sales Order ใหม่หลายรายการ
+
+![](~/assets/images/post/excel-import-export-oca_3.png)
+
+## Use Case 3: การใช้งานเพื่อทำรายงาน
+
+Sample: excel_import_export_demo / report_sale_order
+
+การใช้งานนี้น่าจะเป็นการใช้งานที่มีประโยชน์และถูกใช้มากที่สุด โมดูลนี้จะช่วยให้การสร้างรายงานซึ่งปกติสำหรับ Excel จะค่อนข้างยาก วิธีนี้ผู้ใช้เพียงเตรียมข้อมูลให้ถูกต้อง หลังจากนั้น XLSX Template จะช่วยให้การเปลี่ยนข้อมูลเป็น Excel ง่ายขึ้น
+
+หลังจากติดตั้ง sample เราจะมีเมนูการใช้งานตัวอย่าง Settings > Excel Import/Export > Sales Order Reports ใหม่ เมนูนี้จะเปิด Wizard ให้ผู้ใช้งานสามารถเลือก Template การแสดงผล (กรณีมีมากกว่า 1) และ Search Criteria ตามที่ได้ออกแบบไว้ เพื่อการรันรายงาน
+
+![](~/assets/images/post/excel-import-export-oca_4.png)
+
+<center>
+![](~/assets/images/post/excel-import-export-oca_5.png)
+<small>XLSX Template</small>
+</center>
+
+จากตัวอย่างทั้งหมดที่กล่าวๆ หัวใจของทั้งหมดคือการทำ Export/Import Instruction + Excel Template ซึ่งทั้งหมดจะอยู่ที่หน้าต่าง XLSX Template
+
+รายละเอียดการเขียน Instruction สามารถอ่านได้ที่ Help ของหน้าต่าง XLSX Tempate
+
+![](~/assets/images/post/excel-import-export-oca_6.png)
+
+![](~/assets/images/post/excel-import-export-oca_7.png)
+
+นอกจากโมดูล excel_import_export นี้แล้ว OCA ยังมีอีกหนึ่งโมดูลที่น่าสนใจในการช่วยทำรายงานด้วย Excel นั่นก็คือ
+https://github.com/OCA/reporting-engine/tree/12.0/report_xlsx
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
+
+

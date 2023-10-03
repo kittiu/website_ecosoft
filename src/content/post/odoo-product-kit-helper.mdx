@@ -1,0 +1,74 @@
+---
+publishDate: 2019-06-07T00:00:00Z
+title: ทำความรู้จัก Product Kit Helper 
+excerpt: Addons ที่พัฒนาโดย Ecosoft ตัวช่วยให้การจัดส่งสินค้าแบบเป็นชุด ง่ายมากขึ้น!
+image: ~/assets/images/post/odoo-product-kit-helper_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo Module
+  - Odoo Addons 
+  - Odoo 12
+  - Warehouse
+  - Ecosoft Module
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-product-kit-helper
+---
+
+Source Code: https://github.com/ecosoft-odoo/stock-logistics-workflow/tree/12.0-add-stock_picking_product_kit_helper/stock_picking_product_kit_helper
+
+<center>
+![](~/assets/images/post/odoo-product-kit-helper_1.jpg)
+</center>
+
+การขายของเป็นชุด Kit ใน Odoo โดยปกติมาตรฐานเราสามารถจัดการได้ด้วยการใช้ BOM Kit โดยการผูกชื่อสินค้าในการขาย และตัวสินค้าตัวย่อยที่ต้องการส่งจริง
+
+ยกตัวอย่างเช่น 1 ชุดโต๊ะกินข้าว ประกอบไปด้วย 1 โต๊ะ + 4 เก้าอี้
+ในการเปิด Sales Order ให้เลือกสินค้าเป็น ชุดโต๊ะกินข้าวได้โดยไม่ต้องบอกรายละเอียด ตอนส่งของระบบจะออก Delivery Order เป็นชื่อสินค้าย่อยที่ต้องการส่ง คือ 1 โต๊ะ + 4 เก้าอี้ หลังจากนั้นในการออก Invoice ก็จะกลับมาเป็น 1 ชุดโต๊ะกินข้าวเหมือนกับ Sales Order
+
+ทั้งหมดนี้เกิดขึ้นได้ด้วยการสร้าง BOM สำหรับ ชุดโต๊ะกินข้าว โดยกำหนดให้ BOM เป็นแบบ Kit ตามรูป
+
+![](~/assets/images/post/odoo-product-kit-helper_2.png)
+
+-> คำถามคือ ถ้าหากมีการส่งของแบบบางส่วน ผู้ทำงานต้องทำอย่างไร? เช่น ชุดโต๊ะ 10 ชุด ในใบส่งของจะแตกสินค้าให้เป็น โต๊ะ 10 ตัว และเก้าอี้ 40 ตัว โดยงวดแรกต้องการส่ง 4 ชุดก่อน
+
+-> คำตอบคือ ถ้าตาม Odoo มาตรฐาน ผู้ทำงานต้องคำนวณเองว่า ชุดโต๊ะ 4 ชุด จะประกอบไปด้วยโต๊ะ 4 ตัวและเก้าอี้ 16 ตัว ซึ่งจะเห็นได้ว่าเมื่อมีการส่งบางส่วน การทำงานจะเริ่มมีความซับซ้อนสำหรับผู้ทำงาน
+
+กรณีนี้เป็นแค่กรณีง่ายๆ แต่หากมีการสั่งของมากกว่านี้ สินค้าส่วนประกอบซับซ้อนกว่านี้ หรือสั่งทั้งแบบเป็นชุด และสั่งสินค้าย่อยแยกต่างหากด้วย จะมีความลำบากมากสำหรับคนทำงาน
+
+จากที่ได้เห็นปัญหานี้ของลูกค้า เราจึงได้พัฒนาโมดูล stock_picking_product_kit_helper มาเพื่อช่วยให้การทำงานง่ายขึ้นโดยไม่ได้เปลี่ยนวิธีการทำงานภายในของ Odoo
+
+v
+
+โดยหลังจากติดตั้งโมดูลแล้ว ในหน้าต่าง Delivery Order จะมี tab ใหม่ชื่อว่า Product Kit Helper ซึ่งจะเป็นตัวช่วยให้การทำงานง่ายขึ้น ตัวอย่างการทำงานมีดังต่อไปนี้
+
+1. Sales Order สั่งสินค้า 10 ชุด
+
+![](~/assets/images/post/odoo-product-kit-helper_3.png)
+
+2. Delivery Order  แตกเป็นสินค้าย่อยตาม BOM Kit และเนื่องจากมี Product Kit ระบบจะแสดง  tab Product Kit Helper ให้เห็น
+
+![](~/assets/images/post/odoo-product-kit-helper_4.png)
+
+3. กด Show Product Kit -> ใส่จำนวน Product Kit ที่ต้องการ -> กดปุ่ม Assign Operation Quantity
+
+![](~/assets/images/post/odoo-product-kit-helper_5.png)
+![](~/assets/images/post/odoo-product-kit-helper_6.png)
+
+4. ระบบจะทำการคำนวนจำนวนสินค้าย่อยที่ต้องจัดส่งตาม BOM Kit ไปที่ tab Operations 
+
+![](~/assets/images/post/odoo-product-kit-helper_7.png)
+
+หลังจากนั้นก็ดำเนินการส่งของ และออก Invoice ได้ตามขั้นตอนปกติ
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>

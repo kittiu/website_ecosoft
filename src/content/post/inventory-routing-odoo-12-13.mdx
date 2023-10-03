@@ -1,0 +1,90 @@
+---
+publishDate: 2020-03-06T00:00:00Z
+title: อธิบายการทำงาน Inventory Routing แบบเข้าใจง่าย (Odoo 12 & 13)
+excerpt: ทำความเข้าใจหลักการทำงานการเคลื่อนย้ายของในคลัง บนระบบ odoo
+image: ~/assets/images/post/inventory-routing-odoo-12-13_0-1.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo 12
+  - Odoo 13
+  - Inventory
+
+metadata:
+  canonical: https://ecosoft.co.th/inventory-routing-odoo-12-13
+---
+
+หลักการทำงานหนึ่งของ Odoo ซึ่งเข้าใจได้ค่อนข้างยาก (แต่จริงๆแล้วเจ๋งมาก) คือ Inventory Routing หรือการเคลื่อนย้ายของในคลังผ่านกฏเกณฑ์ต่างๆ (Rules)
+
+<center>
+![](~/assets/images/post/inventory-routing-odoo-12-13_1-1.png)
+</center>
+
+ถ้าเอาแบบเบื้องต้นสุดๆ สำหรับคนเที่คุ้นเคยกับ Odoo หรือ ERP กันบ้างแล้ว
+* การขายของ (Sales Order) ระบบจะมีการสร้างใบส่งสินค้า (Delivery Order) โดยส่งออกจาก Loc. WH/Stock ไป Loc. Partner Locations/Customers
+* การซื้อ (Purchase Order) ระบบจะมีการสร้างใบรับสินค้า (Receipts) โดยรับเข้าจาก  Loc. Partner Locations/Suppliers มาที่ Loc. WH/Stock ไป
+
+แต่อาจมีคนส่วนน้อยที่รู้ว่า สิ่งเหล่านี้เกิดขึ้นด้วย Inventory Routing ที่ Odoo ได้มีการทำ Routes เบื้องต้นเอาไว้ให้แล้ว เพื่อให้ใช้งานได้ โดยไม่ต้องมีความรู้เรื่อง Routing
+
+แต่ถ้ามีความซับซ้อนด้านคลังมากขึ้น ต้องการเคลื่อนย้ายของในคลังให้เป็นอัตโนมัติ ความเข้าใจในการทำงานของ Inventory Routing จะเริ่มมีความสำคัญมากขึ้น ผมลองยกตัวอย่างเคสที่เราอาจคุ้นเคยหรือไม่คุ้นเคยที่เกิดขึ้นจาก Routing นี่แหล่ะ โดยใน Odoo มาตรฐาน โดยเราเพียง config ระบบจะ สร้าง Routing เบื้องหลังการทำงานให้ เช่น
+* Pick / Pack / Ship -- ส่งของแบบ 3 ขั้นตอน 1&rpar; หยิบ 2&rpar; จัด 3&rpar; ส่ง
+* Input / Quality Check / Stock -- รับของแบบ 3 ขั้นตอน 1&rpar; รับ 2&rpar; เช็ค 3&rpar; เก็บ
+* Make To Order -- การที่คำสั่งขาย ทำให้เกิดคำสั่งซื้อ (หรือผลิต) โดยอัตโนมัติ
+* Dropshipping -- ขายของโดยให้ส่งของตรงจาก Supplier ไปหา Customer โดยไม่ผ่านคลังของเรา
+* Resupply Warehouse -- ให้ Warehouse หนึ่ง auto resupply สินค้าให้กับ อีก Warehouse โดยอัตโนมัติ
+* Resupply Contractor -- ส่งของให้ Contractor ช่วยผลิต
+โดยสรุป Inventory Routing เป็นอะไรที่เจ๋งมาก เพราะหากเราเข้าใจการทำงานของมัน เราสามารถปรับแต่กระบวนการทำงานได้อีกมากมาย
+
+เนื่องจากเรื่อง Routing ยากที่จะเข้าใจในตอนแรก หลังจากนั้นจะไม่ยาก ในตอนนี้ผมจะขอเล่าหลักการใหญ่ๆให้ฟังก่อน แลัวผมจะยกเคสตัวอย่างมาเล่าประกอบเพื่อให้เข้าใจมากยิ่งขึ้นต่อไป
+
+**หลักการทั่วไปชอง Rules / Routes**
+
+<center>
+![](~/assets/images/post/inventory-routing-odoo-12-13_1.png)
+<small>ก่อนอื่น เซตระบบให้เปิดเมนู Routes</small>
+
+![](~/assets/images/post/inventory-routing-odoo-12-13_2.png)
+<small>เมนู Inventory > Configurations</small>
+
+</center>
+
+1. **Routes** คือเซตของ Rules โดยแต่ละ route จะถูกเรียกใช้หรือไม่ ขึ้นอยู่กับว่า route นั้นได้รับการอ้างถึงจากสินค้า (product, product category, sales order line) นั้นๆใน Warehouse นั้นๆหรือไม่
+2. **Rules** คือหัวใจของเรื่อง โดยเมื่อ Route ของมันเข้าข่ายถูกเลือก Rule ก็จะทำงานตาม action ได้ถูกกำหนดไว้ล่วงหน้า
+
+โดยประเภท action มีดังนี้
+* Pull From - เมือมี demand เกิดขึ้นที่ destination location จะมีการสร้าง stock move เพื่อ pull สินค้านั้นมาจาก source location. ทั้งนี้ demand อาจเกิดได้จาก การขาย (sales order), จุดสั่งซื้อสินค้า (reorder point) หรืออะไรก็ตามที่ทำให้เกิดความต้องการสินค้า
+* Push To - เมื่อมีสินค้าเข้ามาที่ source location มันจะสร้าง stock move เพื่อ push สินค้าไปยัง destination location
+* Pull & Push - เป็นทั้ง pull หรือ push (แล้วแต่กรณีว่า รับเข้าและ push ต่อ หรือส่งออกเลยต้อง pull มา)
+* Buy - สร้าง PO ตามความต้องการ
+* Manufacture - สร้าง MO ตามความต้องการ
+
+และ Supply Method สำหรับ action = Pull From มีดังนี้
+* Take from stock - ใช้สินค้าในสต๊อก
+* Trigger another rule - สั่ง rule ถัดไป
+* Take from stock, if not available, trigger another rule - ใช้สินค้าในสต๊อกก่อน ถ้าไม่มี จึงสั่ง rule ถัดไป
+
+อยากแนะนำว่าให้ท่องหลักการข้างต้นให้ขึ้นใจก่อน ถ้าพอจะจำความหมายของศัพท์แต่ละคำได้แล้ว เรามาศึกษาการทำงานของแต่ละเคสกันดูใน Blog Post ถัดไปครับ :)
+
+1. เคสมาตรฐาน มีการเซต routes ต่อไปนี้ 
+    *  Delivery Order 1 step
+    * Receipt 1 step
+    * Buy
+    * MTO (option)
+2. เคส 3 steps
+    * Delivery Order 3 step
+    * Receipt 3 step
+    * Buy
+    * MTO (option)
+3. เคส Dropshipping
+4. เคส Resupply
+
+---
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
