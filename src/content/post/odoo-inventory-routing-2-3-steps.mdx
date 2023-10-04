@@ -1,0 +1,88 @@
+---
+publishDate: 2020-03-16T00:01:00Z
+title: Routing ตัวอย่างที่ 2 - รับสินค้าและส่งสินค้าแบบ 3 ขั้นตอน
+excerpt: ทำความเข้าใจขั้นตอนการรับและส่งสินค้าแบบ 3 ขั้นตอน บนระบบ odoo
+image: ~/assets/images/post/odoo-inventory-routing-2_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo 12
+  - Odoo 13
+  - Inventory
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-inventory-routing-2-3-steps
+---
+
+จากบทความที่แล้ว <a href="https://ecosoft.co.th/odoo-inventory-routing-1-1-step">Routing ตัวอย่างที่ 1 - รับสินค้าและส่งสินค้าแบบ 1 ขั้นตอน</a> 
+
+คราวนี้เราลองมาดูการรับสินค้าและส่งสินค้าด้วย Route แบบ 3 Step กันบ้าง โดย Inventory Route แบบนี้เป็นแบบที่ระบบเซต Routings ให้ได้อัตโนมัติเช่นกัน
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_1.png)
+</center>
+
+ให้เราเข้าไปที่หน้าต่าง Warehouse และเปลี่ยนไปเลือกทั้ง Incoming & Outgoing Shipments เป็นแบบ 3 steps
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_2.png)
+<small>เลือก Route = 3 steps ระบบจะ recalculate route ให้ใหม่</small>
+</center>
+
+หลังบันทึก ถ้าเราคลิกที่ปุ่ม Routes ด้านขวาบน ระบบจะแสดง Routes ทั้งหมดที่สามารถใช้ได้กับ Warehouse นี้ ให้สังเกตุว่า Route 1 steps เดิม ถูกแทนที่ด้วย Route 3 steps
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_3.png)
+</center>
+
+เราจะทำการทดสอบกับ Product ตัวเดิมซึ่งได้ถูกเลือก Route ไว้แล้วทั้ง Buy และ MTO
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_4.png)
+<small>เลือกทั้ง Buy และ MTO</small>
+</center>
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_5.png)
+<small>เมื่อดูที่ Route ของ Product นี้จะเห็นได้ทั้ง 4 Routes ดังรูป</small>
+</center>
+
+จากรูป (และจากการคลิกเข้าไปดูในแต่ละ Rule) จะเห็นได้ว่า
+* Deliver in 3 steps: action = Pull From และ supply method จะมีการ Trigger Another Rule
+* Receive in 3 steps: action = Pull & Push แล้วแต่ว่าเป็นกรณีไหน แต่สำหรับการใช้ MTO ซึ่ง demand จะมาจาก Sales order จะเป็นการ Pull ย้อนกลับไปจนถึง Buy
+
+**ทำการทดสอบ**
+1. สร้าง Sales Order เพื่อขายสินค้าตัวนี้ Qty = 10
+2. เมื่อ Confirm ระบบจะสร้างความต้องการ (demand) ที่ Customer
+3. Deliver in 3 steps: เมื่อมี demand ที่ Customer ระบบจะสร้าง Delivery Order ซึ่งจะไป Trigger ให้เกิด Pack ซึ่งจะไป Trigger ต่อให้เกิด Pick โดยระบบจะใช้ Pick ด้านบนก่อน (สีม่วง / MTO) และหากไม่มีสินค้าเพียงพอ ระบบจะสามารถ Trigger Another Rule ต่อไปได้ทันที
+4. Receipt in 3 steps: หลังจากนั้น Internal Transfer 2 เส้น จะทำงานในลักษณะ Pull From ไปจนสุดท้ายจะไป Trigger Buy (เส้นสีเหลือง) และสร้าง Purchase Order เท่าจำนวนที่สั่งโดย Sales Order
+5. จบการทำงาน
+
+หรือกล่าวโดยย่อ กรณีนี้การยืนยัน Sales Order จะทำให้เกิดการเคลื่อนย้ายด้วยการ Pull Rule 5 steps และ Pull สุดท้ายจะไป Trigger Buy และสร้าง Purchase Order (ซึ่งเมื่อ confirm จะสร้าง Receipt 1 step)
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_6.png)
+<small>Confirm Sales Order (product MTO) ได้สร้าง 5 steps</small>
+</center>
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_7.png)
+<small>5 steps แบ่งเป็น 3 steps ของ Deliver เส้นและ 2 steps ของ Receive</small>
+</center>
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-2_8.png)
+<small>Purchase Order ถูกสร้างโดยอ้างถึง SO0022 และเมื่อยืนยันจะสร้าง Incoming Shipment</small>
+</center>
+
+จากการทำงานทั้งหมด เราจะเห็นได้ว่า มีเพียง Receipt 1 step ที่เกิดจาก Purchase Order เท่านั้นที่มีสถานะเป็น Ready (การซื้อของเข้า Ready เสมอ) แต่อีก 5 steps จะเป็น Waiting Another Operation ซึ่งจะเปลี่ยนเป็น Ready ต่อเมื่อ step ก่อนหน้ามันเสร็จสิ้น
+
+---
+
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
