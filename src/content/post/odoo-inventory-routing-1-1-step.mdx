@@ -1,0 +1,138 @@
+---
+publishDate: 2020-03-16T00:00:00Z
+title: Routing ตัวอย่างที่ 1 - รับสินค้าและส่งสินค้าแบบ 1 ขั้นตอน
+excerpt: ทำความเข้าใจขั้นตอนการรับและส่งสินค้าแบบ 1 ขั้นตอน บนระบบ odoo
+image: ~/assets/images/post/odoo-inventory-routing-1_0.png
+category: Documentation
+tags:
+  - OpenSource ERP
+  - ERP Software
+  - Odoo 
+  - Odoo 12
+  - Odoo 13
+  - Inventory
+
+metadata:
+  canonical: https://ecosoft.co.th/odoo-inventory-routing-1-1-step
+---
+
+ในตอนนี้เราจะมาอธิบายการทำงานการรับสินค้าและส่งสินค้าด้วย Route แบบ One Step กัน โดย Inventory Route แบบนี้เป็นแบบที่ระบบตั้งค่าให้เบื้องต้นตั้งแต่ตอนติดตั้ง
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-1_1.png)
+</center>
+
+หลังการติดตั้ง Odoo 13 และโมดูลพื้นฐานคือ Sales, Purchase, Inventory แล้ว ให้เข้าไปที่หน้า Inventory Configuration และเลือกใช้ Multi-Step Routes ระบบจะเผยเมนู Routes กับ Rules ให้เพิ่มเติมในโมดูล Inventory
+
+จากนั้นเข้าไปที่หน้าต่าง Warehouse จะเห็นว่ามีการเลือกทั้ง Incoming & Outgoing Shipments เป็นแบบ 1 Step
+
+![](~/assets/images/post/odoo-inventory-routing-1_2.png)
+
+และถ้าเราคลิกที่ปุ่ม Routes ด้านขวาบน ระบบจะแสดง Routes ทั้งหมดที่สามารถใช้ได้กับ Warehouse นี้
+<center>
+![](~/assets/images/post/odoo-inventory-routing-1_3.png)
+</center>
+
+1. Replenish on Order (MTO) :: เป็น Route ที่ Odoo สร้างเอาไว้ สำหรับ Product ที่จะถูกเรียกใช้เมื่อมี Demand เกิดขึ้นที่ฝั่ง Customer เพื่อสร้าง Delivery Order (pull rules)
+2. Buy :: เป็น Route ที่ Odoo สร้างเอาไว้ เป็น option ให้เลือกในหน้าต่าง Product สำหรับสร้าง Purchase Order (buy)
+3. Receive in 1 steps :: ถูกสร้างขึ้นด้วย Odoo ในตอนที่เราเลือกใช้ Receive goods directly (1 step) ใน Warehouse
+4. Delivery in 1 steps :: ถูกสร้างขึ้นด้วย Odoo ในตอนที่เราเลือกใช้ Deliver goods directly (1 step) ใน Warehouse
+
+ในตอนนี้ ถ้าเราเข้าไปเปิดดูที่ Route แต่ละตัว เราจะเห็นว่า (3) และ (4) มีผูกพันกับ Warehouse ที่เราใช้เสมอสำหรับทุก Stock Move ใน Warehouse แต่จะไม่ได้เป็น option ให้เลือกใน Product
+
+ส่วน (1) MTO จะให้เลือกใช้ได้ใน Product และ Sales Order Line และ (2) จะให้เลือกใช้ได้ใน Product เท่านั้น
+
+เราลองมาดูการเซต Routing ที่ Product กันบ้าง
+
+![](~/assets/images/post/odoo-inventory-routing-1_4.png)
+
+จะเห็นว่า Route (1) MTO และ (2) Buy จะเป็น Option ให้เราเลือกใช้ในหน้าต่าง Product ในขณะที่ Route (3) และ (4) จะไม่มีให้เลือก (แต่ตัวมันเองผูกพันกับ Warehouse อยู่แล้ว)
+
+เท่ากับว่าตอนนี้ จะมีแต่ Route (3) กับ (4) เท่านั้นที่ใช้งานกับ product นี้ และถ้าหากเข้าไปดูเพิ่มใน (3) Receive in 1 step จะไม่มี Rule และ (4) จะมี Rule เดียวคือ Pull Rule ที่สร้าง Delivery Order จาก Stock ไปยัง Customer
+
+ตอนนี้ถ้าเราคลิกปุ่ม "Routes" ที่หน้าต่าง Product นี้ ระบบจะแสดง Pull Rule เพียงเส้นเดียว โดย Pull Rule นี้จะทำงานต่อเมื่อมีความต้องการ Product ที่ Location/Customers โดยระบบจะสร้าง Delivery Order จาก WH/Stock ไปยัง Location/Customers
+
+![](~/assets/images/post/odoo-inventory-routing-1_5.png)
+<center>
+<small>แสดงรูปการทำงานของ Rules ทั้งหมดที่เกี่ยวข้องกับ Product - Acoustic Bloc Screen ใน Warehouse นี้</small>
+</center>
+
+![](~/assets/images/post/odoo-inventory-routing-1_6.png)
+<center>
+<small>เมื่อคลิกที่ Rule (เส้นสีม่วง Delivery Orders) ระบบแสดงรายละเอียด</small>
+</center>
+
+**ทำการทดสอบ**
+1. สร้าง Sales Order เพื่อขายสินค้าตัวนี้
+2. เมื่อ Confirm ระบบจะสร้างความต้องการที่ Customer
+3. เมื่อมีความต้องการที่ Customer, rule จะทำงาน และระบบจะสร้าง Delivery Order (1 step) จาก Stock -> Customer
+4. จบการทำงาน
+
+---
+การทดสอบถัดมา ถ้าต้องการให้ระบบสามารถสร้าง Purchase Order โดยอัตโนมัติ เมื่อ จำนวน Product ต่ำกว่า Reorder Point ให้เลือก Route = Buy และสร้าง Reorder Point rule
+
+![](~/assets/images/post/odoo-inventory-routing-1_7.png)
+<center>
+<small>เลือก Routes = Buy ระบบจะสร้าง PO เมื่อได้รับคำสั่ง ซึ่งจะเกิดขึ้นโดยอัตโนมัติหาก Qty ต่ำกว่า Reorder point</small>
+</center>
+
+![](~/assets/images/post/odoo-inventory-routing-1_8.png)
+<center>
+<small>เส้นสีเหลือง Receipt (Buy) จะสร้าง PO เมื่อมีความต้องการที่ Customer และ Qty ต่ำกว่า Reorder point</small>
+</center>
+
+**ทำการทดสอบ**
+1. สร้าง Reorder rule ให้กับสินค้าตัวนี้ Min Qty = 0, Max Qty = 10
+2. สร้าง Sales Order เพื่อขายสินค้าตัวนี้ Qty = 2
+3. เมื่อ Confirm ระบบจะสร้างความต้องการที่ Customer
+4. เมื่อมีความต้องการที่ Customer, rule จะทำงาน และระบบจะสร้าง Delivery Order (1 step) จาก Stock -> Customer
+5. และถ้าหากยังไม่มีสินค้าใน Stock, Reorder Rule จะทำงาน (Run Scheduler) และสั่ง rule, Receipt (Buy) สร้าง PO ที่ Qty = 12  (tab Purchase ของสินค้า ต้องมี supplier ตั้งค่าไว้แล้ว)
+6. จบการทำงาน
+
+---
+การทดสอบถัดมา ต้องการให้ระบบสามารถสร้าง Purchase Order โดยอัตโนมัติ ตามการสั่งซื้อใน Sales Order (MTO)
+
+*หมายเหตุ:* การเลือกใช้ MTO สามารถทำได้ 2 ทาง เพราะ Route MTO นี้กำหนดไว้ให้เป็น Option ของ Product หรือ Sales Order Line ก็ได้ แต่การทดสอบนี้เราจะเลือกใช้ที่ Product
+
+![](~/assets/images/post/odoo-inventory-routing-1_9.png)
+
+กลับมาที่หน้าต่าง Product ให้เราเลือก MTO เพิ่มตามรูป
+
+<center>
+![](~/assets/images/post/odoo-inventory-routing-1_10.png)
+<small>เลือก MTO คู่กับ Buy เมื่อมี Sales Order ระบบจะสร้าง Purchase Order ให้เท่าจำนวนที่สั่ง (หากของไม่พอ)</small>
+</center>
+
+![](~/assets/images/post/odoo-inventory-routing-1_11.png)
+<center>
+<small>เส้นสีม่วงที่เพิ่มขึ้นมา แสดง MTO ซึ่ง MTO จะทำหน้าที่ Trigger เส้นสีเหลือง (Buy) ต่อไปอีกทอด</small>
+</center>
+
+![](~/assets/images/post/odoo-inventory-routing-1_12.png)
+
+**ทำการทดสอบ**
+1. สร้าง Sales Order เพื่อขายสินค้าตัวนี้ Qty = 10
+2. เมื่อ Confirm ระบบจะสร้างความต้องการที่ Customer
+3. เมื่อมีความต้องการที่ Customer, rule MTO จะทำงาน และระบบจะสร้าง Delivery Order (1 step) จาก Stock -> Customer
+4. และถ้าหากยังไม่มีสินค้าใน Stock พอกับจำนวนที่สั่ง ระบบจะ Trigger Another Rule ซึ่งคือ Buy
+5. ระบบสร้าง Purchase Order เท่าจำนวนที่สั่ง
+6. จบการทำงาน
+
+![](~/assets/images/post/odoo-inventory-routing-1_13.png)
+<center>
+<small>เมื่อ Order S00021 confirmed ระบบจะสร้าง PO0013 ทันทีด้วยจำนวนที่เท่ากัน</small>
+</center>
+
+*หมายเหตุ:*
+* Supply Method "Take from stock, if unavailable, trigger another rule" จะพยายามใช้ของใน Stock ก่อนที่จะซื้อ แต่ถ้าของในคลังไม่พอ (เช่นมีอยู่ 9 แต่ต้องการ 10) ระบบจะสั่งซื้อเท่าจำนวน Order โดยไม่สนใจสิ่งที่อยู่ในคลัง
+* หากต้องไม่ต้องการให้ดูของในคลัง ต้องใช้ Supply Method "Trigger another rule"
+
+---
+
+<small><a href="https://ecosoft.co.th/">Ecosoft - Your ERP Partner</a>
+เราเชื่อใน Open Source เพราะเราเชื่อว่า Source Code ควรถูกเปิดเผยเพื่อให้ทุกคนได้เรียนรู้และนำไปต่อยอดได้ไม่จำกัด
+เราจึงไม่หยุดพัฒนาตัวเองเพื่อเป็นผู้เชี่ยวชาญใน Software Engineering, Business Process และ Accounting
+ติดตาม Contributions ของเรากับ OCA ได้ที่ https://odoo-community.org/shop?search=Ecosoft</small>
+
+---
+by <a href="https://twitter.com/kittiup">Kitti U.</a>
