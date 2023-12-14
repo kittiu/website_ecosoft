@@ -5,33 +5,33 @@ export const headerData = {
     {
       text: 'Ecosoft',
       links: [
+        // {
+        //   text: 'Why Odoo',
+        //   href: getPermalink('/#why_odoo'),
+        // },
         {
-          text: 'Why Odoo',
-          href: getPermalink('/#why_odoo'),
+          text: 'Our Approach',
+          href: getPermalink('/#our_approach'),
         },
         {
           text: 'Customers',
           href: getPermalink('/#customer_ref'),
         },
         {
-          text: 'Our Approach',
-          href: getPermalink('/#our_approach'),
-        },
-        {
           text: 'Latest Blog',
           href: getPermalink('/#new_post'),
         },
-        {
-          text: 'Partners',
-          href: getPermalink('/#partners'),
-        },
+        // {
+        //   text: 'Partners',
+        //   href: getPermalink('/#partners'),
+        // },
       ]
     },
     {
       text: 'Services',
       links: [
         {
-          text: 'ERP (Odoo)',
+          text: 'ERP',
           href: getPermalink('/#solution-1'),
         },
         {
@@ -108,7 +108,7 @@ export const footerData = {
       title: 'Services',
       links: [
         {
-          text: 'ERP (Odoo)',
+          text: 'ERP',
           href: getPermalink('/#solution-1'),
         },
         {

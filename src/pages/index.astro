@@ -29,15 +29,15 @@ const metadata = {
       href: '/contact',
       icon: 'tabler:mail',
     }}
-    image={{ src: '~/assets/images/odoo-logo-blue.svg', alt: 'Odoo Image' }}
+    image={{ src: '~/assets/images/odoo_x_erpnext.png', alt: 'Odoo X ERPNext' }}
   >
-    <Fragment slot="title">Sustainable ERP Solution<br/>
+    <Fragment slot="title">Sustainable ERP Solutions<br/>
       <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">โซลูชั่นเพื่อความยั่งยืนของธุรกิจ</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">100% Open Source</span><br>No License Cost, Only Quality Service</span
+        <span class="font-semibold">100% Open Source - No Bullshit</span><br>No License Cost, Only Quality Service</span
       >
     </Fragment>
   </Hero>
@@ -52,7 +52,7 @@ const metadata = {
   <Stats
     id="ecosoft"
     title="Ecosoft | Your ERP Partner"
-    subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์เฉพาะ Odoo มากกว่า 10 ปี<br>และทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมกับ <a href='https://odoo-community.org/' target='_blank' rel='noopener'><b>OCA - Odoo Community Association</b></a><br>Consulting - Implementation - Migration - Training - Support"
+    subtitle="เราคือผู้เชี่ยวชาญในระบบ ERP ที่มีประสบการณ์ด้าน Open Source ERP มากกว่า 10 ปี<br>และทีมนักพัฒนาหนึ่งเดียวของไทยที่เข้าร่วมกับ <a href='https://odoo-community.org/' target='_blank' rel='noopener'><b>OCA - Odoo Community Association</b></a>"
 
     stats={[
       { title: 'Years in business', amount: '10+' },
@@ -62,7 +62,7 @@ const metadata = {
     ]}
   />
 
-  <Features2
+  <!-- <Features2
     id="why_odoo"
     title="<center><img src='/images/why_odoo.png' alt='Why Odoo?'/></center>"
     subtitle="อะไรคือเหตุผลหลักที่ทำให้ odoo เป็นทางเลือกที่เหนือกว่าระบบ ERP อื่น"
@@ -104,66 +104,8 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Features2> -->
 
-  <Brands
-    id="customer_ref"
-    title="Trusted by many"
-    subtitle="We have kept our promise on 100% success rate"
-    icons={[]}
-    images={[
-      { src: '/images/cust_logo/nstda.png', alt: 'NSTDA' },
-      { src: '/images/cust_logo/biotec.png', alt: 'Biotec'  },
-      { src: '/images/cust_logo/nxpo.png', alt: 'NXPO'  },
-      { src: '/images/cust_logo/tint.png', alt: 'TINT'  },
-      { src: '/images/cust_logo/hii.png', alt: 'HII'  },
-      { src: '/images/cust_logo/cmo.png', alt: 'CMO'  },
-      { src: '/images/cust_logo/cft.png', alt: 'CFT'  },
-      { src: '/images/cust_logo/945.png', alt: '945'  },
-      { src: '/images/cust_logo/aal.png', alt: 'AAL'  },
-      { src: '/images/cust_logo/acm.png', alt: 'ACM'  },
-      { src: '/images/cust_logo/easy.png', alt: 'EASYNETWORK'  },
-      { src: '/images/cust_logo/esb.png', alt: 'ES Battery'  },
-      { src: '/images/cust_logo/fofo.png', alt: 'FOFO'  },
-      { src: '/images/cust_logo/hwf.png', alt: 'HWF'  },
-      { src: '/images/cust_logo/mcic.png', alt: 'MCIC'  },
-      { src: '/images/cust_logo/mh.png', alt: 'Menghua'  },
-      { src: '/images/cust_logo/monta.png', alt: 'Monta'  },
-      { src: '/images/cust_logo/optima.png', alt: 'Optima'  },
-      { src: '/images/cust_logo/rex.png', alt: 'ReX'  },
-      { src: '/images/cust_logo/rjc.png', alt: 'RJC'  },
-      { src: '/images/cust_logo/shm.png', alt: 'SHM'  },
-      { src: '/images/cust_logo/sqp.png', alt: 'SQP'  },
-      { src: '/images/cust_logo/thaiev.png', alt: 'Thai EV'  },
-      { src: '/images/cust_logo/tti.png', alt: 'TTI'  },
-      { src: '/images/cust_logo/usp.png', alt: 'USP'  },
-      { src: '/images/cust_logo/aab.png', alt: 'AAB'  },
-      { src: '/images/cust_logo/skyviv.png', alt: 'SKYVIV'  },
-      { src: '/images/cust_logo/rje.png', alt: 'RJE'  },
-    ]}
-  />
-
-  <Testimonials
-    title="What they say"
-    columns={3}
-    testimonials={[
-      {
-        testimonial: 'เราใช้บริการวางระบบจาก Ecosoft มาตั้งแต่ปี 2013 ระบบทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังแบบที่ไม่เคยทำได้ หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ต่อด้วย Odoo 8 และใช้มาถึงปัจจุบัน',
-        name: 'นันทชัย ศิริพรประสาร',
-        job: 'Managing Director - Raja Cycle Co., Ltd.',
-      },
-      {
-        testimonial : 'สวทช. มีหน้าที่ในการถ่ายทอดเทคโนโลยีสู่สังคม ระบบที่ยืดหยุ่นมีส่วนสำคัญเพื่อสนองความต้องการที่เปลี่ยนแปลง เราหาตัวเลือกที่เพื่อแทนระบบเดิมให้เป็นระบบต้องดีทั้งเทคโนโลยีและประหยัดงบประมาณ Ecosoft ได้เข้ามาช่วยเราพัฒนาระบบ Odoo ให้กับหลายแผนก จนในปี 2018 Odoo เข้ามาแทนที่ระบบ SAP เดิมอย่างสมบูรณ์',
-        name: 'วารุณี ลีละธนาวิทย์',
-        job: 'Vice President, ICT - NSTDA',
-      },
-      {
-        testimonial: 'เราใช้ Odoo ตั้งแต่ปี 2014 ใช้ในเกือบทุกส่วนขององค์กร จุดแข็งของเราคือการผลิตที่ปรับเปลี่ยนได้ตามความต้องการของลูกค้า เราเปลี่ยนจากระบบ Spreadsheet มาเป็น Odoo ทำให้สามารถย่นเวลาและความผิดพลาดไปได้อย่างมาก และผู้บริหารเห็นภาพรวมของทั้งองค์กรได้อย่างชัดเจน',
-        name: 'สมบูรณ์ ธัญญะวัน',
-        job: 'Director - Square Panel Systems',
-      },
-    ]}
-  />
 
   <Steps
     id="our_approach"
@@ -197,6 +139,67 @@ const metadata = {
     }}
   />
 
+  <Brands
+    id="customer_ref"
+    title="Trusted by many"
+    subtitle="We have kept our promise on 100% success rate"
+    icons={[]}
+    images={[
+      { src: '/images/cust_logo/nstda.png', alt: 'NSTDA' },
+      { src: '/images/cust_logo/biotec.png', alt: 'Biotec'  },
+      { src: '/images/cust_logo/nxpo.png', alt: 'NXPO'  },
+      // { src: '/images/cust_logo/tint.png', alt: 'TINT'  },
+      { src: '/images/cust_logo/hii.png', alt: 'HII'  },
+      { src: '/images/cust_logo/cmo.png', alt: 'CMO'  },
+      { src: '/images/cust_logo/cft.png', alt: 'CFT'  },
+      { src: '/images/cust_logo/945.png', alt: '945'  },
+      { src: '/images/cust_logo/aal.png', alt: 'AAL'  },
+      { src: '/images/cust_logo/acm.png', alt: 'ACM'  },
+      { src: '/images/cust_logo/easy.png', alt: 'EASYNETWORK'  },
+      { src: '/images/cust_logo/esb.png', alt: 'ES Battery'  },
+      { src: '/images/cust_logo/fofo.png', alt: 'FOFO'  },
+      { src: '/images/cust_logo/hwf.png', alt: 'HWF'  },
+      { src: '/images/cust_logo/mcic.png', alt: 'MCIC'  },
+      { src: '/images/cust_logo/mh.png', alt: 'Menghua'  },
+      { src: '/images/cust_logo/monta.png', alt: 'Monta'  },
+      { src: '/images/cust_logo/optima.png', alt: 'Optima'  },
+      { src: '/images/cust_logo/rex.png', alt: 'ReX'  },
+      { src: '/images/cust_logo/rjc.png', alt: 'RJC'  },
+      { src: '/images/cust_logo/shm.png', alt: 'SHM'  },
+      { src: '/images/cust_logo/sqp.png', alt: 'SQP'  },
+      { src: '/images/cust_logo/thaiev.png', alt: 'Thai EV'  },
+      { src: '/images/cust_logo/tti.png', alt: 'TTI'  },
+      { src: '/images/cust_logo/usp.png', alt: 'USP'  },
+      { src: '/images/cust_logo/aab.png', alt: 'AAB'  },
+      { src: '/images/cust_logo/skyviv.png', alt: 'SKYVIV'  },
+      { src: '/images/cust_logo/rje.png', alt: 'RJE'  },
+      { src: '/images/cust_logo/jv_control.png', alt: 'JV Control'  },
+      { src: '/images/cust_logo/4u2.png', alt: '4U2'  },
+    ]}
+  />
+
+  <Testimonials
+    title="What they say"
+    columns={3}
+    testimonials={[
+      {
+        testimonial: 'เราใช้บริการวางระบบจาก Ecosoft มาตั้งแต่ปี 2013 ระบบทำให้ผู้บริหารสามารถติดตามการผลิตและบริหารสินค้าคงคลังแบบที่ไม่เคยทำได้ หลังจากนั้นเราจึงได้ใช้บริการของ Ecosoft กับบริษัทในเครือ Raja Engineering ต่อด้วย Odoo 8 และใช้มาถึงปัจจุบัน',
+        name: 'นันทชัย ศิริพรประสาร',
+        job: 'Managing Director - Raja Cycle Co., Ltd.',
+      },
+      {
+        testimonial : 'สวทช. มีหน้าที่ในการถ่ายทอดเทคโนโลยีสู่สังคม ระบบที่ยืดหยุ่นมีส่วนสำคัญเพื่อสนองความต้องการที่เปลี่ยนแปลง เราหาตัวเลือกที่เพื่อแทนระบบเดิมให้เป็นระบบต้องดีทั้งเทคโนโลยีและประหยัดงบประมาณ Ecosoft ได้เข้ามาช่วยเราพัฒนาระบบ Odoo ให้กับหลายแผนก จนในปี 2018 Odoo เข้ามาแทนที่ระบบ SAP เดิมอย่างสมบูรณ์',
+        name: 'วารุณี ลีละธนาวิทย์',
+        job: 'Vice President, ICT - NSTDA',
+      },
+      {
+        testimonial: 'เราใช้ Odoo ตั้งแต่ปี 2014 ใช้ในเกือบทุกส่วนขององค์กร จุดแข็งของเราคือการผลิตที่ปรับเปลี่ยนได้ตามความต้องการของลูกค้า เราเปลี่ยนจากระบบ Spreadsheet มาเป็น Odoo ทำให้สามารถย่นเวลาและความผิดพลาดไปได้อย่างมาก และผู้บริหารเห็นภาพรวมของทั้งองค์กรได้อย่างชัดเจน',
+        name: 'สมบูรณ์ ธัญญะวัน',
+        job: 'Director - Square Panel Systems',
+      },
+    ]}
+  />
+
 
   <!-- Content Widget **************** -->
   <Content
@@ -217,7 +220,7 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise Resource Planning (odoo)</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise Resource Planning</h3>
       ระบบบริหารทรัพยากรองค์กร ร้อยเรียงกระบวนการทำงานของทุกแผนกเข้าด้วยกัน เพื่อเป็นแหล่งข้อมูลหนึ่งเดียวขององค์กรที่เชื่อถือได้
     </Fragment>
 
@@ -349,10 +352,10 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <BlogLatestPosts id="new_post" title="Our Blog" />
-  
+  <BlogLatestPosts id="new_post" title="Latest Blog" />
+
   <!-- Partners -->
-  <Tools
+  <!-- <Tools
     id="partners"
     title=""
     subtitle=""
@@ -362,6 +365,6 @@ const metadata = {
       { src: '/images/tools/n8n.png', link: 'https://n8n.io/', alt: 'n8n' },
       { src: '/images/tools/flo-works.png', link: 'https://flo-works.co/', alt: 'FLO WORKS' },
     ]}
-  />
+  /> -->
 
 </Layout>
