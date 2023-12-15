@@ -18,6 +18,10 @@ export const headerData = {
           href: getPermalink('/#customer_ref'),
         },
         {
+          text: 'Services',
+          href: getPermalink('/#solution-1'),
+        },
+        {
           text: 'Latest Blog',
           href: getPermalink('/#new_post'),
         },
@@ -87,20 +91,16 @@ export const footerData = {
           href: getPermalink('/#ecosoft'),
         },
         {
-          text: 'Why Odoo',
-          href: getPermalink('/#why_odoo'),
-        },
-        {
-          text: 'Customers',
-          href: getPermalink('/#customer_ref'),
-        },
-        {
           text: 'Our Approach',
           href: getPermalink('/#our_approach'),
         },
+        // {
+        //   text: 'Why Odoo',
+        //   href: getPermalink('/#why_odoo'),
+        // },
         {
-          text: 'Partners',
-          href: getPermalink('/#partners'),
+          text: 'Customers',
+          href: getPermalink('/#customer_ref'),
         },
       ],
     },
