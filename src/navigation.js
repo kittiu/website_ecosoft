@@ -69,7 +69,7 @@ export const headerData = {
         },
         {
           text: 'Software Developer',
-          href: 'https://ecosoft.frappe.cloud/software-developer'
+          href: 'https://ecosoft.frappe.cloud/software-developer-odoo'
         },
       ]
     },
