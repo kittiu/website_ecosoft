@@ -25,7 +25,7 @@ User like it, developer like it as Odoo is a modern framework and it is easy to 
 
 Business never stop to progress, and the IT system has to help as change agent. As years flew by, and without any upgrades, the modern software wasn't so modern anymore. Soon, the system will need a major updates. But with existing system that we have been supporting for the last ten year, there are challenges.
 
-## Reason to change
+## Reasons to change
 
 The challenges of Mengua is not about additional business processes. Because at the end implementation, we know we can fill the required business features with whatever ERP we choose. The challenge is more on after finish the implementation, on the long term maintenance and day to day problem solving.
 
@@ -35,7 +35,7 @@ Here we will discuss top 3 threats to longevity ERP software as we found, and ar
 
 As Menghua's ERP is based on Odoo Community Edition, there is no easy way to upgrade. Upgrade only available on Odoo Enterprise Edition which can cause a hefty tag on licensing, and still apply on Odoo core code only (not your customization).
 
-Although OCA has a project called OpenUpgrade that rescue community edition, the bigger challenge lies into Odoo's software architecture itself. The modular architecture of Odoo framework, is so rigid that make it unlikely that module you develop for older version will be compatible with in newer version of Odoo.
+Although <a href="https://odoo-community.org">OCA</a> has a project called <a href="https://github.com/OCA/OpenUpgrade">OpenUpgrade</a> that rescue community edition, the bigger challenge lies into Odoo's software architecture itself. The modular architecture of Odoo framework, is so rigid that make it unlikely that module you develop for older version will be compatible with in newer version of Odoo.
 
 OpenUpgrade is a collective works from community members around the world to migrate only OCA's modules across versions. But when it comes to your custom modules, you are still on your own.
 
@@ -46,10 +46,11 @@ And with Menghua, where we did a lot of customization on top of Odoo 7, the upgr
 Again, I have no problem with development environment of Odoo. In fact, I love it! As a programmer, I can't see any other framework come close to developing a custom module that can magically snap into existing business process, get it installed, updates and uninstalled without any worries like Odoo.
 
 Problem is, with a smallest feature changes, require a decent programmer to work in a classical way,
-Setup develop environment locally that replicate production state
-Code and test in local machine
-Push code to github
-SSH to login to the server and deploy
+
+1. Setup develop environment locally that replicate production state
+2. Code and test in local machine
+3. Push code to github
+4. SSH to login to the server and deploy
 
 During project or sometime after go live, not a problem as everything still hot into programmer brain, he/she can fix things up quickly.
 
@@ -59,7 +60,7 @@ Imagine if system (OS, libraries, Odoo, etc) is not upgraded for another 10 year
 
 ### 3) Fully managed Odoo is too costly (and EE only)
 
-This point is also about modernize infrastructure and ease of maintenance in long term. In the past, managed cloud hosting for ERP was not available, Mengua has no choice but to maintain hardware infrastructure on site. Programmer connect via SSH when he/she want to deploy a patch. Today, many software including Odoo.sh and Frappe Cloud are great options to host your production securely on the cloud, with utilities that ease developer life while maintaining the software.
+This point is also about modernize infrastructure and ease of maintenance in long term. In the past, managed cloud hosting for ERP was not available, Mengua has no choice but to maintain hardware infrastructure on site. Programmer connect via SSH when he/she want to deploy a patch. Today, many software including <a href="https://www.odoo.sh">Odoo.sh</a> and <a href="https://frappecloud.com/">Frappe Cloud</a> are great options to host your production securely on the cloud, with utilities that ease developer life while maintaining the software.
 
 And even we decided to surrender to Odoo EE. To use Odoo.sh with minimum spec possible (1 CPU, 25 GB) + user licenses (at 20 users) can cost Menghua $606.25 / month or $7,272 / year. This cost more than buying branch new high-end spec server every year. 
 
@@ -84,8 +85,9 @@ Frappe Framework (ERPNext is a big module) is not as modular as Odoo, in contrar
 Creating new modules and business features that snap into existing business process is possible through a predefined DocType event (i.e., before insert, after insert, before save, after save, etc...) without worry much about dependencies make it less fine grained integration when compared to Odoo. This loosen integration technique in ERPNext is in trade for a much easier upgrade process than Odoo. Our customized module often not require any changes to fit with next major version of ERPNext.
 
 Can't go too much into detail here, but I hope you get some sense. In ERPNext, the migration of the entire system is as simple as,
-Pull latest code
-Run command > bench migrate
+
+1. Pull latest code
+2. Run command > bench migrate
 
 ### 2) Easier long term maintenance with low code tools
 
