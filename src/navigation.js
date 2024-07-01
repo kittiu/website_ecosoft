@@ -68,9 +68,13 @@ export const headerData = {
           href: 'https://ecosoft.frappe.cloud/business-analyst'
         },
         {
-          text: 'Software Developer',
+          text: 'Software Developer (Odoo)',
           href: 'https://ecosoft.frappe.cloud/software-developer-odoo'
         },
+        {
+          text: 'Software Developer (ERPNext)',
+          href: 'https://ecosoft.frappe.cloud/software-developer-erpnext'
+        }
       ]
     },
   ],
