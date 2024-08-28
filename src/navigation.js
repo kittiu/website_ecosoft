@@ -64,8 +64,8 @@ export const headerData = {
       text: 'Job Opening',
       links: [
         {
-          text: 'Business Analyst',
-          href: 'https://ecosoft.frappe.cloud/business-analyst'
+          text: 'ERP Functional Consultant',
+          href: 'https://ecosoft.frappe.cloud/erp-functional-consultant'
         },
         {
           text: 'Software Developer (Odoo)',
