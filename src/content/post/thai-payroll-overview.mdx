@@ -1,0 +1,67 @@
+---
+publishDate: 2024-11-15T00:00:00Z
+title: Thai Payroll สำหรับ Frappe HRMS
+excerpt: ระบบ Frappe HRMS รองรับการคำนวนภาษีแบบไทยตามระเบียบกรมสรรพากรแล้ว
+image: ~/assets/images/post/thai_payroll.png
+category: Case Study
+tags:
+  - Frappe HRMS
+
+metadata:
+  canonical: https://ecosoft.co.th/thai-payroll-overview
+---
+
+Frappe HRMS คือระบบ Human Resource ที่มีโมดูลที่ครบจบในตัวเดียว ประกอบไปด้วย 6 โมดูลย่อยคือ
+
+1. Recuitment
+2. Employee Lifecycle
+3. Attendance & Leave Management
+4. Expense Claim
+5. Performance Appraisal
+6. Payroll
+
+จากทั้งหมดนี้ โมดูลที่น่าจะต้องมีการปรับแต่งให้สอดคล้องกับบริบทประเทศไทยที่สุดหนีไม่พ้นโมดูลเงินเดือน (Thai Payroll) ด้วยต้องตามหลักการภาษีและการลดหย่อยภาษีตามระเบียบกรมสรรพากร https://www.rd.go.th/59674.html และข่าวดีคือ Thai Payroll พร้อมแล้วสำหรับการใช้งาน
+
+จากการได้วางระบบ Payroll ให้กับหน่วยงานทั้งภาครัฐและเอกชน เราได้ลองศึกษาการทำงานของ Payroll ใน Frappe และได้ผลลัพธ์เป็นที่น่าพอใจมาก เราพบว่าระบบ Frappe มีส่วนประกอบในการปรับแต่งการคำนวนภาษีที่ละเอียดและยืดหยุ่นมาก ทำให้เราสามารถพัฒนา Thai Payroll ได้โดยแทบไม่ต้องปรับแต่งซอร์สโค้ดในส่วนของการคิดเงินเดือน (Salary Structure Components) เราเพียงแต่ต้องเข้าใจการทำงานของมัน และเน้นพัฒนาหน้าจอการใช้งานง่ายและเกณฑ์การคำนวนตามหลักการของกรมสรรพากร
+
+### ภาพรวมขององค์ประกอบ (Doctype) สำหรับระบบ Payroll
+
+![](~/assets/images/post/thai_payroll_overview.png)
+
+กล่องด้านซ้าย คือส่วนที่เกี่ยวข้องกับการตั้งค่าโดยเอกสารที่สำคัญสุดคือเอกสารเงินเดือนพนักงาน (Salary Structure Assignment) ซึ่งเป็นข้อมูลที่บอกว่า พนักงานแต่ละคน ได้รับ (1) เงินเดือนเท่าไหร่ (2) ใช้วิธีการคำนวนด้วยโครงสร้างการคำนวนเงินเดือนแบบใด (Salary Structure & Salary Components) และมี (3) อัตราภาษีเงินได้บุคคลธรรมดาอย่างไร (Income Tax Slab)
+
+ส่วนกล่องด้านขวาคือสิ่งที่ต้องทำ
+1. ปีละครั้ง ให้พนักงานกรอกเอกสารลดหย่อนภาษี
+2. เดือนละครั้ง ในการสร้าง Payroll Entry เพื่อสร้าง Salary Slips
+
+ตัวอย่างการกำหนด Salary Structure Assignment สำหรับ Employee
+
+![](~/assets/images/post/salary_structure_assignment.png)
+
+### ตัวอย่างโครงสร้างเงินเดือน Salary Structure & Components
+
+![](~/assets/images/post/salary_structure.png)
+
+### ตัวอย่างอัตราภาษี Income Tax Slab ตามข้อกำหนดกรมสรรพากร
+
+![](~/assets/images/post/income_tax_slab.png)
+
+### ตัวอย่างเอกสาร ลย. 01 ซึ่งเป็นแบบฟอร์มสำหรับส่งให้พนักงานกรอกตอนต้นปี
+
+![](~/assets/images/post/lor_yor_01.png)
+
+![](~/assets/images/post/lor_yor_01_print.png)
+
+### ตัวอย่างการคำนวนการลดหย่อนด้วยเอกสาร Employee Tax Exemption Declaration จาก ลย. 01
+
+![](~/assets/images/post/tax_exemption.png)
+
+### ตัวอย่างเอกสาร Salary Slip ที่ออกจากระบบในแต่ละเดือน
+
+![](~/assets/images/post/salary_slip.png)
+
+### บทสรุป
+
+ในบทความนี้เรายังไม่ได้ลงรายละเอียดของแต่ละฟังก์ชั่นการทำงาน เพียงแต่ให้เห็นภาพรวม และแสดงให้เห็นว่าระบบ Payroll ของ Frappe มีความยืดหยุ่นสูง และสามารถใช้การคำนวนภาษีไทยได้เป็นอย่างดี ด้วยการปรับแต่งระบบเพียงเล็กน้อย
+
+โดย <a href="https://x.com/@kittiup">Kitti U.</a>
