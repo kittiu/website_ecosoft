@@ -22,7 +22,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
+  <!-- Hero
     callToAction={{
       targetBlank: true,
       text: 'ติดต่อเรา',
@@ -30,9 +30,17 @@ const metadata = {
       icon: 'tabler:mail',
     }}
     image={{ src: '~/assets/images/odoo_x_erpnext.png', alt: 'Odoo X ERPNext' }}
+  -->
+  <Hero
+    callToAction={{
+      targetBlank: true,
+      text: 'ติดต่อเรา',
+      href: '/contact',
+      icon: 'tabler:mail',
+    }}
   >
     <Fragment slot="title">Sustainable ERP Solutions<br/>
-      <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">โซลูชั่นเพื่อความยั่งยืนของธุรกิจ</span>
+      <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal"></span>
     </Fragment>
 
     <Fragment slot="subtitle">
