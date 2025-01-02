@@ -147,9 +147,9 @@ export const footerData = {
       ]
     }
   ],
-  summary: `Openness - Quality - Simplicity is our core values<br/>
-    ความสำเร็จของงานเราจึงเกิดจากการผสานกันของซอฟต์แวร์แบบโอเพ่นซอร์ส 100%
-    และการให้คำปรึกษาทางธุรกิจอย่างถูกต้องและตรงไปตรงมา
+  summary: `<b>Address:</b> 5/F NST One Building, 281/19-23, Room 505, Silom Road, Silom, Bangrak, Bangkok Thailand 10500<br/>
+    <b>Phone:</b> +66 61 860 1994, +66 81 841 7480<br/>
+    <b>Email:</b> sales@ecosoft.co.th
   `,
   socialLinks: [
     { ariaLabel: 'Ecosoft OCA Modules', icon: 'tabler:brand-open-source', href: 'https://odoo-community.org/shop?search=ecosoft' },
