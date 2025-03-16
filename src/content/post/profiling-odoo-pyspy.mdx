@@ -77,19 +77,27 @@ I just installed invoicing app for test if pyspy work as we expect (we will test
 
 4. When you run Odoo, it will automatically build the odoo18-pyspy image. Please check it using the following command
 
+```
 $ docker image ls | grep pyspy
+```
 
 ![](~/assets/images/post/pyspy-3.webp)
 
 
 5. Before use pyspy to profilling our odoo application we need to get PID of odoo container by running this command
 
+```
 $ docker inspect — format ‘{{.State.Pid}}’ <your_odoo_container>
+```
 
 ![](~/assets/images/post/pyspy-4.webp)
 
 Then run
+
+```
 $ docker-compose run pyspy record -o myprofile.svg — pid <PID>
+```
+
 Back to odoo and try to do some action like create new invoice.
 
 ![](~/assets/images/post/pyspy-5.webp)
@@ -108,12 +116,13 @@ You can click there to explore more details about which function is called.
 
 ![](~/assets/images/post/pyspy-10.webp)
 
-
 > On the horizon axis represents the total number of samples collected. So the larger the area, the more time has been spent executing the associated function. The vertical axis represents the depth of the call stack. So the higher the peak, the deeper the call stack. Colors don’t represent anything specific; they’re just there to make a visual contrast.
 
 For more detail you can create profiles in the speedscope by run this command
 
+```
 $ docker-compose run pyspy record -o myprofile.svg — pid <PID> — format speedscope
+```
 
 ![](~/assets/images/post/pyspy-11.webp)
 
