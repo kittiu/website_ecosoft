@@ -147,8 +147,8 @@ export const footerData = {
       ]
     }
   ],
-  summary: `<b>Address:</b><br/>5/F NST One Building, 281/19-23, Room 505, Silom Road,<br/>
-    Silom, Bangrak, Bangkok Thailand 10500<br/>
+  summary: `<b>Address:</b><br/>459/132 Suksawat Rd. Ratchaburana<br/>
+    Bangkok Thailand 10140<br/>
     <b>Phone:</b> +66 61 860 1994, +66 81 841 7480<br/>
     <b>Email:</b> sales@ecosoft.co.th
   `,
