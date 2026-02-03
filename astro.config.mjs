@@ -25,7 +25,8 @@ const whenExternalScripts = (items = []) =>
     : [];
 
 export default defineConfig({
-  site: SITE.site,
+  // site: SITE.site,
+  site: 'https://ecosoft.co.th',
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
@@ -35,7 +36,7 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    // sitemap(),
     mdx(),
     icon({
       include: {
