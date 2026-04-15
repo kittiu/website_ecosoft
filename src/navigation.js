@@ -5,14 +5,6 @@ export const headerData = {
     {
       text: 'Ecosoft',
       links: [
-        // {
-        //   text: 'Why Odoo',
-        //   href: getPermalink('/#why_odoo'),
-        // },
-        {
-          text: 'Our Approach',
-          href: getPermalink('/#our_approach'),
-        },
         {
           text: 'Customers',
           href: getPermalink('/#customer_ref'),
@@ -20,10 +12,6 @@ export const headerData = {
         {
           text: 'Services',
           href: getPermalink('/#solution-1'),
-        },
-        {
-          text: 'Latest Blog',
-          href: getPermalink('/#new_post'),
         },
         // {
         //   text: 'Partners',
