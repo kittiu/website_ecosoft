@@ -13,21 +13,18 @@ const {
 } = Astro.props;
 ---
 
-<!-- <section class="relative md:-mt-[105px] not-prose"
-style="background-image: url('https://img.freepik.com/premium-photo/beautiful-clear-blue-sky-with-clouds_582637-839.jpg');background-size:100% 100%;"
-  > -->
-  <section class="relative md:-mt-[105px] not-prose"
-  style="background-image: url('/images/beach.jpg');background-size:100% 100%;"
-    >
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+<section class="relative md:-mt-[105px] not-prose overflow-hidden bg-[#0d1b35]">
+  <!-- Particle network canvas -->
+  <canvas id="hero-canvas" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+              class="text-base text-sky-400 font-bold tracking-wide uppercase"
               set:html={tagline}
             />
           )
@@ -35,13 +32,13 @@ style="background-image: url('https://img.freepik.com/premium-photo/beautiful-cl
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-white"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p class="text-xl text-blue-200 mb-6" set:html={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
@@ -95,3 +92,132 @@ style="background-image: url('https://img.freepik.com/premium-photo/beautiful-cl
     </div>
   </div>
 </section>
+
+<script>
+  const canvas = document.getElementById('hero-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  let W = 0, H = 0;
+
+  // Brand-aligned palette: primary blues, accent, sky, cyan
+  const PALETTE = [
+    '30,  64, 175',   // blue-800  (--aw-color-primary)
+    '56, 120, 255',   // bright blue
+    '0,  106, 255',   // accent
+    '14, 165, 233',   // sky-500
+    '34, 211, 238',   // cyan-400
+    '99, 179, 237',   // soft blue
+  ];
+
+  const PARTICLE_COUNT = 75;
+  const MAX_DIST = 155;
+
+  type Particle = {
+    x: number; y: number;
+    vx: number; vy: number;
+    color: string;
+    size: number;
+  };
+
+  let particles: Particle[] = [];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function init() {
+    particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      color: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+      size: 2 + Math.random() * 1.8,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+
+    // Connecting lines with gradient blend
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > MAX_DIST) continue;
+
+        const alpha = (1 - dist / MAX_DIST) * 0.45;
+        const grad = ctx.createLinearGradient(
+          particles[i].x, particles[i].y,
+          particles[j].x, particles[j].y
+        );
+        grad.addColorStop(0, `rgba(${particles[i].color}, ${alpha})`);
+        grad.addColorStop(1, `rgba(${particles[j].color}, ${alpha})`);
+
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    // Glowing dots
+    for (const p of particles) {
+      const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 5);
+      glow.addColorStop(0, `rgba(${p.color}, 0.3)`);
+      glow.addColorStop(1, `rgba(${p.color}, 0)`);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.color}, 0.9)`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  init();
+  draw();
+</script>
+
+<style is:global>
+  /* When header is transparent (not yet scrolled), force light text to match dark hero */
+  #header:not(.scroll) .text-default,
+  #header:not(.scroll) a,
+  #header:not(.scroll) button {
+    color: rgb(229, 236, 246);
+  }
+  #header:not(.scroll) .border-gray-400 {
+    border-color: rgb(148, 163, 184);
+  }
+
+  /* Dropdown menus: force dark mode style so text stays readable */
+  #header:not(.scroll) .dropdown-menu {
+    background-color: rgb(3, 6, 32) !important;
+    border: 1px solid rgba(229, 236, 246, 0.1);
+  }
+  #header:not(.scroll) .dropdown-menu a {
+    color: rgb(229, 236, 246) !important;
+  }
+  #header:not(.scroll) .dropdown-menu a:hover {
+    background-color: rgb(30, 41, 59) !important;
+    color: rgb(255, 255, 255) !important;
+  }
+</style>
