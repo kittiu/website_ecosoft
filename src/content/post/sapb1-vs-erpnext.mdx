@@ -1,0 +1,151 @@
+---
+title: "SAP Business One vs ERPNext: เปรียบราคาและความคุ้มค่าสำหรับโรงงาน SME ไทย (2025)"
+description: "เปรียบ SAP B1 กับ ERPNext อย่างตรงไปตรงมา ทั้งราคา ฟีเจอร์ และ Total Cost of Ownership สำหรับโรงงานและ SME ไทยที่กำลังตัดสินใจเลือก ERP"
+date: 2025-04-14
+tags: [ERP, SAP Business One, ERPNext, โรงงาน, SME, ไทย]
+author: Kitti Upariphutthiphong
+---
+
+# SAP Business One vs ERPNext: เปรียบราคาและความคุ้มค่าสำหรับโรงงาน SME ไทย
+
+ถ้าคุณกำลังอ่านบทความนี้อยู่ แปลว่าคุณน่าจะอยู่ในสถานการณ์หนึ่งในสองแบบ คือกำลังเปรียบ SAP B1 กับ ERPNext อยู่อย่างจริงจัง หรือได้รับ quote จาก SAP reseller มาแล้วแล้วรู้สึกว่า "แพงเกินไปหรือเปล่า"
+
+บทความนี้จะไม่ใช่ marketing pitch ของใคร ผมจะบอกตัวเลขจริง ข้อดีข้อเสียจริง และ scenario ที่แต่ละระบบเหมาะกับใคร
+
+---
+
+## ก่อนอื่น: ทำไมคนถึงเปรียบสองระบบนี้
+
+SAP Business One และ ERPNext เป็นตัวเลือก ERP สองขั้วที่ถูกนำมาเปรียบกันบ่อยมากในกลุ่มโรงงานและ SME ไทยที่มีพนักงาน 50-500 คน เพราะ:
+
+- **SAP B1** — ชื่อโกอินเตอร์ น่าเชื่อถือ มี local partner เยอะ แต่ราคาสูง
+- **ERPNext** — open source ฟรี ค่าใช้จ่ายหลักคือ implementation และ hosting แต่หลายคนยังไม่คุ้นชื่อ
+
+คำถามจริงๆ ที่ต้องตอบคือ: **ความแตกต่างของราคามันคุ้มกับสิ่งที่ได้เพิ่มมาหรือเปล่า?**
+
+---
+
+## เปรียบราคาตรงๆ: Total Cost of Ownership 3 ปี
+
+> ตัวเลขด้านล่างเป็นการประมาณการสำหรับโรงงาน SME ไทย ขนาด 50-150 users ครอบคลุม module หลัก: บัญชี, คลังสินค้า, การผลิต, จัดซื้อ
+
+### SAP Business One (On-premise หรือ Cloud)
+
+| รายการ | ประมาณการ (บาท) |
+|--------|----------------|
+| License (On-premise, perpetual) | 1,500,000 – 3,000,000 |
+| Annual Maintenance (18-22% ของ license/ปี) | 270,000 – 660,000/ปี |
+| Implementation (local partner) | 1,500,000 – 4,000,000 |
+| Customization (ถ้าต้องการ) | 500,000 – 2,000,000 |
+| Training | 150,000 – 300,000 |
+| **รวม 3 ปีแรก (ประมาณการ)** | **~5,000,000 – 13,000,000** |
+
+*หมายเหตุ: SAP B1 Cloud (subscription) อยู่ที่ประมาณ 3,000-6,000 บาท/user/เดือน*
+
+### ERPNext (Self-hosted หรือ Frappe Cloud)
+
+| รายการ | ประมาณการ (บาท) |
+|--------|----------------|
+| License | **ฟรี** (Open Source, MIT License) |
+| Hosting (VPS หรือ Frappe Cloud) | 15,000 – 60,000/ปี |
+| Implementation (consultant ไทย) | 500,000 – 2,000,000 |
+| Customization | 200,000 – 800,000 |
+| Training | 80,000 – 200,000 |
+| Annual Support | 120,000 – 400,000/ปี |
+| **รวม 3 ปีแรก (ประมาณการ)** | **~1,000,000 – 3,500,000** |
+
+**ความแตกต่างในระยะ 3 ปีแรก: ประมาณ 3-9 ล้านบาท**
+
+---
+
+## เปรียบ Feature สำหรับโรงงาน SME ไทย
+
+| Feature | SAP Business One | ERPNext |
+|---------|-----------------|---------|
+| บัญชีการเงิน (Thai GAAP) | ✅ ดีมาก | ✅ ดี (ต้องปรับบางส่วน) |
+| การผลิต (BOM, Work Order) | ✅ ครบ | ✅ ครบ |
+| คลังสินค้า / Lot / Serial | ✅ ดีมาก | ✅ ดีมาก |
+| จัดซื้อ / Vendor Management | ✅ ดีมาก | ✅ ดี |
+| MRP / Production Planning | ✅ มี (เพิ่มเติม add-on) | ✅ มีใน core |
+| Multi-currency | ✅ | ✅ |
+| ภาษีมูลค่าเพิ่ม (VAT ไทย) | ✅ | ✅ (ต้องตั้งค่า) |
+| ภาษีหัก ณ ที่จ่าย (WHT) | ✅ | ✅ |
+| e-Tax Invoice (กรมสรรพากร) | ✅ ผ่าน add-on | ✅ ผ่าน integration |
+| Multi-branch / Multi-company | ✅ | ✅ |
+| Mobile App | ✅ (จำกัด) | ✅ (PWA) |
+| API / Integration ความยืดหยุ่น | ⚠️ จำกัดกว่า | ✅ เปิด REST API เต็ม |
+| Customization โดย consultant | ⚠️ ต้องผ่าน SAP SDK | ✅ Python/JS ทั่วไป |
+| Community / Forum | ✅ ใหญ่ | ✅ ใหญ่มาก (open source) |
+| Vendor lock-in | ⚠️ สูง | ✅ ต่ำ (open source) |
+
+---
+
+## ข้อได้เปรียบจริงๆ ของ SAP B1 (ที่ ERPNext ยังสู้ไม่ได้)
+
+พูดตรงๆ ครับ SAP B1 มีข้อได้เปรียบจริงในบางด้าน:
+
+1. **Brand trust สำหรับ compliance** — ถ้าบริษัทคุณอยู่ใน supply chain ของบริษัทต่างชาติขนาดใหญ่ที่ require SAP เป็น vendor requirement
+2. **Ecosystem ของ partner ขนาดใหญ่** — มี reseller และ support ที่มีทีม dedicated ขนาดใหญ่กว่า
+3. **Crystal Reports ที่ mature** — สำหรับองค์กรที่ใช้ report complex มาก
+4. **SAP group integration** — ถ้าบริษัท parent ใช้ SAP ECC หรือ S/4HANA การ integrate ง่ายกว่า
+
+---
+
+## ข้อได้เปรียบของ ERPNext ที่คนมักมองข้าม
+
+1. **ไม่มี user license fee** — เพิ่ม user เท่าไหร่ก็ได้ ไม่มีค่าใช้จ่ายเพิ่ม ซึ่งสำคัญมากสำหรับโรงงานที่มีพนักงาน warehouse หรือ production floor เยอะ
+2. **Customize ได้ตามต้องการ** — ไม่ต้องรอ SAP release หรือจ่ายค่า SDK license
+3. **ไม่มี vendor lock-in** — ข้อมูลเป็นของคุณ 100% บน database ที่คุณ access ได้ตลอดเวลา
+4. **Update ฟรีตลอด** — community release feature ใหม่ต่อเนื่อง ไม่มีค่า upgrade
+5. **AI-ready** — architecture เปิดกว้างสำหรับการต่อ AI tools ในอนาคต
+
+---
+
+## โรงงาน/บริษัทแบบไหนเหมาะกับอะไร
+
+### เลือก SAP B1 ถ้า...
+- มี parent company ต่างชาติที่ require SAP
+- Revenue เกิน 500 ล้านบาท/ปี และมีทีม IT internal
+- อยู่ใน industry ที่ compliance-heavy และ auditor require SAP
+- มีงบ IT ปีละ 1 ล้านบาทขึ้นไปสำหรับ maintenance
+
+### เลือก ERPNext ถ้า...
+- เป็น Thai SME อิสระที่ตัดสินใจเองได้
+- ต้องการ Total Cost of Ownership ต่ำในระยะยาว
+- ต้องการ customize ตาม business process เฉพาะของตัวเอง
+- มีพนักงานที่ต้องใช้ระบบเยอะ (warehouse, production)
+- วางแผนจะต่อ AI หรือ automation ในอนาคต
+
+---
+
+## คำถามที่ควรถาม SAP Reseller ก่อนตัดสินใจ
+
+ก่อน sign ใดๆ ถามให้ชัดก่อนครับ:
+
+1. **ราคา license รวม user กี่คน?** และถ้าต้องการ user เพิ่มทีหลังราคาเท่าไหร่?
+2. **Annual maintenance fee คิดจากอะไร?** และจะขึ้นราคาทุกปีไหม?
+3. **ถ้า customization จะใช้เวลากี่สัปดาห์และราคาเท่าไหร่ per man-day?**
+4. **ถ้าในอนาคตอยากเปลี่ยน partner ทำได้ไหม?** ข้อมูลจะ export ออกมาในรูปแบบอะไร?
+5. **Go-live support หลัง implementation ให้ฟรีกี่เดือน?**
+
+---
+
+## สรุป
+
+ไม่มีคำตอบว่าใครดีกว่ากันแบบ absolute ครับ มีแต่คำตอบว่าใครเหมาะกับ **คุณ** มากกว่า
+
+ถ้าคุณเป็น SME ไทยอิสระที่ไม่มี requirement ด้าน compliance จากต่างชาติ และกำลังจะลงทุน ERP ครั้งแรกหรือ upgrade จากระบบเก่า ผมคิดว่า ERPNext คุ้มค่ากว่ามากในแง่ TCO และความยืดหยุ่น แต่ **key success factor คือ implementation partner ที่รู้จริงและรู้ business ของคุณ** ไม่ใช่ตัวซอฟต์แวร์เอง
+
+ทั้งสองระบบ ถ้า implement ไม่ดีก็พังทั้งคู่
+
+---
+
+## ต้องการ Second Opinion ก่อนตัดสินใจ?
+
+ผมให้คำปรึกษาฟรี 1 ชั่วโมงสำหรับบริษัทที่กำลัง evaluate ERP อยู่ ไม่มีข้อผูกมัด ไม่มีการ hard sell ยินดีพูดคุยตรงๆ เกี่ยวกับ requirement ของคุณและแนะนำว่าระบบไหนเหมาะกว่า
+
+📧 ติดต่อ: [your-email@ecosoft.co.th]  
+📞 โทร: [your-phone]  
+💬 LINE: [@ecosoft หรือ ID ของคุณ]
+
+*Kitti Upariphutthiphong — CEO, Ecosoft Co., Ltd. | ERPNext & Odoo Implementation Partner ไทย | ประสบการณ์มากกว่า 10 ปีในวงการ ERP สำหรับ SME ไทย*
