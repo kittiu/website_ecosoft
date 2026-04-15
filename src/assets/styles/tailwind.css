@@ -54,6 +54,10 @@
   @apply py-3;
 } */
 
+#header.has-dark-hero.expanded:not(.scroll) > div:first-child {
+  background-color: #0d1b35;
+}
+
 #header.expanded nav {
   position: fixed;
   top: 70px;

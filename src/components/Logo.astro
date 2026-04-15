@@ -6,10 +6,38 @@
   🚀 {SITE?.name}
 </span> -->
 <img
-src="/images/ecosoft.png"
-alt="ecosoft | Your ERP Partner"
-width="200"
+  id="logo-white"
+  src="/images/ecosoft_white.png"
+  alt="ecosoft | Your ERP Partner"
+  width="200"
 />
+<img
+  id="logo-grey"
+  src="/images/ecosoft_grey.png"
+  alt="ecosoft | Your ERP Partner"
+  width="200"
+  style="display: none;"
+/>
+
+<script is:inline>
+  function updateLogo() {
+    const header = document.getElementById('header');
+    const logoWhite = document.getElementById('logo-white');
+    const logoGrey = document.getElementById('logo-grey');
+    if (!header || !logoWhite || !logoGrey) return;
+    const hasDarkHero = !!document.getElementById('hero-canvas');
+    const needsGrey = !hasDarkHero || header.classList.contains('scroll');
+    logoWhite.style.display = needsGrey ? 'none' : 'block';
+    logoGrey.style.display = needsGrey ? 'block' : 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.getElementById('header');
+    if (!header) return;
+    updateLogo();
+    new MutationObserver(updateLogo).observe(header, { attributes: true, attributeFilter: ['class'] });
+  });
+</script>
 <!-- <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-600 whitespace-nowrap dark:text-white">
   Ecosoft
 </span> -->

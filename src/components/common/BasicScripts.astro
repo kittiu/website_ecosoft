@@ -32,6 +32,10 @@ import { UI } from '~/utils/config';
   }
 
   window.onload = function () {
+    if (document.getElementById('hero-canvas')) {
+      document.getElementById('header')?.classList.add('has-dark-hero');
+    }
+
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
@@ -46,10 +50,16 @@ import { UI } from '~/utils/config';
     });
 
     attachEvent('[data-aw-toggle-menu]', 'click', function () {
+      const header = document.getElementById("header");
+      const isOpening = !header?.classList.contains('expanded');
       document.body.classList.toggle("overflow-hidden");
-      document.getElementById("header")?.classList.toggle("h-screen");
-      document.getElementById("header")?.classList.toggle("expanded");
-      document.getElementById("header")?.classList.toggle("bg-page");
+      header?.classList.toggle("h-screen");
+      header?.classList.toggle("expanded");
+      if (isOpening) {
+        if (header?.classList.contains('scroll')) header?.classList.add("bg-page");
+      } else {
+        header?.classList.remove("bg-page");
+      }
       document.querySelector("#header nav")?.classList.toggle("hidden");
       document.querySelector("#header > div > div:last-child")?.classList.toggle("hidden");
     });
