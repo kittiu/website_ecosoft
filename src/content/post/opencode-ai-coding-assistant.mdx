@@ -1,0 +1,158 @@
+---
+publishDate: 2026-06-21T07:35:57Z
+title: 'OpenCode: AI Coding Assistant แหล่งรวม AI Models สำหรับคนอยากลองของ'
+excerpt: 'OpenCode คือ AI Coding Assistant แบบ Open Source ที่รวมหลาย AI Models ไว้ในที่เดียว ทั้งแบบฟรีและจ่ายตามที่ใช้ เหมาะกับคนที่อยากลองหลาย Model โดยไม่ต้องจ่ายแพง'
+image: ~/assets/images/post/opencode-ai-coding-assistant-cover.png
+category: Documentation
+tags:
+  - OpenCode
+  - AI
+  - Ai Coding Assistant
+
+metadata:
+  canonical: https://ecosoft.co.th/opencode-ai-coding-assistant
+---
+
+import goImage from '~/assets/images/post/opencode-ai-coding-assistant-go.png';
+import zenImage from '~/assets/images/post/opencode-ai-coding-assistant-zen.png';
+
+หลังจากใช้ Claude มาประมาณ 2 เดือน ผมต้องบอกเลยว่าประทับใจมาก เข้าใจได้ทันทีว่าทำไมหลายบริษัทระดับโลกถึงเลือกใช้มัน แต่พอดูบิลค่าใช้จ่ายปลายเดือนแล้ว… ก็ต้องยอมรับว่า ค่าใช้จ่ายมันไม่ใช่น้อยๆ เลยต้องเริ่มมองหาแนวทางใหม่ เริ่มลองใช้ Model Open Source หลายตัว ก็พบว่าบางงานสามารถให้ผลลัพธ์ได้ใกล้เคียงกัน (ประมาณ 60–90%) ในราคาที่ถูกกว่าหลายเท่า หรือบางกรณีใช้ฟรีได้เลย
+
+ดังนั้น Blog นี้เลยอยากแชร์เครื่องมือที่ตัวเองลองใช้แล้วชอบมาก นั่นก็คือ **OpenCode**
+
+---
+
+## Opencode คืออะไร?
+
+ถ้าจะเปรียบให้เห็นภาพ ลองนึกถึงแอปฟังเพลงอย่าง Spotify ที่รวมเพลงจากหลายๆค่ายไว้ในที่เดียว Opencode ก็คล้ายกัน แต่แทนที่จะเป็นเพลง มันรวม AI หลายเจ้าไว้ให้ใช้งานในที่เดียว
+
+พูดให้ตรงกว่านั้นคือ Opencode เป็น **AI Coding Assistant แบบ Open Source** ที่ทำงานผ่าน Terminal ซึ่งช่วยให้นักพัฒนาสามารถ เลือกใช้ AI Model ได้หลายเจ้า ไม่ว่าจะเป็น Claude, GPT, Gemini หรือ Model Open Source อื่นๆ
+
+จากที่ลองเล่น OpenCode มา ในระบบจะมี 2 ชื่อ คือ
+
+1. OpenCode Zen
+2. OpenCode Go
+
+ทั้ง 2 ตัวนี้ต่างกันในเรื่องการคิดค่าใช้จ่าย
+
+<div className="not-prose my-8 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+  <div className="overflow-x-auto">
+    <table className="w-full min-w-[680px] border-collapse text-left text-sm">
+      <thead className="bg-slate-50 text-slate-900 dark:bg-slate-800 dark:text-slate-100">
+        <tr>
+          <th className="w-40 border-b border-slate-200 px-5 py-4 font-semibold dark:border-slate-700">OpenCode</th>
+          <th className="border-b border-slate-200 px-5 py-4 font-semibold dark:border-slate-700">Zen</th>
+          <th className="border-b border-slate-200 px-5 py-4 font-semibold dark:border-slate-700">Go</th>
+        </tr>
+      </thead>
+      <tbody className="align-top text-slate-700 dark:text-slate-200">
+        <tr>
+          <th className="border-b border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+            ค่าใช้จ่าย
+          </th>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">
+            จ่ายตามที่ใช้จริง (Pay as you go)
+          </td>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">รายเดือน (Subscribe)</td>
+        </tr>
+        <tr>
+          <th className="border-b border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+            เหมาะสำหรับ
+          </th>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">คนที่ใช้น้อย</td>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">คนที่ใช้ประจำ แต่ไม่หนักมาก</td>
+        </tr>
+        <tr>
+          <th className="border-b border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+            รายละเอียด
+          </th>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">
+            มี Models Free และอื่นๆ ที่ระบบจะคิดเงินตามที่ใช้จริง ราคาตาม Model นั้น ๆ
+          </td>
+          <td className="border-b border-slate-200 px-5 py-4 dark:border-slate-700">
+            มี Models ตามที่ Opencode กำหนดให้เลือกใช้ได้ คือ GLM, Qwen, Kimi, Mimo, DeepSeek, MiniMax
+          </td>
+        </tr>
+        <tr>
+          <th className="bg-slate-50 px-5 py-4 font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-100">
+            ภาพประกอบ
+          </th>
+          <td className="px-5 py-4">
+            <img
+              className="mx-auto max-h-[360px] rounded-md border border-slate-200 bg-white shadow-sm dark:border-slate-700"
+              src={zenImage.src}
+              alt="OpenCode Zen"
+            />
+          </td>
+          <td className="px-5 py-4">
+            <img
+              className="mx-auto max-h-[360px] rounded-md border border-slate-200 bg-white shadow-sm dark:border-slate-700"
+              src={goImage.src}
+              alt="OpenCode Go"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+## วิธีการใช้งาน
+
+1. ติดตั้ง OpenCode เข้าไปที่ [https://opencode.ai/download](https://opencode.ai/download)
+2. รันคำสั่งสำหรับเปิดใช้งาน
+
+```bash
+opencode # เปิดใน Terminal
+
+opencode web # เปิดเป็นหน้าเว็บ (แนะนำสำหรับมือใหม่)
+```
+
+_Note: ปัจจุบัน Opencode ผ่านหน้า Terminal ยังไม่รองรับภาษาไทย 100% อาจจะมีข้อความเพี้ยน หรือตกหล่นไปบ้าง ในกรณีที่มี สระ แนะนำให้รันผ่านเว็บ หรือใช้ Desktop ไปก่อน_
+
+![OpenCode web](~/assets/images/post/opencode-ai-coding-assistant-web.png)
+
+- หน้าหลักจะมีให้เลือก 2 Mode การทำงาน คือ
+
+**Plan** - ใช้ตอนยังไม่แน่ใจ ให้ AI ช่วยคิดแนวทางก่อนโดยที่ยังไม่แตะไฟล์
+
+**Build** - ใช้ตอนพร้อมลงมือแล้ว AI จะแก้ไฟล์ได้โดยตรง
+
+- ส่วนถัดไป จะเป็น Models ที่สามารถใช้ได้ แยกตาม Providers ที่เรา connect เข้ามา เบื้องต้นจะมีเฉพาะ OpenCode Zen และถ้ามีการเชื่อมกับเจ้าอื่น หรือ Subscribe กับทาง OpenCode แล้วจะเห็น OpenCode Go เพิ่มเติม
+
+---
+
+## ความแตกต่าง ระหว่างการ Chat AI ปกติ กับการใช้ OpenCode
+
+### Before
+
+เวลาเจอ Bug หรือไม่เข้าใจ Code ก็ต้อง Copy เฉพาะส่วนนั้นไปถาม AI ซึ่ง AI ก็ตอบได้แค่ในส่วนที่เห็น พอนำไปแก้จริง บางทีดันไปกระทบโมดูลอื่นที่ไม่ได้ส่งไปด้วย สุดท้ายต้องมานั่งแก้ต่ออีกรอบ
+
+### After
+
+AI มองเห็น Source Code ทั้ง Project ทำให้ตอบได้แม่นยำขึ้นมาก เพราะมันเห็นความสัมพันธ์ระหว่างโมดูลต่างๆ ครบ ลด Error จากการแก้แบบ “ตาบอดคลำช้าง” ได้เยอะ
+
+### Note
+
+ถึงแม้ว่า AI จะเห็น Codebase ทั้งหมดแล้วก็ตาม แต่ในบางครั้งก็จะพบปัญหาที่ AI ชอบสร้าง Code ใหม่แทนการ Inherit หรือว่า Reuse ในส่วนที่สามารถทำได้ คนที่ใช้ควรจะตรวจสอบก่อน Commit ทุกครั้ง ไม่งั้นอาจสะสมเป็น Technical Debt ในภายหลัง
+
+---
+
+สำหรับคนที่ไม่ใช้งานหนัก ปัจจุบันก็มี Provider หลายเจ้าเปิดให้ใช้ AI ได้ฟรีแบบจำกัด Usage ซึ่งที่ลองค้นหามีหลายเจ้าให้ลอง
+
+1. Openrouter - [https://openrouter.ai/](https://openrouter.ai/)<br/>
+   ตัวเลือกเยอะที่สุด รวม Model จากหลายค่ายไว้ในที่เดียว เหมาะสำหรับคนอยากลองหลาย Model
+2. Cloudflare - [https://www.cloudflare.com/products/workers-ai/](https://www.cloudflare.com/products/workers-ai/)<br/>
+   Free Tier ใช้งานได้ง่าย เหมาะกับงานทั่วไปที่ไม่ซับซ้อน
+3. NVIDIA - [https://build.nvidia.com/](https://build.nvidia.com/)<br/>
+   เด่นเรื่อง Model ที่เน้นงานด้าน Technical และ Research
+
+แนะนำแบบนี้
+
+1. ใช้งาน Free ของ OpenCode ก่อน
+2. หลังจากหมด ให้ Connect ไปยัง OpenRouter / Cloudflare / NVIDIA หรือเจ้าอื่นตามที่ต้องการ
+
+---
+
+การทำงานของ Developer เปลี่ยนไปแล้ว ใครที่ยังไม่ได้ใช้ AI จะตามไม่ทันคนอื่น แต่คนที่ใช้แต่ AI โดยที่ไม่ได้เข้าใจโครงสร้าง Project ตัวเองก็จะเกิดปัญหาในอนาคต ดังนั้นควรจะใช้ให้เป็น ใช้ให้ถูกทาง แล้วการทำงานจะมีประสิทธิภาพมาก
