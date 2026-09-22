@@ -340,4 +340,11 @@ const metadata = {
   .floworks-page :global(.bg-green-600) {
     background-color: rgb(255 122 41) !important;
   }
+
+  /* Illustrations in these two sections are shorter than the copy beside them: centre the pair
+     vertically instead of leaving all the slack under the image. */
+  .floworks-page :global(#a-tuesday) > :global(div) > :global(div) > :global(div),
+  .floworks-page :global(#who-its-for) > :global(div) > :global(div) > :global(div) {
+    align-items: center;
+  }
 </style>
