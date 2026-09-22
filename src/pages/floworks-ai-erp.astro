@@ -4,8 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -183,97 +181,6 @@ const metadata = {
       <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
-  <!-- Why Ecosoft ******************* -->
-  <Features
-    id="why-ecosoft"
-    title="Why Ecosoft"
-    subtitle="Ecosoft specialises in optimising business processes with 100% open-source software and AI — across consulting, implementation, migration, training and support."
-    columns={2}
-    items={[
-      {
-        title: 'Business expertise — 10+ years, 40+ ERP projects',
-        description:
-          'We put understanding your business process first, because an ERP is not just a database: it has to be right for your accounting and your tax.',
-        icon: 'tabler:bulb',
-      },
-      {
-        title: 'Highest quality level',
-        description:
-          'Quality is not a slogan for us. We care about how software is built and reused — not just that it runs — because the system we hand over has to be maintainable by you, or by whoever comes after us.',
-        icon: 'tabler:award',
-      },
-      {
-        title: 'No vendor lock-in — you own the system',
-        description:
-          'We believe in 100% open source, and we act like it: when a project ends, we hand over the complete source code. You own your system, with no strings attached.',
-        icon: 'tabler:lock-off',
-      },
-      {
-        title: 'A long-term partner, not a supplier',
-        description:
-          'An ERP is a load-bearing system for a business. Our job is to make sure it keeps helping yours grow steadily — which is why we stay with you long after go-live.',
-        icon: 'tabler:heart',
-      },
-    ]}
-  />
-
-  <Stats
-    id="ecosoft-figures"
-    title=""
-    stats={[
-      { title: 'Years in business', amount: '10+' },
-      { title: 'Deployed Users', amount: '4K' },
-      { title: 'Customers', amount: '40+' },
-      { title: 'Modules Contributed', amount: '120+' },
-    ]}
-  />
-
-  <!-- Case: EOS Orbit *************** -->
-  <Content
-    id="eos-orbit"
-    items={[
-      { title: 'Component procurement and assembly logs' },
-      { title: 'Test reports and quality assurance' },
-      { title: 'Thai payroll and project costing' },
-      { title: 'One system instead of spreadsheets' },
-    ]}
-    image={{
-      src: '~/assets/images/modules.png',
-      alt: 'ERPNext modules',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        They build satellites with it
-      </h3>
-      <b>EOS Orbit — Thailand’s first satellite manufacturer.</b> EOS Orbit designs, builds and operates satellites
-      from Thailand, and needed a system that could carry highly technical engineering workflows, strict compliance
-      and fast R&amp;D cycles. Traditional ERPs were too rigid or too expensive to shape around that.
-      <br /><br />
-      With Ecosoft they built end-to-end workflows that mirror how they actually engineer, and replaced the
-      spreadsheets with one system the whole company can see. <b>They went live on time, and the system played a part
-      in their ISO 9001 certification.</b>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <Testimonials
-    id="eos-orbit-quote"
-    title=""
-    testimonials={[
-      {
-        title: 'EOS Orbit Co Ltd',
-        testimonial:
-          'Ecosoft helped transform our operations with ERPNext. Their expertise gave EOS Orbit the system we needed to build Thailand’s first operational satellite, and to scale our mission beyond Earth.',
-        name: 'Supiti Buranawatanachoke',
-        job: 'Chairman, EOS Orbit',
-      },
-    ]}
-  />
 
   <!-- FAQ *************************** -->
   <FAQs
