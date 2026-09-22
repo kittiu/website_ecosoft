@@ -54,45 +54,10 @@ const metadata = {
       </Fragment>
     </Hero>
 
-    <!-- Problem *********************** -->
+    <!-- Three parts, working as one **** -->
     <Content
-      id="problem"
-      isReversed
-      items={[
-        { title: 'The data is in there — but someone has to type it in.' },
-        { title: "The answer exists — but it lives in one senior person's head." },
-        { title: 'The problem is visible — but nobody has the hours to chase it.' },
-        { title: 'The licence, the consultants and the lock-in only ever go up.' },
-      ]}
-    >
-      <Fragment slot="image">
-        <img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-sm" />
-        <img
-          src="/images/floworks-ai-erp-architecture.svg"
-          alt="Floworks AI ERP architecture"
-          class="mx-auto mt-8 w-full"
-        />
-      </Fragment>
-
-      <Fragment slot="content">
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-          The ERP was a breakthrough. Then it became a job.
-        </h3>
-        Every trading and manufacturing company that grows past a certain size hits the same wall. The system that was
-        supposed to run the business needs someone to run it. That is the tax traditional ERP charges — and
-        <b>Floworks AI ERP is our answer to it.</b>
-      </Fragment>
-
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
-      </Fragment>
-    </Content>
-
-    <!-- Three parts ******************* -->
-    <Features
       id="three-parts"
-      title="Three parts, working as one"
-      columns={3}
+      isReversed
       items={[
         {
           title: 'ERPNext — the system of record',
@@ -112,6 +77,39 @@ const metadata = {
             'Agents that read the records, follow your rules and take the action — chasing the delayed shipment, drafting the supplier email, raising the reorder before you run out. Under the same permissions and the same audit trail as your staff.',
           icon: 'tabler:robot',
         },
+      ]}
+    >
+      <Fragment slot="image">
+        <img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-sm" />
+        <img
+          src="/images/floworks-ai-erp-architecture.svg"
+          alt="Floworks AI ERP architecture"
+          class="mx-auto mt-8 w-full"
+        />
+      </Fragment>
+
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          Three parts, working as one
+        </h3>
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+
+    <!-- Problem *********************** -->
+    <Features
+      id="problem"
+      title="The ERP was a breakthrough. Then it became a job."
+      subtitle="Every trading and manufacturing company that grows past a certain size hits the same wall. The system that was supposed to run the business needs someone to run it. That is the tax traditional ERP charges — and <b>Floworks AI ERP is our answer to it.</b>"
+      columns={2}
+      items={[
+        { title: 'The data is in there — but someone has to type it in.' },
+        { title: "The answer exists — but it lives in one senior person's head." },
+        { title: 'The problem is visible — but nobody has the hours to chase it.' },
+        { title: 'The licence, the consultants and the lock-in only ever go up.' },
       ]}
     />
 
