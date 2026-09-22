@@ -62,11 +62,13 @@
 <g transform="translate(710.0,382)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-12" width="22" height="15" rx="2" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-4,3 V7 M4,3 V7 M-7,7 H7" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-7,-3 L-2,-7 L2,-4 L7,-9" stroke="#FFFFFF" stroke-width="1.9"/></g>
 <text x="710.0" y="415" font-size="12" fill="#FFFFFF" font-weight="600" text-anchor="middle" letter-spacing="0">Decision Dashboards</text>
 <path d="M150,69 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
-<path d="M150,157 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
+<path d="M150,69 H170 V150 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
+<path d="M150,180 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
+<path d="M150,245 H250 V210 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
 <path d="M90.0,280 V395 H176" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
 <path d="M400,96 V140" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)" marker-start="url(#ahNavyStart)"/>
 <path d="M540,192 H640" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)" marker-start="url(#ahNavyStart)"/>
-<path d="M640,58 H710 V140" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)"/>
+<path d="M640,58 H710 V140" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)" marker-start="url(#ahNavyStart)"/>
 <path d="M330,244 V300 H242 V352" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)"/>
 <path d="M390,244 V352" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)"/>
 <path d="M500,244 V300 H538 V352" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)"/>
