@@ -21,7 +21,7 @@ const metadata = {
     <Hero
       callToAction={{
         targetBlank: true,
-        text: 'Talk to us',
+        text: 'Contact Us',
         href: contactHref,
         icon: 'tabler:mail',
       }}
@@ -37,8 +37,20 @@ const metadata = {
       </Fragment>
 
       <Fragment slot="content">
-        <b>ERPNext</b> as your reliable system of record, a <b>Company Brain</b> that holds what your company knows,
-        and <b>Hermes AI Agent</b> that connects everything and gives you insights.
+        <div class="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-3xl mx-auto text-slate-300">
+          <div>
+            <p class="text-lg mb-1"><b>ERPNext</b></p>
+            <p class="text-base">your reliable system of record</p>
+          </div>
+          <div>
+            <p class="text-lg mb-1"><b>Company Brain</b></p>
+            <p class="text-base">holds what your company knows</p>
+          </div>
+          <div>
+            <p class="text-lg mb-1"><b>Hermes AI Agent</b></p>
+            <p class="text-base">connects everything and gives you insights</p>
+          </div>
+        </div>
       </Fragment>
     </Hero>
 
@@ -52,10 +64,7 @@ const metadata = {
         { title: 'The problem is visible — but nobody has the hours to chase it.' },
         { title: 'The licence, the consultants and the lock-in only ever go up.' },
       ]}
-      image={{
-        src: '~/assets/images/erp.png',
-        alt: 'ERP',
-      }}
+      image={'<img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-md" />'}
     >
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
@@ -216,7 +225,7 @@ const metadata = {
     <!-- Call to action **************** -->
     <CallToAction
       id="talk-to-us"
-      title="Talk to us"
+      title="Contact Us"
       subtitle="Tell us how your company actually runs today, and we will map where the memory and the agents would earn their keep first."
       callToAction={{
         targetBlank: true,
