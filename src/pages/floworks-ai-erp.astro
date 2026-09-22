@@ -27,7 +27,7 @@ const metadata = {
       }}
     >
       <Fragment slot="title">
-        Floworks <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">AI ERP</span>
+        FLOWORKS <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">AI ERP</span>
       </Fragment>
 
       <Fragment slot="subtitle">
@@ -293,6 +293,12 @@ const metadata = {
   /* Hero subtitle is text-blue-200 — warm it to match the palette */
   .floworks-page > :global(section:first-child) :global(.text-blue-200) {
     color: rgb(255 224 204);
+  }
+
+  /* Hero: ~90% of the default height (684px -> ~616px). The 76px header spacer is untouched. */
+  .floworks-page > :global(section:first-child) > :global(div) > :global(div:nth-child(2)) {
+    padding-top: 62px;
+    padding-bottom: 62px;
   }
 
   /* The Content widget draws its bullets as hard-coded green check circles */
