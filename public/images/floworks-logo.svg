@@ -1,20 +1,25 @@
-<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="navy" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B2A4A"/><stop offset="100%" stop-color="#123A63"/>
-    </linearGradient>
-    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7A29"/><stop offset="100%" stop-color="#F0580B"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(20,10)">
-    <circle cx="80" cy="80" r="74" fill="url(#navy)"/>
-    <circle cx="80" cy="80" r="52" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.5" stroke-dasharray="6 8"/>
-    <circle cx="132" cy="80" r="8" fill="url(#orange)"/>
-    <text x="80" y="90" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">FW</text>
+<svg viewBox="0 0 1005 243" xmlns="http://www.w3.org/2000/svg" width="1005" height="243">
+  <!-- Floworks logo. Colours and geometry measured from the supplied brand file:
+       navy #01265D, orange #FF5D08, circle r=114 at (120,121), wordmark baseline y=165,
+       tagline baseline y=223. Solid navy disc (no dashed ring). -->
+  <circle cx="120" cy="121" r="114" fill="#01265D"/>
+
+  <!-- FW monogram: scaled to the measured 152x108 box -->
+  <g transform="translate(112,159) scale(0.94,1.42)">
+    <text x="0" y="0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif"
+          font-weight="700" font-size="104" fill="#FFFFFF">FW</text>
   </g>
-  <g transform="translate(195,0)">
-    <text x="0" y="105" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="58" letter-spacing="0.5" fill="#0B2A4A">FLO<tspan fill="#FF7A29">WORKS</tspan></text>
-    <text x="2" y="135" font-family="Arial, Helvetica, sans-serif" font-weight="500" font-size="14" letter-spacing="6" fill="#5A7189">YOUR OPEN SOURCE AI ERP</text>
+
+  <!-- orange dot, sitting on the baseline to the right of the W -->
+  <circle cx="200.5" cy="165" r="10.5" fill="#FF5D08"/>
+
+  <!-- wordmark: FLOW navy / ORKS orange, split at x=639 -->
+  <g transform="translate(279,165) scale(0.885,1)">
+    <text x="0" y="0" font-family="Liberation Sans, Arial, Helvetica, sans-serif"
+          font-weight="700" font-size="141" fill="#01265D">FLOW<tspan fill="#FF5D08">ORKS</tspan></text>
   </g>
+
+  <!-- tagline -->
+  <text x="284" y="223" font-family="Liberation Sans, Arial, Helvetica, sans-serif"
+        font-weight="400" font-size="34" letter-spacing="11" fill="#01265D">YOUR OPEN SOURCE AI ERP</text>
 </svg>
