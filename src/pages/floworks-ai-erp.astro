@@ -37,8 +37,8 @@ const metadata = {
       </Fragment>
 
       <Fragment slot="content">
-        An open-source AI ERP for your business: <b>ERPNext</b> as your system of record, a
-        <b>Second Brain</b> that holds what your company knows, and <b>AI agents</b> that carry the work through.
+        <b>ERPNext</b> as your reliable system of record, a <b>Company Brain</b> that holds what your company knows,
+        and <b>Hermes AI Agent</b> that connects everything and gives you insights.
       </Fragment>
     </Hero>
 
@@ -244,6 +244,21 @@ const metadata = {
     --aw-color-secondary: rgb(11 42 74); /* #0B2A4A — button hover, deep accents */
     --aw-color-accent: rgb(255 122 41); /* #FF7A29 — highlights */
     --aw-color-text-heading: rgb(11 42 74); /* navy headings in light mode */
+
+    /* brand oranges: the deep one is used for text on white (readable), the bright one on navy */
+    --fw-orange: rgb(255 122 41); /* #FF7A29 */
+    --fw-orange-deep: rgb(240 88 11); /* #F0580B */
+  }
+
+  /* Bold text carries the brand orange, site-wide on this page only */
+  .floworks-page :global(b),
+  .floworks-page :global(strong) {
+    color: var(--fw-orange-deep);
+  }
+
+  /* On the navy hero the brighter orange reads better */
+  .floworks-page > :global(section:first-child) :global(b) {
+    color: var(--fw-orange);
   }
 
   /* Hero: the logo's navy gradient instead of the site's default #0d1b35 */
