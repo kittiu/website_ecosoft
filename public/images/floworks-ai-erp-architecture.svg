@@ -29,22 +29,21 @@
 <g transform="translate(90.0,235)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-12" width="22" height="15" rx="2" stroke="#0B2A4A" stroke-width="1.9"/><path d="M-4,3 V7 M4,3 V7 M-7,7 H7" stroke="#0B2A4A" stroke-width="1.9"/><path d="M-6,-8 V-4 M-2,-8 V-6 M2,-8 V-3 M6,-8 V-5" stroke="#0B2A4A" stroke-width="1.9"/></g>
 <text x="90.0" y="265" font-size="12.5" fill="#0B2A4A" font-weight="600" text-anchor="middle" letter-spacing="0">External APIs</text>
 <rect x="300" y="20" width="340" height="76" rx="12" fill="url(#gOrange)" stroke="#F0580B" stroke-width="2"/>
-<g transform="translate(410,59)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-8" y="-8" width="16" height="16" rx="3" stroke="#FFFFFF" stroke-width="1.9"/>
+<g transform="translate(398,59)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-8" y="-8" width="16" height="16" rx="3" stroke="#FFFFFF" stroke-width="1.9"/>
       <rect x="-3" y="-3" width="6" height="6" rx="1" stroke="#FFFFFF" stroke-width="1.9"/>
       <path d="M0,-12 V-8 M0,8 V12 M-12,0 H-8 M8,0 H12" stroke="#FFFFFF" stroke-width="1.9"/>
       <path d="M-6,-12 V-8 M6,8 V12 M-12,-6 H-8 M8,6 H12" stroke="#FFFFFF" stroke-width="1.9"/></g>
-<text x="430" y="56" font-size="16" fill="#FFFFFF" font-weight="700" text-anchor="start" letter-spacing="0">Agentic AI</text>
-<text x="430" y="76" font-size="12.5" fill="#FFFFFF" font-weight="700" text-anchor="start" letter-spacing="1.2">ORCHESTRATOR</text>
+<text x="420" y="56" font-size="16" fill="#FFFFFF" font-weight="700" text-anchor="start" letter-spacing="0">Hermes AI Agent</text>
+<text x="420" y="76" font-size="12.5" fill="#FFFFFF" font-weight="700" text-anchor="start" letter-spacing="1.2">ORCHESTRATOR</text>
 <rect x="300" y="140" width="240" height="104" rx="12" fill="url(#gNavy)" stroke="#0B2A4A" stroke-width="2"/>
-<text x="420.0" y="190" font-size="30" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="1">ERP</text>
+<text x="420.0" y="190" font-size="26" fill="#FFFFFF" font-weight="700" text-anchor="middle" letter-spacing="0.5">ERPNext</text>
 <text x="420.0" y="214" font-size="15" fill="#C9D6E4" font-weight="600" text-anchor="middle" letter-spacing="3.5">CORE</text>
 <rect x="640" y="140" width="140" height="104" rx="12" fill="#FDE7D8" stroke="#FF7A29" stroke-width="2"/>
-<g transform="translate(710.0,173)" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="-8" cy="-6" r="3.2" stroke="#F0580B" stroke-width="1.9"/>
+<g transform="translate(710.0,182)" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="-8" cy="-6" r="3.2" stroke="#F0580B" stroke-width="1.9"/>
       <circle cx="8" cy="-6" r="3.2" stroke="#F0580B" stroke-width="1.9"/>
       <circle cx="0" cy="8" r="3.2" stroke="#F0580B" stroke-width="1.9"/>
       <path d="M-5.5,-4 L-2,6 M5.5,-4 L2,6 M-5,-6 H5" stroke="#F0580B" stroke-width="1.9"/></g>
-<text x="710.0" y="208" font-size="14" fill="#0B2A4A" font-weight="700" text-anchor="middle" letter-spacing="0">LLM + RAG</text>
-<text x="710.0" y="226" font-size="11" fill="#F0580B" font-weight="600" text-anchor="middle" letter-spacing="2.2">ENGINE</text>
+<text x="710.0" y="216" font-size="13.5" fill="#0B2A4A" font-weight="700" text-anchor="middle" letter-spacing="0">Company Brain</text>
 <rect x="176" y="352" width="132" height="86" rx="11" fill="#123A63" stroke="#0B2A4A" stroke-width="2"/>
 <g transform="translate(242.0,382)" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-6" r="4.6" stroke="#FFFFFF" stroke-width="1.9"/>
       <path d="M-9,11 C-9,3 9,3 9,11" stroke="#FFFFFF" stroke-width="1.9"/></g>
@@ -59,12 +58,12 @@
       <rect x="-4.5" y="-8" width="9" height="3.5" rx="1" stroke="#FFFFFF" stroke-width="1.9"/>
       <path d="M-4,-1 H-3 M0,-1 H1 M4,-1 H5 M-4,5 H-3 M0,5 H1 M4,5 H5" stroke="#FFFFFF" stroke-width="1.9"/></g>
 <text x="538.0" y="415" font-size="12.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" letter-spacing="0">Financials</text>
-<rect x="620" y="352" width="150" height="86" rx="11" fill="url(#gNavy)" stroke="#0B2A4A" stroke-width="2"/>
-<g transform="translate(695.0,382)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-12" width="22" height="15" rx="2" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-4,3 V7 M4,3 V7 M-7,7 H7" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-7,-3 L-2,-7 L2,-4 L7,-9" stroke="#FFFFFF" stroke-width="1.9"/></g>
-<text x="695.0" y="415" font-size="12" fill="#FFFFFF" font-weight="600" text-anchor="middle" letter-spacing="0">Decision Dashboards</text>
+<rect x="635" y="352" width="150" height="86" rx="11" fill="url(#gNavy)" stroke="#0B2A4A" stroke-width="2"/>
+<g transform="translate(710.0,382)" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-12" width="22" height="15" rx="2" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-4,3 V7 M4,3 V7 M-7,7 H7" stroke="#FFFFFF" stroke-width="1.9"/><path d="M-7,-3 L-2,-7 L2,-4 L7,-9" stroke="#FFFFFF" stroke-width="1.9"/></g>
+<text x="710.0" y="415" font-size="12" fill="#FFFFFF" font-weight="600" text-anchor="middle" letter-spacing="0">Decision Dashboards</text>
 <path d="M150,69 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
 <path d="M150,157 H300" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
-<path d="M150,245 H170 V458 H600 V395 H620" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
+<path d="M90.0,280 V395 H176" fill="none" stroke="#8FA0B3" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#ahSlate)"/>
 <path d="M400,96 V140" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)" marker-start="url(#ahNavyStart)"/>
 <path d="M540,192 H640" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)" marker-start="url(#ahNavyStart)"/>
 <path d="M640,58 H710 V140" fill="none" stroke="#0B2A4A" stroke-width="2.2" marker-end="url(#ahNavy)"/>
