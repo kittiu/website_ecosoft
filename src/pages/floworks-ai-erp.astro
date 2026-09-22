@@ -64,8 +64,16 @@ const metadata = {
         { title: 'The problem is visible — but nobody has the hours to chase it.' },
         { title: 'The licence, the consultants and the lock-in only ever go up.' },
       ]}
-      image={'<img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-md" />'}
     >
+      <Fragment slot="image">
+        <img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-sm" />
+        <img
+          src="/images/floworks-ai-erp-architecture.svg"
+          alt="Floworks AI ERP architecture"
+          class="mx-auto mt-8 w-full"
+        />
+      </Fragment>
+
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
           The ERP was a breakthrough. Then it became a job.
