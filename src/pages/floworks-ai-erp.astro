@@ -12,12 +12,12 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 const contactHref = 'https://ecosoft.frappe.cloud/contact-us/new';
 
 const metadata = {
-  title: 'Floworks AI ERP — open source ERP, company memory, AI agents',
+  title: 'Floworks AI ERP — 100% open source ERP, company memory and AI agents',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero *************************** -->
+  <!-- Hero Widget ******************* -->
   <Hero
     callToAction={{
       targetBlank: true,
@@ -31,11 +31,14 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">Run your company. Not your software.</span>
+      <span class="hidden sm:inline">
+        <span class="font-semibold">100% Open Source</span><br />Run your company. Not your software.</span
+      >
     </Fragment>
 
     <Fragment slot="content">
-      ERPNext as the system of record, a second brain for what your company knows, and agents that do the work.
+      An open-source AI ERP for your business: <b>ERPNext</b> as your system of record, a
+      <b>Second Brain</b> that holds what your company knows, and <b>AI agents</b> that carry the work through.
     </Fragment>
   </Hero>
 
@@ -44,9 +47,10 @@ const metadata = {
     id="problem"
     isReversed
     items={[
-      { title: 'Data entered by hand.' },
-      { title: "Answers stuck in one person's head." },
-      { title: 'Work nobody has time to chase.' },
+      { title: 'The data is in there — but someone has to type it in.' },
+      { title: "The answer exists — but it lives in one senior person's head." },
+      { title: 'The problem is visible — but nobody has the hours to chase it.' },
+      { title: 'The licence, the consultants and the lock-in only ever go up.' },
     ]}
     image={{
       src: '~/assets/images/erp.png',
@@ -57,8 +61,9 @@ const metadata = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         The ERP was a breakthrough. Then it became a job.
       </h3>
-      Every trading and manufacturing company hits this wall at some point: the system that was meant to run the
-      business ends up needing someone to run it.
+      Every trading and manufacturing company that grows past a certain size hits the same wall. The system that was
+      supposed to run the business needs someone to run it. That is the tax traditional ERP charges — and
+      <b>Floworks AI ERP is our answer to it.</b>
     </Fragment>
 
     <Fragment slot="bg">
@@ -75,43 +80,48 @@ const metadata = {
       {
         title: 'ERPNext — the system of record',
         description:
-          'Orders, invoices, inventory, purchasing, projects and HR in one shared data model.',
+          'Orders, invoices, inventory, purchasing, projects and HR in one shared data model. Open source, mature, and already running the operations of companies like yours.',
         icon: 'tabler:database',
       },
       {
         title: "The Brain — your company's memory",
         description:
-          'How you quote, how you price, how you handle the exception — kept where it belongs, not in someone’s inbox.',
+          'Not a chat window over a search index: a knowledge base your agents curate and keep current, where answers compound instead of being rediscovered every time. How you quote, how you price, how you handle the exception, which supplier actually delivers.',
         icon: 'tabler:brain',
       },
       {
-        title: 'Hermes — the agents',
+        title: 'Hermes — the agentic AI',
         description:
-          'Agents that read the records, follow your rules and take the action — under the same permissions and audit trail as your staff.',
+          'Agents that read the records, follow your rules and take the action — chasing the delayed shipment, drafting the supplier email, raising the reorder before you run out. Under the same permissions and the same audit trail as your staff.',
         icon: 'tabler:robot',
       },
     ]}
   />
 
-  <!-- Ownership ********************* -->
+  <!-- Open source DNA *************** -->
   <Content
-    id="ownership"
+    id="open-source"
     isAfterContent
     items={[
-      { title: 'Your data, in your database, on infrastructure you choose.' },
-      { title: 'No per-seat licence.' },
-      { title: 'The source code is yours when the project ends.' },
-      { title: 'Extend it yourself, or with us.' },
+      { title: 'Your data is yours — in your database, on infrastructure you choose.' },
+      { title: 'No per-seat ransom. The licence does not grow every time you hire.' },
+      { title: 'You can leave. Take the system in-house or to another partner; nothing stops you.' },
+      { title: 'You get the source code. When the project ends we hand over the complete source.' },
+      { title: 'You can extend it — the field, the workflow, the report your business needs.' },
+      { title: 'No black box. Every layer can be read, audited and replaced.' },
     ]}
     image={{
       src: '~/assets/images/oxp_logo_glow.svg',
-      alt: 'Open source',
+      alt: 'Odoo X ERPNext',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">You own it.</h3>
-      Floworks AI ERP is built on open-source software — ERPNext (GPLv3) and Hermes (MIT). The stack may evolve; the
-      principle will not.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Open source is not a licence choice. It is our DNA.
+      </h3>
+      Floworks AI ERP is built on an open-source stack — ERPNext (GPLv3) and Hermes (MIT). The individual
+      products will keep evolving; the principle will not. <b>Software you own, instead of software you rent and
+      obey.</b>
     </Fragment>
 
     <Fragment slot="bg">
@@ -125,21 +135,23 @@ const metadata = {
     isReversed
     isAfterContent
     items={[
-      { title: 'A shipment slips — the agent finds the affected orders and drafts the supplier email.' },
-      { title: 'Stock runs low — it prepares the purchase order before the line stops.' },
-      { title: 'A customer asks for a quote like one from two years ago — the memory finds the original terms.' },
-      { title: 'Month-end — the cash-flow forecast is built from real commitments, not a spreadsheet.' },
+      { title: 'A shipment slips. The agent spots it, finds the orders it touches, and drafts the supplier email for a human to approve.' },
+      { title: 'Raw material runs low. It prepares the purchase order at the reorder point, before the line stops.' },
+      { title: 'A customer asks for a quote like the one from two years ago. The Brain finds the original terms, the margin, and what has changed since.' },
+      { title: 'Month-end. The cash-flow picture is assembled from real commitments, not a spreadsheet someone maintains by hand.' },
+      { title: 'A new colleague starts. They ask the system how the company does things — and get the company’s answer, not a guess.' },
     ]}
     image={{
       src: '~/assets/images/workflow2.png',
-      alt: 'Automation',
+      alt: 'Process Automation',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         What it does on an ordinary Tuesday
       </h3>
-      Anything irreversible — paying, posting, emailing a customer — waits for a human approval.
+      <b>Every irreversible action — paying, posting to the ledger, emailing a customer — stops at a human approval
+      gate.</b> The agents are staff, not a blank cheque.
     </Fragment>
 
     <Fragment slot="bg">
@@ -152,8 +164,8 @@ const metadata = {
     id="who-its-for"
     isAfterContent
     items={[
-      { title: 'You already run ERPNext — we add the memory and the agents.' },
-      { title: "You're starting from spreadsheets — you get all three at once." },
+      { title: 'You already run ERPNext with us — the memory and the agents are added on top of what you have.' },
+      { title: 'You are starting from spreadsheets or an ageing system — you get the system of record, the memory and the agents in one move.' },
     ]}
     image={{
       src: '~/assets/images/industries.jpg',
@@ -162,7 +174,9 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Who it is for</h3>
-      Trading and manufacturing companies that have outgrown spreadsheets. Two starting points, one offer.
+      <b>Trading and manufacturing companies</b> that have outgrown spreadsheets but do not want to spend the next
+      five years serving a rigid, expensive system. Two starting points, one offer — what changes between them is the
+      size of the implementation, not the product.
     </Fragment>
 
     <Fragment slot="bg">
@@ -174,30 +188,31 @@ const metadata = {
   <Features
     id="why-ecosoft"
     title="Why Ecosoft"
-    subtitle="Open-source software and AI, across consulting, implementation, migration, training and support."
+    subtitle="Ecosoft specialises in optimising business processes with 100% open-source software and AI — across consulting, implementation, migration, training and support."
     columns={2}
     items={[
       {
-        title: '10+ years, 40+ ERP projects',
+        title: 'Business expertise — 10+ years, 40+ ERP projects',
         description:
-          'We start from how your business actually runs — because an ERP has to be right for your accounting and tax.',
+          'We put understanding your business process first, because an ERP is not just a database: it has to be right for your accounting and your tax.',
         icon: 'tabler:bulb',
       },
       {
-        title: 'You own the system',
+        title: 'Highest quality level',
         description:
-          'When a project ends, we hand over the source code. No strings attached.',
-        icon: 'tabler:lock-off',
-      },
-      {
-        title: 'Built to last',
-        description:
-          'We care how software is built, because it has to be maintainable by whoever comes after us.',
+          'Quality is not a slogan for us. We care about how software is built and reused — not just that it runs — because the system we hand over has to be maintainable by you, or by whoever comes after us.',
         icon: 'tabler:award',
       },
       {
-        title: 'A long-term partner',
-        description: 'An ERP is load-bearing. We stay with you after go-live.',
+        title: 'No vendor lock-in — you own the system',
+        description:
+          'We believe in 100% open source, and we act like it: when a project ends, we hand over the complete source code. You own your system, with no strings attached.',
+        icon: 'tabler:lock-off',
+      },
+      {
+        title: 'A long-term partner, not a supplier',
+        description:
+          'An ERP is a load-bearing system for a business. Our job is to make sure it keeps helping yours grow steadily — which is why we stay with you long after go-live.',
         icon: 'tabler:heart',
       },
     ]}
@@ -219,7 +234,8 @@ const metadata = {
     id="eos-orbit"
     items={[
       { title: 'Component procurement and assembly logs' },
-      { title: 'Thai payroll, project costing and quality assurance' },
+      { title: 'Test reports and quality assurance' },
+      { title: 'Thai payroll and project costing' },
       { title: 'One system instead of spreadsheets' },
     ]}
     image={{
@@ -231,9 +247,13 @@ const metadata = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         They build satellites with it
       </h3>
-      <b>EOS Orbit</b> — Thailand’s first satellite manufacturer — needed an ERP that could follow how they actually
-      engineer. Traditional systems were too rigid. With Ecosoft they built the workflows around their real process,
-      and went live on time.
+      <b>EOS Orbit — Thailand’s first satellite manufacturer.</b> EOS Orbit designs, builds and operates satellites
+      from Thailand, and needed a system that could carry highly technical engineering workflows, strict compliance
+      and fast R&amp;D cycles. Traditional ERPs were too rigid or too expensive to shape around that.
+      <br /><br />
+      With Ecosoft they built end-to-end workflows that mirror how they actually engineer, and replaced the
+      spreadsheets with one system the whole company can see. <b>They went live on time, and the system played a part
+      in their ISO 9001 certification.</b>
     </Fragment>
 
     <Fragment slot="bg">
@@ -262,22 +282,24 @@ const metadata = {
     columns={1}
     items={[
       {
-        title: 'Is it open source?',
-        description: 'Yes — ERPNext (GPLv3) and Hermes (MIT). Your data sits in a database you control.',
+        title: 'Is it really open source?',
+        description:
+          'Yes. The core is an open-source stack — ERPNext (GPLv3) and Hermes (MIT) — and your data sits in a database you control.',
       },
       {
         title: 'Where does our data live?',
-        description: 'Wherever you choose — your server, a cloud region, or infrastructure we manage.',
+        description:
+          'Wherever you decide. On your own server, on a cloud region you choose, or on infrastructure we manage for you. It is your database either way.',
       },
       {
         title: 'Will an AI touch my ledger without asking?',
         description:
-          'No. Agents act as users with assigned roles, everything is logged, and anything irreversible waits for approval.',
+          'No. Agents act as users, with roles you assign, and everything they do is logged. Anything irreversible waits for a human approval.',
       },
       {
         title: 'We already have an ERP. Do we have to throw it away?',
         description:
-          'Not necessarily. We can migrate, run alongside it, or start with the memory and the agents while your current system stays.',
+          'Talk to us before you assume that. Depending on the system, we can migrate, run alongside it, or start with the memory and the agents while your current records stay where they are.',
       },
     ]}
   />
@@ -286,7 +308,7 @@ const metadata = {
   <CallToAction
     id="talk-to-us"
     title="Talk to us"
-    subtitle="Tell us how your company runs today, and we'll show you where the memory and the agents earn their keep first."
+    subtitle="Tell us how your company actually runs today, and we will map where the memory and the agents would earn their keep first."
     callToAction={{
       targetBlank: true,
       text: 'Get in touch',
