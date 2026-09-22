@@ -1,0 +1,20 @@
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="navy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2A4A"/><stop offset="100%" stop-color="#123A63"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A29"/><stop offset="100%" stop-color="#F0580B"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(20,10)">
+    <circle cx="80" cy="80" r="74" fill="url(#navy)"/>
+    <circle cx="80" cy="80" r="52" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.5" stroke-dasharray="6 8"/>
+    <circle cx="132" cy="80" r="8" fill="url(#orange)"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF">FW</text>
+  </g>
+  <g transform="translate(195,0)">
+    <text x="0" y="105" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="58" letter-spacing="0.5" fill="#0B2A4A">FLO<tspan fill="#FF7A29">WORKS</tspan></text>
+    <text x="2" y="135" font-family="Arial, Helvetica, sans-serif" font-weight="500" font-size="14" letter-spacing="8.5" fill="#5A7189">YOUR AI COMPANY OS</text>
+  </g>
+</svg>
