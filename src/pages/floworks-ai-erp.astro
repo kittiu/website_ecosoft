@@ -36,23 +36,6 @@ const metadata = {
           <span class="font-semibold">100% Open Source</span><br />Run your company. Not your software.</span
         >
       </Fragment>
-
-      <Fragment slot="content">
-        <div class="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-3xl mx-auto text-slate-300">
-          <div>
-            <p class="text-lg mb-1"><b>ERPNext</b></p>
-            <p class="text-base">your reliable system of record</p>
-          </div>
-          <div>
-            <p class="text-lg mb-1"><b>Company Brain</b></p>
-            <p class="text-base">holds what your company knows</p>
-          </div>
-          <div>
-            <p class="text-lg mb-1"><b>Hermes AI Agent</b></p>
-            <p class="text-base">connects everything and gives you insights</p>
-          </div>
-        </div>
-      </Fragment>
     </Hero>
 
     <!-- Three parts, working as one **** -->
@@ -288,6 +271,12 @@ const metadata = {
   .floworks-page > :global(section:first-child) > :global(div) > :global(div:nth-child(2)) {
     padding-top: 62px;
     padding-bottom: 62px;
+  }
+
+  /* Hero title: one size across the whole line. FLOWORKS matches the 'AI ERP' span (text-5xl = 48px),
+     instead of the widget's md:text-6xl (60px). */
+  .floworks-page > :global(section:first-child) :global(h1) {
+    font-size: 3rem;
   }
 
   /* The Content widget draws its bullets as hard-coded green check circles */
