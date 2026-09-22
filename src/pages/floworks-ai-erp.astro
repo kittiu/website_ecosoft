@@ -177,11 +177,16 @@ const metadata = {
         { title: 'Month-end. The cash-flow picture is assembled from real commitments, not a spreadsheet someone maintains by hand.' },
         { title: 'A new colleague starts. They ask the system how the company does things — and get the company’s answer, not a guess.' },
       ]}
-      image={{
-        src: '~/assets/images/workflow2.png',
-        alt: 'Process Automation',
-      }}
     >
+
+      <Fragment slot="image">
+        <img
+          src="/images/floworks-ordinary-tuesday.svg"
+          alt="An ordinary Tuesday: goods moving through the warehouse"
+          class="mx-auto w-full"
+        />
+      </Fragment>
+
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
           What it does on an ordinary Tuesday
@@ -203,11 +208,16 @@ const metadata = {
         { title: 'You already run ERPNext with us — the memory and the agents are added on top of what you have.' },
         { title: 'You are starting from spreadsheets or an ageing system — you get the system of record, the memory and the agents in one move.' },
       ]}
-      image={{
-        src: '~/assets/images/industries.jpg',
-        alt: 'Industries',
-      }}
     >
+
+      <Fragment slot="image">
+        <img
+          src="/images/floworks-who-its-for.svg"
+          alt="Trading and manufacturing companies"
+          class="mx-auto w-full"
+        />
+      </Fragment>
+
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Who it is for</h3>
         <b>Trading and manufacturing companies</b> that have outgrown spreadsheets but do not want to spend the next
