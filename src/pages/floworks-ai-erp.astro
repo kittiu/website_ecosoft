@@ -6,6 +6,8 @@ import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
 
 const contactHref = 'https://ecosoft.frappe.cloud/contact-us/new';
 
@@ -112,6 +114,41 @@ const metadata = {
         { title: 'The licence, the consultants and the lock-in only ever go up.' },
       ]}
     />
+
+    <!-- Why ERP needs AI *************** -->
+    <WidgetWrapper id="why-ai">
+      <Headline title="Why ERP needs AI?" />
+
+      <div class="mx-auto max-w-3xl space-y-6 text-lg text-muted dark:text-slate-400">
+        <p>
+          For small and mid-sized trading and manufacturing companies, traditional ERPs are a double-edged sword: they
+          are absolutely necessary to run the business, yet they demand endless manual data entry, complex employee
+          training, and trap you in expensive, rigid vendor lock-ins.
+        </p>
+        <p>
+          <b>Floworks is changing that by introducing the world's first fully open-source autonomous ERP.</b>
+        </p>
+        <p>
+          Built specifically for the trading and manufacturing sectors, Floworks fuses standard ERP operations with a
+          centralized <b>Company Brain</b> and proactive, agentic AI. Because Floworks is 100% open source, your
+          business gains absolute digital sovereignty. There are no predatory licensing fees, no hidden data silos, and
+          zero vendor lock-in. You have the total freedom to host, modify, and scale your core business infrastructure
+          exactly how you see fit.
+        </p>
+        <p>
+          Instead of your team serving rigid software, Floworks' open architecture works for you. The system
+          continuously ingests your entire operational context — from complex supply chain emails and vendor PDFs to
+          factory floor schedules — into a secure, private Company Brain. Armed with this unified context, Floworks'
+          autonomous agents don't just track your business; they help run it.
+        </p>
+        <p>
+          Floworks can automatically flag supply chain bottlenecks, draft supplier negotiations based on historical
+          data, reorder raw materials when stock runs low, and optimize cash flow forecasting. With Floworks, SMB
+          manufacturers and traders get the power of an enterprise-grade ERP, the intelligence of advanced AI, and the
+          total operational freedom of open source.
+        </p>
+      </div>
+    </WidgetWrapper>
 
     <!-- A normal Tuesday ************** -->
     <Content
