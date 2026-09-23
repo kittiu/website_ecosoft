@@ -23,10 +23,6 @@ export const headerData = {
       text: 'Services',
       links: [
         {
-          text: 'Floworks AI ERP',
-          href: getPermalink('/floworks-ai-erp'),
-        },
-        {
           text: 'ERP',
           href: getPermalink('/#solution-1'),
         },
@@ -47,6 +43,10 @@ export const headerData = {
           href: getPermalink('/#solution-5'),
         },
       ]
+    },
+    {
+      text: 'Floworks AI ERP',
+      href: getPermalink('/floworks-ai-erp'),
     },
     {
       text: 'Blogs',
