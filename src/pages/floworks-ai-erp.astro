@@ -1,0 +1,350 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const contactHref = 'https://ecosoft.frappe.cloud/contact-us/new';
+
+const metadata = {
+  title: 'Floworks AI ERP — 100% open source ERP, company memory and AI agents',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Floworks brand theme: navy #0B2A4A / #123A63, orange #FF7A29 / #F0580B -->
+  <div class="floworks-page">
+    <!-- Hero Widget ******************* -->
+    <Hero
+      callToAction={{
+        targetBlank: true,
+        text: 'Contact Us',
+        href: contactHref,
+        icon: 'tabler:mail',
+      }}
+    >
+      <Fragment slot="title">
+        FLOWORKS <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">AI ERP</span>
+      </Fragment>
+
+      <Fragment slot="subtitle">
+        <span class="hidden sm:inline">
+          <span class="font-semibold">100% Open Source</span><br />Run your company. Not your software.</span
+        >
+      </Fragment>
+    </Hero>
+
+    <!-- Promise strip ****************** -->
+    <section class="not-prose bg-[#FFF3E9] dark:bg-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-md text-center font-medium text-[#0B2A4A] dark:text-white">
+        <span class="font-bold">
+          Floworks AI ERP runs your company on 100% open source — ERPNext, a Company Brain, and Hermes AI agents
+          <br />
+          Consulting - Implementation - Migration - Training - Support
+        </span>
+      </div>
+    </section>
+
+    <!-- Stack logos ******************* -->
+    <section class="not-prose py-6">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div class="flex items-center justify-center">
+            <img
+              src="/images/erpnext-mark.svg"
+              alt="ERPNext"
+              class="h-10 md:h-12 w-auto object-contain saturate-50 hover:saturate-100 transition duration-300"
+            />
+          </div>
+          <div class="flex items-center justify-center">
+            <img
+              src="/images/hermes-logo.png"
+              alt="Hermes AI Agent"
+              class="h-10 md:h-12 w-auto object-contain saturate-50 hover:saturate-100 transition duration-300"
+            />
+          </div>
+          <div class="flex items-center justify-center">
+            <img
+              src="/images/obsidian-logo.svg"
+              alt="Obsidian"
+              class="h-10 md:h-12 w-auto object-contain saturate-50 hover:saturate-100 transition duration-300"
+            />
+          </div>
+          <div class="flex items-center justify-center">
+            <img
+              src="/images/mcp-logo.svg"
+              alt="Model Context Protocol"
+              class="h-10 md:h-12 w-auto object-contain saturate-50 hover:saturate-100 transition duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three parts, working as one **** -->
+    <Content
+      id="three-parts"
+      isReversed
+      items={[
+        {
+          title: 'ERPNext — the system of record',
+          description:
+            'Orders, invoices, inventory, purchasing, projects and HR in one shared data model. Open source, mature, and already running the operations of companies like yours.',
+          icon: 'tabler:database',
+        },
+        {
+          title: "The Brain — your company's memory",
+          description:
+            'Not a chat window over a search index: a knowledge base your agents curate and keep current, where answers compound instead of being rediscovered every time. How you quote, how you price, how you handle the exception, which supplier actually delivers.',
+          icon: 'tabler:brain',
+        },
+        {
+          title: 'Hermes — the agentic AI',
+          description:
+            'Agents that read the records, follow your rules and take the action — chasing the delayed shipment, drafting the supplier email, raising the reorder before you run out. Under the same permissions and the same audit trail as your staff.',
+          icon: 'tabler:robot',
+        },
+      ]}
+    >
+      <Fragment slot="image">
+        <img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-sm" />
+        <img
+          src="/images/floworks-ai-erp-architecture.svg"
+          alt="Floworks AI ERP architecture"
+          class="mx-auto mt-8 w-full"
+        />
+      </Fragment>
+
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          Three parts, working as one
+        </h3>
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+
+    <!-- Why ERP needs AI *************** -->
+    <WidgetWrapper id="why-ai">
+      <Headline title="Why ERP needs AI?" />
+
+      <div class="mx-auto max-w-3xl space-y-6 text-lg text-muted dark:text-slate-400">
+        <p>
+          For small and mid-sized trading and manufacturing companies, traditional ERPs are a double-edged sword: they
+          are absolutely necessary to run the business, yet they demand endless manual data entry, complex employee
+          training, and trap you in expensive, rigid vendor lock-ins.
+        </p>
+        <p>
+          <b>Floworks is changing that by introducing the world's first fully open-source autonomous ERP.</b>
+        </p>
+        <p>
+          Built specifically for the trading and manufacturing sectors, Floworks fuses standard ERP operations with a
+          centralized <b>Company Brain</b> and proactive, agentic AI. Because Floworks is 100% open source, your
+          business gains absolute digital sovereignty. There are no predatory licensing fees, no hidden data silos, and
+          zero vendor lock-in. You have the total freedom to host, modify, and scale your core business infrastructure
+          exactly how you see fit.
+        </p>
+        <p>
+          Instead of your team serving rigid software, Floworks' open architecture works for you. The system
+          continuously ingests your entire operational context — from complex supply chain emails and vendor PDFs to
+          factory floor schedules — into a secure, private Company Brain. Armed with this unified context, Floworks'
+          autonomous agents don't just track your business; they help run it.
+        </p>
+        <p>
+          Floworks can automatically flag supply chain bottlenecks, draft supplier negotiations based on historical
+          data, reorder raw materials when stock runs low, and optimize cash flow forecasting. With Floworks, SMB
+          manufacturers and traders get the power of an enterprise-grade ERP, the intelligence of advanced AI, and the
+          total operational freedom of open source.
+        </p>
+      </div>
+    </WidgetWrapper>
+
+    <!-- A normal Tuesday ************** -->
+    <Content
+      id="a-tuesday"
+      isReversed
+      isAfterContent
+      items={[
+        { title: 'A shipment slips. The agent spots it, finds the orders it touches, and drafts the supplier email for a human to approve.' },
+        { title: 'Raw material runs low. It prepares the purchase order at the reorder point, before the line stops.' },
+        { title: 'A customer asks for a quote like the one from two years ago. The Brain finds the original terms, the margin, and what has changed since.' },
+        { title: 'Month-end. The cash-flow picture is assembled from real commitments, not a spreadsheet someone maintains by hand.' },
+        { title: 'A new colleague starts. They ask the system how the company does things — and get the company’s answer, not a guess.' },
+      ]}
+    >
+
+      <Fragment slot="image">
+        <img
+          src="/images/floworks-ordinary-tuesday.svg"
+          alt="An ordinary Tuesday: goods moving through the warehouse"
+          class="mx-auto w-full"
+        />
+      </Fragment>
+
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          What it does on an ordinary Tuesday
+        </h3>
+        <b>Every irreversible action — paying, posting to the ledger, emailing a customer — stops at a human approval
+        gate.</b> The agents are staff, not a blank cheque.
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+
+    <!-- Who it is for ***************** -->
+    <Content
+      id="who-its-for"
+      isAfterContent
+      items={[
+        { title: 'You already run ERPNext with us — the memory and the agents are added on top of what you have.' },
+        { title: 'You are starting from spreadsheets or an ageing system — you get the system of record, the memory and the agents in one move.' },
+      ]}
+    >
+
+      <Fragment slot="image">
+        <img
+          src="/images/floworks-who-its-for.svg"
+          alt="Trading and manufacturing companies"
+          class="mx-auto w-full"
+        />
+      </Fragment>
+
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Who it is for</h3>
+        <b>Trading and manufacturing companies</b> that have outgrown spreadsheets but do not want to spend the next
+        five years serving a rigid, expensive system. Two starting points, one offer — what changes between them is the
+        size of the implementation, not the product.
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-slate-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+
+    <!-- FAQ *************************** -->
+    <FAQs
+      id="faq"
+      title="Questions we get asked"
+      columns={1}
+      items={[
+        {
+          title: 'Is it really open source?',
+          description:
+            'Yes. The core is an open-source stack — ERPNext (GPLv3) and Hermes (MIT) — and your data sits in a database you control.',
+        },
+        {
+          title: 'Where does our data live?',
+          description:
+            'Wherever you decide. On your own server, on a cloud region you choose, or on infrastructure we manage for you. It is your database either way.',
+        },
+        {
+          title: 'Will an AI touch my ledger without asking?',
+          description:
+            'No. Agents act as users, with roles you assign, and everything they do is logged. Anything irreversible waits for a human approval.',
+        },
+        {
+          title: 'We already have an ERP. Do we have to throw it away?',
+          description:
+            'Talk to us before you assume that. Depending on the system, we can migrate, run alongside it, or start with the memory and the agents while your current records stay where they are.',
+        },
+      ]}
+    />
+
+    <!-- Call to action **************** -->
+    <CallToAction
+      id="talk-to-us"
+      title="Contact Us"
+      subtitle="Tell us how your company actually runs today, and we will map where the memory and the agents would earn their keep first."
+      callToAction={{
+        targetBlank: true,
+        text: 'Get in touch',
+        href: contactHref,
+        icon: 'tabler:mail',
+      }}
+    />
+  </div>
+</Layout>
+
+<style>
+  /*
+    Floworks AI ERP — brand theme, taken from the Floworks logo.
+    Scoped to this page only: the site-wide blue/purple tokens are untouched.
+      navy   #0B2A4A -> #123A63
+      orange #FF7A29 -> #F0580B
+      slate  #5A7189
+  */
+  .floworks-page {
+    /* display:contents so the wrapper adds no box and cannot disturb the hero's -105px offset */
+    display: contents;
+
+    --aw-color-primary: rgb(255 122 41); /* #FF7A29 — buttons, icons */
+    --aw-color-secondary: rgb(11 42 74); /* #0B2A4A — button hover, deep accents */
+    --aw-color-accent: rgb(255 122 41); /* #FF7A29 — highlights */
+    --aw-color-text-heading: rgb(11 42 74); /* navy headings in light mode */
+
+    /* brand oranges: the deep one is used for text on white (readable), the bright one on navy */
+    --fw-orange: rgb(255 122 41); /* #FF7A29 */
+    --fw-orange-deep: rgb(240 88 11); /* #F0580B */
+  }
+
+  /* Bold text carries the brand orange, site-wide on this page only */
+  .floworks-page :global(b),
+  .floworks-page :global(strong) {
+    color: var(--fw-orange-deep);
+  }
+
+  /* On the navy hero the brighter orange reads better */
+  .floworks-page > :global(section:first-child) :global(b) {
+    color: var(--fw-orange);
+  }
+
+  /* Hero: the logo's navy gradient instead of the site's default #0d1b35 */
+  .floworks-page > :global(section:first-child) {
+    background-color: #0b2a4a;
+    background-image: linear-gradient(135deg, #0b2a4a 0%, #123a63 100%);
+  }
+
+  /* The hero's particle canvas is hard-coded to a blue palette, which fights the brand.
+     Hidden here; the navy gradient carries the hero instead. */
+  .floworks-page > :global(section:first-child) :global(#hero-canvas) {
+    display: none;
+  }
+
+  /* Hero subtitle is text-blue-200 — warm it to match the palette */
+  .floworks-page > :global(section:first-child) :global(.text-blue-200) {
+    color: rgb(255 224 204);
+  }
+
+  /* Hero: ~90% of the default height (684px -> ~616px). The 76px header spacer is untouched. */
+  .floworks-page > :global(section:first-child) > :global(div) > :global(div:nth-child(2)) {
+    padding-top: 62px;
+    padding-bottom: 62px;
+  }
+
+  /* Hero title: one size across the whole line. FLOWORKS matches the 'AI ERP' span (text-5xl = 48px),
+     instead of the widget's md:text-6xl (60px). */
+  .floworks-page > :global(section:first-child) :global(h1) {
+    font-size: 3rem;
+  }
+
+  /* The Content widget draws its bullets as hard-coded green check circles */
+  .floworks-page :global(.bg-green-600) {
+    background-color: rgb(255 122 41) !important;
+  }
+
+  /* Illustrations in these two sections are shorter than the copy beside them: centre the pair
+     vertically instead of leaving all the slack under the image. */
+  .floworks-page :global(#a-tuesday) > :global(div) > :global(div) > :global(div),
+  .floworks-page :global(#who-its-for) > :global(div) > :global(div) > :global(div) {
+    align-items: center;
+  }
+</style>

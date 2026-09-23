@@ -45,6 +45,10 @@ export const headerData = {
       ]
     },
     {
+      text: 'Floworks AI ERP',
+      href: getPermalink('/floworks-ai-erp'),
+    },
+    {
       text: 'Blogs',
       href: getPermalink('/blog'),
     },
@@ -66,7 +70,7 @@ export const headerData = {
       ]
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: 'https://ecosoft.frappe.cloud/contact-us/new' }],
 };
 
 export const footerData = {
@@ -100,6 +104,10 @@ export const footerData = {
       title: 'Services',
       links: [
         {
+          text: 'Floworks AI ERP',
+          href: getPermalink('/floworks-ai-erp'),
+        },
+        {
           text: 'ERP',
           href: getPermalink('/#solution-1'),
         },
@@ -130,7 +138,7 @@ export const footerData = {
         },
         {
           text: 'Contact Us',
-          href: 'https://ecosoft.frappe.cloud/contact-us',
+          href: 'https://ecosoft.frappe.cloud/contact-us/new',
         }
       ]
     }
