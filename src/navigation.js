@@ -70,7 +70,7 @@ export const headerData = {
       ]
     },
   ],
-  actions: [{ type: 'button', text: 'Contact Us', href: '/contact' }],
+  actions: [{ type: 'button', text: 'Contact Us', href: 'https://ecosoft.frappe.cloud/contact-us/new' }],
 };
 
 export const footerData = {
@@ -138,7 +138,7 @@ export const footerData = {
         },
         {
           text: 'Contact Us',
-          href: 'https://ecosoft.frappe.cloud/contact-us',
+          href: 'https://ecosoft.frappe.cloud/contact-us/new',
         }
       ]
     }
