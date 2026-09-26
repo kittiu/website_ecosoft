@@ -12,7 +12,6 @@ import Brands from '~/components/widgets/Brands.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
-
 const metadata = {
   title: 'Odoo ERP/CRM ระบบซอฟต์แวร์สำหรับองค์กร ตามมาตรฐาณบัญชีไทยและภาษีไทย',
   // ignoreTitleTemplate: true,
@@ -39,17 +38,17 @@ const metadata = {
       icon: 'tabler:mail',
     }}
   >
-    <Fragment slot="title">Sustainable ERP Solutions<br/>
+    <Fragment slot="title">
+      Sustainable ERP Solutions<br />
       <span class="text-accent dark:text-white highlight text-5xl font-normal tracking-normal">Odoo & ERPNext</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">100% Open Source</span><br>No License Cost, Only Quality Service</span
+        <span class="font-semibold">100% Open Source</span><br />No License Cost, Only Quality Service</span
       >
     </Fragment>
   </Hero>
-
 
   <!-- Note Widget ******************* -->
 
@@ -61,7 +60,6 @@ const metadata = {
     id="ecosoft"
     title="Ecosoft | Your ERP Partner"
     subtitle="เราคือผู้เชี่ยวชาญด้านระบบ ERP แบบโอเพ่นซอร์ส ไม่มีข้อจำกัดด้านจำนวนผู้ใช้งาน<br>ทีมเดียวของไทยที่เข้าร่วมกับ <a href='https://odoo-community.org/' target='_blank' rel='noopener'><b>OCA - Odoo Community Association</b></a><br>และได้การรับรองเป็น <a href='https://frappe.io/partners/thailand/ecosoft/' target='_blank' rel='noopener'><b>ERPNext Certified Partner</b></a>"
-
     stats={[
       { title: 'Years in business', amount: '10+' },
       { title: 'Deployed Users', amount: '4K' },
@@ -114,7 +112,6 @@ const metadata = {
     </Fragment>
   </Features2> -->
 
-
   <Steps
     id="our_approach"
     title="Our Ways of Working"
@@ -122,22 +119,26 @@ const metadata = {
     items={[
       {
         title: 'Highest Quality Level',
-        description: 'เราทำงานตามมาตรฐานที่สูงของ Odoo Community Association (OCA) ให้ความสำคัญคุณภาพการสร้างซอฟต์แวร์และการนำกลับมาใช้ใหม่',
+        description:
+          'เราทำงานตามมาตรฐานที่สูงของ Odoo Community Association (OCA) ให้ความสำคัญคุณภาพการสร้างซอฟต์แวร์และการนำกลับมาใช้ใหม่',
         icon: 'tabler:award',
       },
       {
         title: 'Business Expertise',
-        description: 'ประสบการณ์วางระบบ ERP มากกว่า 10 ปี และกว่า 40 โครงการ เราจึงเน้นความเข้าใจในกระบวนการทางธุรกิจเป็นสำคัญ เพราะ ERP ไม่ใช่แค่ระบบฐานข้อมูลแต่ต้องถูกต้องตามหลักบัญชีและภาษี',
+        description:
+          'ประสบการณ์วางระบบ ERP มากกว่า 10 ปี และกว่า 40 โครงการ เราจึงเน้นความเข้าใจในกระบวนการทางธุรกิจเป็นสำคัญ เพราะ ERP ไม่ใช่แค่ระบบฐานข้อมูลแต่ต้องถูกต้องตามหลักบัญชีและภาษี',
         icon: 'tabler:bulb',
       },
       {
         title: 'No Vendor Lock In',
-        description: 'เราเชื่อมั่นในระบบที่เป็นโอเพ่นซอร์ส 100% เราส่งมอบซอร์สโค้ดทั้งหมดเมื่อจบโครงการ เพื่อให้คุณได้เป็นเจ้าของระบบอย่างแท้จริงแบบไร้ข้อผูกมัด',
+        description:
+          'เราเชื่อมั่นในระบบที่เป็นโอเพ่นซอร์ส 100% เราส่งมอบซอร์สโค้ดทั้งหมดเมื่อจบโครงการ เพื่อให้คุณได้เป็นเจ้าของระบบอย่างแท้จริงแบบไร้ข้อผูกมัด',
         icon: 'tabler:lock-off',
       },
       {
         title: 'Life Long Partnership',
-        description: 'เพราะระบบ ERP เป็นระบบเสาหลักของธุรกิจ และเราช่วยให้แน่ใจว่าระบบจะมีส่วนช่วยให้ธุรกิจคุณเติบโตอย่างมั่นคง และด้วยการเป็นพันธมิตรในระยะยาว',
+        description:
+          'เพราะระบบ ERP เป็นระบบเสาหลักของธุรกิจ และเราช่วยให้แน่ใจว่าระบบจะมีส่วนช่วยให้ธุรกิจคุณเติบโตอย่างมั่นคง และด้วยการเป็นพันธมิตรในระยะยาว',
         icon: 'tabler:heart',
       },
     ]}
@@ -154,37 +155,38 @@ const metadata = {
     icons={[]}
     images={[
       { src: '/images/cust_logo/nstda.png', alt: 'NSTDA' },
-      { src: '/images/cust_logo/biotec.png', alt: 'Biotec'  },
-      { src: '/images/cust_logo/nxpo.png', alt: 'NXPO'  },
+      { src: '/images/cust_logo/biotec.png', alt: 'Biotec' },
+      { src: '/images/cust_logo/nxpo.png', alt: 'NXPO' },
       // { src: '/images/cust_logo/tint.png', alt: 'TINT'  },
-      { src: '/images/cust_logo/hii.png', alt: 'HII'  },
-      { src: '/images/cust_logo/bdi.png', alt: 'BDI'  },
-      { src: '/images/cust_logo/cmo.png', alt: 'CMO'  },
-      { src: '/images/cust_logo/cft.png', alt: 'CFT'  },
-      { src: '/images/cust_logo/945.png', alt: '945'  },
-      { src: '/images/cust_logo/aal.png', alt: 'AAL'  },
-      { src: '/images/cust_logo/acm.png', alt: 'ACM'  },
-      { src: '/images/cust_logo/easy.png', alt: 'EASYNETWORK'  },
-      { src: '/images/cust_logo/esb.png', alt: 'ES Battery'  },
-      { src: '/images/cust_logo/fofo.png', alt: 'FOFO'  },
-      { src: '/images/cust_logo/hwf.png', alt: 'HWF'  },
-      { src: '/images/cust_logo/mcic.png', alt: 'MCIC'  },
-      { src: '/images/cust_logo/mh.png', alt: 'Menghua'  },
-      { src: '/images/cust_logo/monta.png', alt: 'Monta'  },
-      { src: '/images/cust_logo/optima.png', alt: 'Optima'  },
-      { src: '/images/cust_logo/rex.png', alt: 'ReX'  },
-      { src: '/images/cust_logo/rjc.png', alt: 'RJC'  },
-      { src: '/images/cust_logo/shm.png', alt: 'SHM'  },
-      { src: '/images/cust_logo/sqp.png', alt: 'SQP'  },
-      { src: '/images/cust_logo/thaiev.png', alt: 'Thai EV'  },
-      { src: '/images/cust_logo/tti.png', alt: 'TTI'  },
-      { src: '/images/cust_logo/usp.png', alt: 'USP'  },
-      { src: '/images/cust_logo/aab.png', alt: 'AAB'  },
-      { src: '/images/cust_logo/skyviv.png', alt: 'SKYVIV'  },
-      { src: '/images/cust_logo/rje.png', alt: 'RJE'  },
-      { src: '/images/cust_logo/jv_control.png', alt: 'JV Control'  },
-      { src: '/images/cust_logo/4u2.png', alt: '4U2'  },
-      { src: '/images/cust_logo/lpp.png', alt: 'Lamphun Plastpack'  },
+      { src: '/images/cust_logo/hii.png', alt: 'HII' },
+      { src: '/images/cust_logo/bdi.png', alt: 'BDI' },
+      { src: '/images/cust_logo/cmo.png', alt: 'CMO' },
+      { src: '/images/cust_logo/cft.png', alt: 'CFT' },
+      { src: '/images/cust_logo/945.png', alt: '945' },
+      { src: '/images/cust_logo/aal.png', alt: 'AAL' },
+      { src: '/images/cust_logo/acm.png', alt: 'ACM' },
+      { src: '/images/cust_logo/easy.png', alt: 'EASYNETWORK' },
+      { src: '/images/cust_logo/esb.png', alt: 'ES Battery' },
+      { src: '/images/cust_logo/fofo.png', alt: 'FOFO' },
+      { src: '/images/cust_logo/hwf.png', alt: 'HWF' },
+      { src: '/images/cust_logo/mcic.png', alt: 'MCIC' },
+      { src: '/images/cust_logo/mh.png', alt: 'Menghua' },
+      { src: '/images/cust_logo/monta.png', alt: 'Monta' },
+      { src: '/images/cust_logo/optima.png', alt: 'Optima' },
+      { src: '/images/cust_logo/rex.png', alt: 'ReX' },
+      { src: '/images/cust_logo/rjc.png', alt: 'RJC' },
+      { src: '/images/cust_logo/shm.png', alt: 'SHM' },
+      { src: '/images/cust_logo/sqp.png', alt: 'SQP' },
+      { src: '/images/cust_logo/thaiev.png', alt: 'Thai EV' },
+      { src: '/images/cust_logo/tti.png', alt: 'TTI' },
+      { src: '/images/cust_logo/usp.png', alt: 'USP' },
+      { src: '/images/cust_logo/aab.png', alt: 'AAB' },
+      { src: '/images/cust_logo/skyviv.png', alt: 'SKYVIV' },
+      { src: '/images/cust_logo/rje.png', alt: 'RJE' },
+      { src: '/images/cust_logo/jv_control.png', alt: 'JV Control' },
+      { src: '/images/cust_logo/4u2.png', alt: '4U2' },
+      { src: '/images/cust_logo/lpp.png', alt: 'Lamphun Plastpack' },
+      { src: '/images/cust_logo/sds.png', alt: 'SMART DEV SOLUTION' },
     ]}
   />
 
@@ -230,7 +232,7 @@ const metadata = {
       { title: 'ระบบบริหารการเงินและบัญชี' },
       { title: 'ระบบจัดการสัญญา' },
       { title: 'ระบบบริหารครุภัณฑ์' },
-      { title: 'ระบบบริหารวัสดุคงคลัง' }
+      { title: 'ระบบบริหารวัสดุคงคลัง' },
     ]}
     image={{
       src: '~/assets/images/budgeting.png',
@@ -238,11 +240,8 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Thai Government ERP
-      </h3>
-      ระบบ ERP ที่ผ่านการศึกษา ออกแบบจากกระบวนงานบริหารจัดการ และผ่านการใช้งานจริง
-      จากหน่วยงานภาครัฐ เช่น สวทช สอวช สทน และอีกหลายหน่วยงาน
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Thai Government ERP</h3>
+      ระบบ ERP ที่ผ่านการศึกษา ออกแบบจากกระบวนงานบริหารจัดการ และผ่านการใช้งานจริง จากหน่วยงานภาครัฐ เช่น สวทช สอวช สทน และอีกหลายหน่วยงาน
       ประกอบด้วยโมดูลดังต่อไปนี้
     </Fragment>
 
@@ -274,7 +273,7 @@ const metadata = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Frappe Insight - Digital Dashboard
       </h3>
-      100% Open Source Business Intelligence ที่เข้าถึงได้ง่ายสำหรับทุคนในองค์กร 
+      100% Open Source Business Intelligence ที่เข้าถึงได้ง่ายสำหรับทุคนในองค์กร
     </Fragment>
 
     <Fragment slot="bg">
@@ -299,9 +298,7 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Process Automation & API (n8n)
-      </h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Process Automation & API (n8n)</h3>
       เชื่อมโยงข้อมูลจากหลายระบบในองค์กรให้ไร้รอยต่อแบบอัตโนมัติและดูแลรักษาได้ง่าย
     </Fragment>
 
@@ -330,9 +327,7 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Other Frappe Solutions
-      </h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Other Frappe Solutions</h3>
       ระบบบริหารจัดการองค์กรแบบ Low Code จาก Frappeverse
     </Fragment>
 
@@ -353,5 +348,4 @@ const metadata = {
       { src: '/images/tools/flo-works.png', link: 'https://flo-works.co/', alt: 'FLO WORKS' },
     ]}
   /> -->
-
 </Layout>
