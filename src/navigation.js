@@ -137,7 +137,7 @@ export const footerData = {
   ],
   summary: `<b>Address:</b><br/>459/132 Suksawat Rd. Ratchaburana<br/>
     Bangkok Thailand 10140<br/>
-    <b>Phone:</b> +66 91 464 6661<br/>
+    <b>Phone:</b> +66 86 350 6324<br/>
     <b>Email:</b> sales@ecosoft.co.th
   `,
   socialLinks: [
