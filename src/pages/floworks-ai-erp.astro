@@ -11,7 +11,7 @@ import Headline from '~/components/ui/Headline.astro';
 const contactHref = 'https://ecosoft.frappe.cloud/contact-us/new';
 
 const metadata = {
-  title: 'Floworks AI ERP — 100% open source ERP, company memory and AI agents',
+  title: 'Floworks AI ERP — ERP โอเพนซอร์ส 100% พร้อมความจำของบริษัทและ AI Agent',
 };
 ---
 
@@ -22,7 +22,7 @@ const metadata = {
     <Hero
       callToAction={{
         targetBlank: true,
-        text: 'Contact Us',
+        text: 'ติดต่อเรา',
         href: contactHref,
         icon: 'tabler:mail',
       }}
@@ -33,7 +33,7 @@ const metadata = {
 
       <Fragment slot="subtitle">
         <span class="hidden sm:inline">
-          <span class="font-semibold">100% Open Source</span><br />Run your company. Not your software.</span
+          <span class="font-semibold">โอเพนซอร์ส 100%</span><br />บริษัทของคุณ คุณเป็นคนบริหาร ไม่ใช่ซอฟต์แวร์</span
         >
       </Fragment>
     </Hero>
@@ -42,9 +42,9 @@ const metadata = {
     <section class="not-prose bg-[#FFF3E9] dark:bg-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-md text-center font-medium text-[#0B2A4A] dark:text-white">
         <span class="font-bold">
-          Floworks AI ERP runs your company on 100% open source — ERPNext, a Company Brain, and Hermes AI agents
+          Floworks AI ERP ขับเคลื่อนบริษัทของคุณด้วยโอเพนซอร์ส 100% — ERPNext, Company Brain และ AI Agent จาก Hermes
           <br />
-          Consulting - Implementation - Migration - Training - Support
+          ให้คำปรึกษา - ติดตั้งระบบ - ย้ายระบบ - อบรม - ดูแลหลังการขาย
         </span>
       </div>
     </section>
@@ -91,21 +91,21 @@ const metadata = {
       isReversed
       items={[
         {
-          title: 'ERPNext — the system of record',
+          title: 'ERPNext — ระบบบันทึกข้อมูลหลักของบริษัท',
           description:
-            'Orders, invoices, inventory, purchasing, projects and HR in one shared data model. Open source, mature, and already running the operations of companies like yours.',
+            'คำสั่งซื้อ ใบแจ้งหนี้ สินค้าคงคลัง การจัดซื้อ โครงการ และงานบุคคล อยู่ในโมเดลข้อมูลเดียวกันทั้งหมด เป็นโอเพนซอร์สที่ผ่านการใช้งานมายาวนาน และกำลังขับเคลื่อนการดำเนินงานของบริษัทอย่างของคุณอยู่แล้ว',
           icon: 'tabler:database',
         },
         {
-          title: "The Brain — your company's memory",
+          title: 'The Brain — ความจำของบริษัท',
           description:
-            'Not a chat window over a search index: a knowledge base your agents curate and keep current, where answers compound instead of being rediscovered every time. How you quote, how you price, how you handle the exception, which supplier actually delivers.',
+            'ไม่ใช่แค่หน้าต่างแชทที่ต่อกับดัชนีค้นหา แต่เป็นฐานความรู้ที่ AI Agent ช่วยดูแลและอัปเดตให้ทันสมัยอยู่เสมอ คำตอบจึงสะสมต่อยอดกันไป ไม่ต้องเริ่มค้นใหม่ทุกครั้ง — บริษัทเสนอราคาอย่างไร ตั้งราคาแบบไหน รับมือข้อยกเว้นอย่างไร ซัพพลายเออร์รายใดส่งของได้จริง',
           icon: 'tabler:brain',
         },
         {
-          title: 'Hermes — the agentic AI',
+          title: 'Hermes — AI Agent ที่ลงมือทำงานจริง',
           description:
-            'Agents that read the records, follow your rules and take the action — chasing the delayed shipment, drafting the supplier email, raising the reorder before you run out. Under the same permissions and the same audit trail as your staff.',
+            'AI Agent ที่อ่านข้อมูลในระบบ ทำตามกติกาของคุณ และลงมือทำงานให้ — ตามของที่ล่าช้า ร่างอีเมลถึงซัพพลายเออร์ ออกใบสั่งซื้อซ้ำก่อนของจะหมด โดยอยู่ภายใต้สิทธิ์การใช้งานและร่องรอยการตรวจสอบชุดเดียวกับพนักงานของคุณ',
           icon: 'tabler:robot',
         },
       ]}
@@ -114,14 +114,14 @@ const metadata = {
         <img src="/images/floworks-logo.svg" alt="Floworks" class="mx-auto w-full max-w-sm" />
         <img
           src="/images/floworks-ai-erp-architecture.svg"
-          alt="Floworks AI ERP architecture"
+          alt="โครงสร้างการทำงานของ Floworks AI ERP"
           class="mx-auto mt-8 w-full"
         />
       </Fragment>
 
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-          Three parts, working as one
+          สามส่วนที่ทำงานเป็นหนึ่งเดียว
         </h3>
       </Fragment>
 
@@ -132,35 +132,35 @@ const metadata = {
 
     <!-- Why ERP needs AI *************** -->
     <WidgetWrapper id="why-ai">
-      <Headline title="Why ERP needs AI?" />
+      <Headline title="ทำไม ERP ต้องมี AI?" />
 
       <div class="mx-auto max-w-3xl space-y-6 text-lg text-muted dark:text-slate-400">
         <p>
-          For small and mid-sized trading and manufacturing companies, traditional ERPs are a double-edged sword: they
-          are absolutely necessary to run the business, yet they demand endless manual data entry, complex employee
-          training, and trap you in expensive, rigid vendor lock-ins.
+          สำหรับบริษัทการค้าและการผลิตขนาดกลางและเล็ก ERP แบบดั้งเดิมเป็นดาบสองคม จำเป็นอย่างยิ่งต่อการดำเนินธุรกิจ
+          แต่ก็มาพร้อมการคีย์ข้อมูลด้วยมือไม่รู้จบ การอบรมพนักงานที่ซับซ้อน
+          และการถูกล็อกไว้กับผู้ขายรายเดิมที่มีค่าใช้จ่ายสูงและปรับเปลี่ยนอะไรได้ยาก
         </p>
         <p>
-          <b>Floworks is changing that by introducing the world's first fully open-source autonomous ERP.</b>
+          <b>Floworks กำลังเปลี่ยนเรื่องนี้ ด้วย ERP ที่ทำงานได้เองอย่างเต็มรูปแบบตัวแรกของโลกที่เป็นโอเพนซอร์ส 100%</b>
         </p>
         <p>
-          Built specifically for the trading and manufacturing sectors, Floworks fuses standard ERP operations with a
-          centralized <b>Company Brain</b> and proactive, agentic AI. Because Floworks is 100% open source, your
-          business gains absolute digital sovereignty. There are no predatory licensing fees, no hidden data silos, and
-          zero vendor lock-in. You have the total freedom to host, modify, and scale your core business infrastructure
-          exactly how you see fit.
+          Floworks ถูกออกแบบมาสำหรับธุรกิจการค้าและการผลิตโดยเฉพาะ ผสานการทำงานมาตรฐานของ ERP เข้ากับ
+          <b>Company Brain</b> ที่รวมศูนย์ไว้ที่เดียว และ AI Agent ที่ลงมือทำเชิงรุก เพราะ Floworks เป็นโอเพนซอร์ส 100%
+          ธุรกิจของคุณจึงได้อธิปไตยทางดิจิทัลอย่างเต็มรูปแบบ ไม่มีค่าลิขสิทธิ์ที่เอาเปรียบ ไม่มีไซโลข้อมูลที่ซ่อนอยู่
+          และไม่ถูกผูกมัดกับผู้ขายรายใดรายหนึ่ง คุณมีอิสระเต็มที่ในการโฮสต์ แก้ไข
+          และขยายโครงสร้างพื้นฐานหลักของธุรกิจในแบบที่คุณเห็นว่าเหมาะสม
         </p>
         <p>
-          Instead of your team serving rigid software, Floworks' open architecture works for you. The system
-          continuously ingests your entire operational context — from complex supply chain emails and vendor PDFs to
-          factory floor schedules — into a secure, private Company Brain. Armed with this unified context, Floworks'
-          autonomous agents don't just track your business; they help run it.
+          แทนที่ทีมงานของคุณต้องคอยรับใช้ซอฟต์แวร์ที่แข็งทื่อ สถาปัตยกรรมเปิดของ Floworks ทำงานให้คุณแทน
+          ระบบจะนำบริบทการดำเนินงานทั้งหมดของคุณ — ตั้งแต่อีเมลห่วงโซ่อุปทานที่ซับซ้อน ไฟล์ PDF จากผู้ขาย
+          ไปจนถึงตารางการผลิตในโรงงาน — เข้าสู่ Company Brain ส่วนตัวที่ปลอดภัยอย่างต่อเนื่อง
+          เมื่อมีบริบทที่รวมเป็นหนึ่งนี้ AI Agent ของ Floworks ไม่ได้แค่ติดตามธุรกิจของคุณ แต่ช่วยบริหารมันไปด้วย
         </p>
         <p>
-          Floworks can automatically flag supply chain bottlenecks, draft supplier negotiations based on historical
-          data, reorder raw materials when stock runs low, and optimize cash flow forecasting. With Floworks, SMB
-          manufacturers and traders get the power of an enterprise-grade ERP, the intelligence of advanced AI, and the
-          total operational freedom of open source.
+          Floworks แจ้งเตือนจุดติดขัดในห่วงโซ่อุปทานโดยอัตโนมัติ ร่างการเจรจากับซัพพลายเออร์โดยอ้างอิงข้อมูลย้อนหลัง
+          สั่งวัตถุดิบเพิ่มเมื่อสต็อกใกล้หมด และช่วยพยากรณ์กระแสเงินสดได้แม่นขึ้น ด้วย Floworks
+          ผู้ผลิตและผู้ค้ารายกลางและเล็กจึงได้ทั้งพลังของ ERP ระดับองค์กร ความฉลาดของ AI ขั้นสูง
+          และอิสระในการดำเนินงานเต็มรูปแบบจากโอเพนซอร์ส
         </p>
       </div>
     </WidgetWrapper>
@@ -171,28 +171,28 @@ const metadata = {
       isReversed
       isAfterContent
       items={[
-        { title: 'A shipment slips. The agent spots it, finds the orders it touches, and drafts the supplier email for a human to approve.' },
-        { title: 'Raw material runs low. It prepares the purchase order at the reorder point, before the line stops.' },
-        { title: 'A customer asks for a quote like the one from two years ago. The Brain finds the original terms, the margin, and what has changed since.' },
-        { title: 'Month-end. The cash-flow picture is assembled from real commitments, not a spreadsheet someone maintains by hand.' },
-        { title: 'A new colleague starts. They ask the system how the company does things — and get the company’s answer, not a guess.' },
+        { title: 'ของส่งล่าช้า AI Agent เห็นเข้าไป ค้นหาว่ามีคำสั่งซื้อใดได้รับผลกระทบ และร่างอีเมลถึงซัพพลายเออร์ให้คนอนุมัติ' },
+        { title: 'วัตถุดิบใกล้หมด ระบบเตรียมใบสั่งซื้อไว้ที่จุดสั่งซื้อซ้ำ ก่อนที่สายการผลิตจะต้องหยุด' },
+        { title: 'ลูกค้าขอใบเสนอราคาแบบเดียวกับเมื่อสองปีก่อน The Brain ค้นเงื่อนไขเดิม อัตรากำไร และสิ่งที่เปลี่ยนไปนับจากนั้นได้' },
+        { title: 'ปิดงบสิ้นเดือน ภาพกระแสเงินสดประกอบขึ้นจากข้อมูลจริงที่มีอยู่ในระบบ ไม่ใช่สเปรดชีตที่ต้องมีคนคอยอัปเดตด้วยมือ' },
+        { title: 'พนักงานใหม่เริ่มงาน เขาถามระบบว่าบริษัททำงานกันอย่างไร แล้วได้คำตอบของบริษัทจริง ๆ ไม่ใช่การเดา' },
       ]}
     >
 
       <Fragment slot="image">
         <img
           src="/images/floworks-ordinary-tuesday.svg"
-          alt="An ordinary Tuesday: goods moving through the warehouse"
+          alt="วันอังคารธรรมดา ๆ: สินค้าเคลื่อนผ่านคลังสินค้า"
           class="mx-auto w-full"
         />
       </Fragment>
 
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-          What it does on an ordinary Tuesday
+          สิ่งที่มันทำในวันอังคารธรรมดา ๆ
         </h3>
-        <b>Every irreversible action — paying, posting to the ledger, emailing a customer — stops at a human approval
-        gate.</b> The agents are staff, not a blank cheque.
+        <b>ทุกการกระทำที่ย้อนกลับไม่ได้ — การจ่ายเงิน การบันทึกบัญชี การส่งอีเมลถึงลูกค้า — จะหยุดรอการอนุมัติจากคนเสมอ</b>
+        AI Agent คือพนักงาน ไม่ใช่เช็คเปล่าที่เซ็นไว้ล่วงหน้า
       </Fragment>
 
       <Fragment slot="bg">
@@ -205,24 +205,23 @@ const metadata = {
       id="who-its-for"
       isAfterContent
       items={[
-        { title: 'You already run ERPNext with us — the memory and the agents are added on top of what you have.' },
-        { title: 'You are starting from spreadsheets or an ageing system — you get the system of record, the memory and the agents in one move.' },
+        { title: 'คุณใช้ ERPNext กับเราอยู่แล้ว — เราเติมความจำและ AI Agent เข้าไปบนระบบที่คุณมีอยู่' },
+        { title: 'คุณเริ่มจากสเปรดชีตหรือระบบเก่า — คุณจะได้ทั้งระบบบันทึกข้อมูลหลัก ความจำ และ AI Agent ในครั้งเดียว' },
       ]}
     >
 
       <Fragment slot="image">
         <img
           src="/images/floworks-who-its-for.svg"
-          alt="Trading and manufacturing companies"
+          alt="บริษัทการค้าและการผลิต"
           class="mx-auto w-full"
         />
       </Fragment>
 
       <Fragment slot="content">
-        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Who it is for</h3>
-        <b>Trading and manufacturing companies</b> that have outgrown spreadsheets but do not want to spend the next
-        five years serving a rigid, expensive system. Two starting points, one offer — what changes between them is the
-        size of the implementation, not the product.
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">เหมาะกับใคร</h3>
+        <b>บริษัทการค้าและการผลิต</b> ที่โตเกินกว่าจะใช้สเปรดชีตได้อีกแล้ว แต่ก็ไม่อยากเสียเวลาห้าปีข้างหน้าไปกับการรับใช้ระบบที่แข็งทื่อและมีค่าใช้จ่ายสูง
+        จุดเริ่มต้นมีสองแบบ แต่ข้อเสนอเดียวกัน — สิ่งที่ต่างกันคือขอบเขตของการติดตั้ง ไม่ใช่ตัวผลิตภัณฑ์
       </Fragment>
 
       <Fragment slot="bg">
@@ -233,28 +232,28 @@ const metadata = {
     <!-- FAQ *************************** -->
     <FAQs
       id="faq"
-      title="Questions we get asked"
+      title="คำถามที่เรามักถูกถาม"
       columns={1}
       items={[
         {
-          title: 'Is it really open source?',
+          title: 'เป็นโอเพนซอร์สจริงหรือ?',
           description:
-            'Yes. The core is an open-source stack — ERPNext (GPLv3) and Hermes (MIT) — and your data sits in a database you control.',
+            'จริง แกนหลักเป็นสแตกโอเพนซอร์ส — ERPNext (GPLv3) และ Hermes (MIT) — และข้อมูลของคุณอยู่ในฐานข้อมูลที่คุณควบคุมเอง',
         },
         {
-          title: 'Where does our data live?',
+          title: 'ข้อมูลของเราอยู่ที่ไหน?',
           description:
-            'Wherever you decide. On your own server, on a cloud region you choose, or on infrastructure we manage for you. It is your database either way.',
+            'แล้วแต่คุณตัดสินใจ จะเป็นเซิร์ฟเวอร์ของคุณเอง คลาวด์ในภูมิภาคที่คุณเลือก หรือโครงสร้างพื้นฐานที่เราดูแลให้ก็ได้ ไม่ว่าแบบไหน ฐานข้อมูลก็เป็นของคุณเสมอ',
         },
         {
-          title: 'Will an AI touch my ledger without asking?',
+          title: 'AI จะเข้าไปแตะบัญชีของเราโดยไม่ถามไหม?',
           description:
-            'No. Agents act as users, with roles you assign, and everything they do is logged. Anything irreversible waits for a human approval.',
+            'ไม่ AI Agent ทำหน้าที่เหมือนผู้ใช้งานคนหนึ่ง มีสิทธิ์ตามที่คุณกำหนด และทุกการกระทำถูกบันทึกไว้เป็นหลักฐาน สิ่งที่ย้อนกลับไม่ได้จะรอการอนุมัติจากคนเสมอ',
         },
         {
-          title: 'We already have an ERP. Do we have to throw it away?',
+          title: 'เรามี ERP อยู่แล้ว ต้องทิ้งหรือเปล่า?',
           description:
-            'Talk to us before you assume that. Depending on the system, we can migrate, run alongside it, or start with the memory and the agents while your current records stay where they are.',
+            'คุยกับเราก่อนจะสรุปแบบนั้น ขึ้นอยู่กับระบบเดิมของคุณ เราอาจย้ายระบบ เดินคู่กันไป หรือเริ่มจากความจำและ AI Agent ก่อน โดยที่ข้อมูลเดิมของคุณยังอยู่ที่เดิม',
         },
       ]}
     />
@@ -262,11 +261,11 @@ const metadata = {
     <!-- Call to action **************** -->
     <CallToAction
       id="talk-to-us"
-      title="Contact Us"
-      subtitle="Tell us how your company actually runs today, and we will map where the memory and the agents would earn their keep first."
+      title="ติดต่อเรา"
+      subtitle="เล่าให้เราฟังว่าบริษัทของคุณเดินอยู่จริง ๆ อย่างไรในวันนี้ แล้วเราจะช่วยวางแผนว่าเราควรเริ่มใช้ความจำและ AI Agent ตรงจุดไหนก่อนจึงจะคุ้มที่สุด"
       callToAction={{
         targetBlank: true,
-        text: 'Get in touch',
+        text: 'คุยกับเรา',
         href: contactHref,
         icon: 'tabler:mail',
       }}
