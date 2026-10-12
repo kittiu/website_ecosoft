@@ -234,6 +234,11 @@ export interface Testimonials extends Headline, Widget {
 export interface Brands extends Headline, Widget {
   icons?: Array<string>;
   images?: Array<Image>;
+  groups?: Array<{
+    title: string;
+    icons?: Array<string>;
+    images?: Array<Image>;
+  }>;
 }
 
 export interface Features extends Headline, Widget {
